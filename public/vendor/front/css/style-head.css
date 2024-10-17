@@ -1,0 +1,113 @@
+
+.badge-notif {
+    position: relative;
+    display: block;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 14px;
+    color: #2B2B2B;
+    padding: 14px 20px;
+}
+.badge-notif:hover,
+.badge-notif:focus {
+    color: #2B2B2B;
+}
+.bg-light-black .badge-notif,
+.bg-light-black .badge-notif:hover,
+.bg-light-black .badge-notif:focus {
+    color: #FFFFFF;
+}
+.badge-notif.show-notif:before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 19px;
+    display: block;
+    width: 9px;
+    height: 9px;
+    background: #D53F3D;
+    border-radius: 50%;
+}
+@media (min-width: 1200px) {
+    .badge-notif .dropdown-menu {
+        left: 3.5% !important;
+        margin-top: -20px;
+        width: 280px;
+        background: #FFFFFF;
+        box-sizing: border-box;
+        border-radius: 2px;
+        padding: 0;
+    }
+}
+
+.notif_dropbadge {
+    border: 1px solid rgba(185, 192, 222, 0.5);
+    transition: .2s ease-out;
+}
+.notif_dropbadge .notif_dropbadge-head {
+    padding: 15px 14px;
+    border-bottom: 2px solid #EEEEEE;
+}
+.notif_dropbadge .notif_dropbadge-body {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+}
+.notif_dropbadge .notif_dropbadge-bottom {
+    padding: 16px 14px;
+    text-align: center;
+    border-top: 2px solid #EEEEEE;
+}
+.notif_dropbadge .notif-title {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    color: #2B2B2B;
+}
+.notif_dropbadge .date {
+    display: block;
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    color: #9E9E9E;
+    margin-bottom: 6px;
+}
+.notif_dropbadge .title {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    color: #2B2B2B;
+    margin-bottom: 8px;
+}
+.notif_dropbadge .desc {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 14px;
+    color: #9E9E9E;
+}
+.notif_dropbadge .notif-item {
+    display: block;
+    /*margin-left: 14px;*/
+    padding: 17px 0px 5px;
+    padding-right: 16px;
+    padding-left: 14px;
+    border-bottom: 2px solid #EEE;
+    box-sizing: border-box;
+    transition: all .5s ease;
+}
+.notif_dropbadge .notif-item.active,
+.notif_dropbadge .notif-item:hover {
+    transition: all .5s ease;
+    background: rgba(232, 180, 75, 0.1);
+}
+.notif_dropbadge  .notif-item:last-child {
+    border-bottom: none;
+}

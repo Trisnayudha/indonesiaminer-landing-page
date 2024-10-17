@@ -1,0 +1,28 @@
+.color-yellow, .color-yellow:hover, .color-yellow:focus {
+    color: #E8B44B !important;
+}
+
+
+.color-dark, .color-dark:hover, .color-dark:focus {
+    color: #222222 !important;
+}
+
+.color-black-trans, .color-black-trans:hover {
+    color: rgba(21, 20, 57, 0.4);
+}
+
+.color-red, .color-red:hover {
+    color: #D53F3D;
+}
+
+.color-light, .color-light:hover, .color-light:focus {
+    color: #FFFFFF !important;
+}
+
+.color-dark-new, .color-dark-new:hover, .color-dark-new:focus {
+    color: #2B2B2B !important;
+}
+
+.color-dark-04, .color-dark-04:hover, .color-dark-04:focus {
+    color: #040404 !important;
+}

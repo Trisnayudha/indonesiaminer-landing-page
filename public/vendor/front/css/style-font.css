@@ -1,0 +1,412 @@
+
+@font-face {
+    font-family: 'DroidSerif-Bold';
+    src: url(../fonts/droid-serif/DroidSerif-Bold.ttf);
+}
+@font-face {
+    font-family: 'DroidSerif-BoldItalic';
+    src: url(../fonts/droid-serif/DroidSerif-BoldItalic.ttf);
+}
+@font-face {
+    font-family: 'DroidSerif-Italic';
+    src: url(../fonts/droid-serif/DroidSerif-Italic.ttf);
+}
+@font-face {
+    font-family: 'DroidSerif-Regular';
+    src: url(../fonts/droid-serif/DroidSerif-Regular.ttf);
+}
+
+.title-gold {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 30px;
+    color: #E8B44B;
+    text-transform: uppercase;
+}
+.title-sponsor {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    color: #FFFFFF;
+}
+.title-sponsor::after {
+    content: "";
+    display: block;
+    height: 3px;
+    background: #D53F3D;
+    width: calc(105px - 10px);
+    margin: auto;
+    margin-top: 25.5px;
+    transition: all .3s;
+}
+
+
+.title-support {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    color: #2B2B2B;
+}
+.title-support::after {
+    content: "";
+    display: block;
+    height: 3px;
+    background: #D53F3D;
+    width: calc(105px - 10px);
+    margin: auto;
+    margin-top: 25.5px;
+    transition: all .3s;
+}
+
+
+.title-sm {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    font-feature-settings: 'kern' off;
+    color: #2B2B2B;
+    margin-bottom: 14px;
+}
+.title-xs {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    color: #2B2B2B;
+}
+/*.title-lg {*/
+/*    font-style: normal;*/
+/*    font-weight: bold;*/
+/*    font-size: 20px;*/
+/*    line-height: 23px;*/
+/*    font-feature-settings: 'kern' off;*/
+/*}*/
+.title-lg {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #2B2B2B;
+}
+
+
+
+.title-border {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    font-feature-settings: 'kern' off;
+    color: #2B2B2B;
+}
+.title-border::after {
+    content: "";
+    display: block;
+    width: 49px;
+    height: 3px;
+    background: #E8B44B;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 24px;
+}
+
+.title-border-left {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    font-feature-settings: 'kern' off;
+    color: #2B2B2B;
+}
+.title-border-left::after {
+    content: "";
+    display: block;
+    width: 49px;
+    height: 3px;
+    background: #E8B44B;
+    margin-top: 20px;
+    margin-bottom: 24px;
+}
+
+.font-breadcrumb {
+    font-family: 'DroidSerif-Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+.font-company-name {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    font-feature-settings: 'kern' off;
+    color: #FFFFFF;
+}
+.font-xtra-small {
+    font-family: 'DroidSerif-Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+
+.font-small {
+    font-family: 'DroidSerif-Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+
+.font-medium {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.font-large {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+
+}
+
+.font-company-detail-grey {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    color: rgba(21, 20, 57, 0.4);
+}
+
+.font-company-black {
+    font-family: 'DroidSerif-Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #2B2B2B;
+}
+
+.text-gray{
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    color: darken(#EDEFF6, 40%);
+}
+.title-right {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    text-transform: uppercase;
+    color: #2B2B2B;
+}
+@media(max-width: 390px) {
+    .title-right {
+        font-size: 18px;
+    }
+}
+
+.title-page {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    color: #FFFFFF;
+}
+.link-page {
+    font-family: 'DroidSerif-Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+@media(max-width: 920px) {
+    .title-page {
+        font-size: 22px;
+    }
+    .link-page {
+        font-size: 13px;
+    }
+}
+
+.title-lg-gray {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: rgba(21, 20, 57, 0.4);
+}
+
+.title-form-lg {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 58px;
+    color: #FFFFFF;
+    margin-top: 44px;
+}
+
+@media (max-width: 575px) {
+    .title-form-lg {
+        font-size: 40px;
+        line-height: 48px;
+    }
+}
+
+
+.text-light-black {
+    color: #040404 !important;
+}
+
+.title-limit {
+    max-width: 625px;
+    text-overflow: inherit;
+}
+
+
+.title-border-left {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    font-feature-settings: 'kern' off;
+    color: #2B2B2B;
+}
+.title-border-left::after {
+    content: "";
+    display: block;
+    width: 49px;
+    height: 3px;
+    background: #E8B44B;
+    margin-top: 20px;
+    margin-bottom: 24px;
+}
+
+.text-gray-sm {
+    display: block;
+    font-family: 'DroidSerif-Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(21, 20, 57, 0.4);
+    margin-bottom: 11px;
+}
+
+.color-white {
+    color: #ffffff !important;
+}
+
+.div__content-text {
+    font-family: 'DroidSerif-Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 28px;
+    font-feature-settings: 'kern' off;
+    color: #2B2B2B;
+}
+
+.title-smd {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+    color: #040404;
+}
+
+.font-10 {
+    font-size: 10px !important;
+}
+
+.subtitle-company-detail {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    color: #2B2B2B;
+    letter-spacing: 2px;
+}
+
+.font-desc-news {
+    font-family: 'DroidSerif-Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: rgba(21, 20, 57, 0.4);
+}
+
+.font-title-company {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    color: #2B2B2B;
+}
+
+.font-subtitle-company {
+    font-family: 'DroidSerif-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #2B2B2B;
+}
+
+.text-xs {
+    font-family: 'DroidSerif-Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #2B2B2B;
+}
+
+.text-xs-lh-18 {
+    font-family: 'DroidSerif-Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #2B2B2B;
+}
