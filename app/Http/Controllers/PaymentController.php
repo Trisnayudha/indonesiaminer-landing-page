@@ -278,29 +278,29 @@ Bot IM
             $whatsappApi->WhatsappMessageGroup();
 
             // Generate PDF invoice dan kirim email menggunakan DOMPDF
-            // set_time_limit(300); // Perpanjang waktu eksekusi jika diperlukan
+            set_time_limit(300); // Perpanjang waktu eksekusi jika diperlukan
 
-            // // Generate konten HTML dari view
-            // $html = view('email.invoice-new-multiple', $emailData)->render();
+            // Generate konten HTML dari view
+            $html = view('email.invoice-new-multiple', $emailData)->render();
 
-            // // Menggunakan DOMPDF untuk membuat PDF
-            // $pdf = Pdf::loadHTML($html);
+            // Menggunakan DOMPDF untuk membuat PDF
+            $pdf = Pdf::loadHTML($html);
 
-            // // Atur ukuran kertas dan orientasi jika diperlukan
-            // $pdf->setPaper('A4', 'portrait');
+            // Atur ukuran kertas dan orientasi jika diperlukan
+            $pdf->setPaper('A4', 'portrait');
 
-            // // Dapatkan output PDF sebagai string
-            // $pdfOutput = $pdf->output();
+            // Dapatkan output PDF sebagai string
+            $pdfOutput = $pdf->output();
 
-            // // Kirim email dan lampirkan PDF
-            // Mail::send('email.invoice-new-multiple', $emailData, function ($message) use ($bookingContactData, $pdfOutput) {
-            //     $message->from(env('EMAIL_SENDER'));
-            //     $message->to($bookingContactData['email_contact']);
-            //     $message->subject('Invoice Waiting Payment Indonesia Miner 2025');
-            //     $message->attachData($pdfOutput, 'Invoice-' . time() . '.pdf', [
-            //         'mime' => 'application/pdf',
-            //     ]);
-            // });
+            // Kirim email dan lampirkan PDF
+            Mail::send('email.invoice-new-multiple', $emailData, function ($message) use ($bookingContactData, $pdfOutput) {
+                $message->from(env('EMAIL_SENDER'));
+                $message->to($bookingContactData['email_contact']);
+                $message->subject('Invoice Waiting Payment Indonesia Miner 2025');
+                $message->attachData($pdfOutput, 'Invoice-' . time() . '.pdf', [
+                    'mime' => 'application/pdf',
+                ]);
+            });
 
             // Commit transaksi
             DB::commit();

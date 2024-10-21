@@ -17,6 +17,7 @@
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "mpdf/mpdf": "^8.2",
+        "simplesoftwareio/simple-qrcode": "4.2",
         "xendit/xendit-php": "^2.10"
     },
     "require-dev": {
