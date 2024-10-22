@@ -367,3 +367,93 @@
         window.addEventListener('hashchange', scrollToHash);
     });
 </script>
+
+<!-- Modal Overlay -->
+<div id="modal" class="modal-overlay">
+    <div class="modal-drawer">
+        <!-- Header Modal -->
+        <div class="drawer-header" aria-label="Drawer Header">
+            <span class="close-button">
+                <!-- Ikon Close -->
+                <svg width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                    stroke="#7C7C7C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </span>
+        </div>
+        <!-- Konten Modal -->
+        <div class="drawer-content">
+            <!-- Konten Dinamis Modal -->
+            <div class="header">
+                <img src="https://affiliateworldconferences.com/asia/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fawc-platform-prod%2Fo%2Fawa24%252Fdisplay-logos%252F1729497063_kudiixk_site-%255BC14-MonadLead).png%3Fgeneration%3D1729497065935938%26alt%3Dmedia&w=384&q=75"
+                    alt="MonadLead">
+                <div class="sponsor-level">Diamond Sponsor</div>
+            </div>
+            <div class="body" style="padding: 1rem">
+                <h3>MonadLead</h3>
+                <div class="info-item">
+                    <svg width="18px" height="18px" viewBox="0 0 14 14" fill="none">
+                        <!-- Ikon di sini -->
+                    </svg>
+                    <p>Affiliate Network | Bosnia and Herzegovina</p>
+                </div>
+                <div class="info-item">
+                    <svg width="18px" height="18px" viewBox="0 0 14 16" fill="none">
+                        <!-- Ikon di sini -->
+                    </svg>
+                    <p>Booth C14</p>
+                </div>
+                <article class="description-modal">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, impedit libero? Possimus
+                        voluptates illum inventore nesciunt! Vitae ullam, doloribus saepe, numquam natus suscipit
+                        dolore, sed provident ab soluta eum beatae?
+                        Porro dolorum corrupti distinctio exercitationem adipisci ipsam odit fuga molestias nobis!
+                        Inventore, alias consectetur veniam, excepturi optio deleniti necessitatibus ex est minus,
+                        cupiditate itaque recusandae voluptatum officia dignissimos atque dolores?
+                        Natus, dolor quaerat minima expedita alias sint architecto quibusdam molestiae eos ratione ut
+                        laboriosam repudiandae, vel perspiciatis nihil eaque quidem ipsum eveniet vero tempore obcaecati
+                        at incidunt enim! Perferendis, ratione?
+                        Similique quas cumque, nemo quidem eum reiciendis non sapiente quam at blanditiis, cupiditate
+                        quae id eos facere unde dolores sint quo eligendi repellat earum exercitationem molestiae?
+                        Accusantium itaque laborum maiores?
+                        Quisquam vel alias inventore et, saepe repudiandae quaerat at minima id harum, ipsam expedita
+                        aliquid adipisci tenetur, voluptates molestias facere provident. Placeat, natus? Facilis
+                        excepturi, accusamus voluptate repudiandae ratione cum!</p>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Tambahkan script ini di akhir body -->
+<script>
+    // Dapatkan elemen modal dan tombol close
+    const modal = document.getElementById('modal');
+    const closeButton = document.querySelector('.close-button');
+
+    // Fungsi untuk membuka modal
+    function openModal() {
+        modal.classList.add('show'); // Tambahkan kelas 'show' untuk menampilkan modal
+    }
+
+    // Fungsi untuk menutup modal
+    function closeModal() {
+        modal.classList.remove('show'); // Hapus kelas 'show' untuk menyembunyikan modal
+    }
+
+    // Event listener untuk tombol close
+    closeButton.addEventListener('click', closeModal);
+
+    // Menutup modal ketika mengklik di luar modal
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Contoh pemanggilan modal saat item list diklik
+    const listItem = document.querySelector('.list-item');
+    listItem.addEventListener('click', openModal); // Buka modal saat list-item diklik
+</script>
