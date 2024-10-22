@@ -1,5 +1,5 @@
 @extends('template.index')
-@section('title', 'Indonesia Miner : Exhibition')
+@section('title', 'Indonesia Miner : News')
 {{-- @section('header-bg', 'bg-transparent') --}}
 @section('header-bg', 'bg-light')
 

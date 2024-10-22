@@ -419,30 +419,25 @@ class NewsRepo extends News
                     $join->where('news_category_list.news_category_id', $category_id);
                 }
             })
-            ->where(function ($q) use ($category_id, $news_id, $company_id) {
-                //                if (!empty($category_id)) {
-                //                    $q->where('news.news_category_id', $category_id);
-                //                }
+            ->where(function ($q) use ($news_id, $company_id) {
                 if (!empty($news_id)) {
                     $q->where('news.id', '!=', $news_id);
                 }
                 if (!empty($company_id)) {
-                    $q->where('news.company_id', $company_id);
-                    $q->where('news.flag', 'Company');
-                    $q->where('news.highlight', 'Yes');
+                    $q->where('news.company_id', $company_id)
+                        ->where('news.flag', 'Company')
+                        ->where('news.highlight', 'Yes');
                 } else {
                     $q->where('news.flag', 'Portal');
                 }
             })
-            ->where(function ($q) {
-                //                $q->whereNotNull('news_category_list.news_id');
-            })
             ->inRandomOrder()
-            ->groupBy('news.id')
-            ->orderby('news.id', 'desc')
+            ->groupBy('news.id', 'news.title', 'news.slug', 'news.image', 'news.location', 'news.date_news', 'news.desc', 'news.views')
+            ->orderBy('news.id', 'desc')
             ->limit(4)
             ->get();
     }
+
 
     public static function paginateWithFilterIndex($search, $tags, $category, $index, $company = null, $is_directory = 'Yes')
     {

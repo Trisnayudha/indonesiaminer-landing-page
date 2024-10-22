@@ -93,7 +93,7 @@ class NewsService extends NewsRepo
 
     public static function newListRelateNews($category_id, $news_id, $company_id = null)
     {
-        $data = News::newListRelateNews($category_id, $news_id, $company_id);
+        $data = NewsRepo::newListRelateNews($category_id, $news_id, $company_id);
         foreach ($data as $x => $row) {
             $row->title = (strlen($row->title) > 100 ? substr($row->title, 0,  100) . '...' : $row->title);
             $row->image = (!empty($row->image) ? asset($row->image) : '');

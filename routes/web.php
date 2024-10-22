@@ -22,3 +22,4 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/ticket', [TicketController::class, 'index']);
 Route::post('/payment', [PaymentController::class, 'payment']);
 Route::get('/news', [NewsController::class, 'index']);
+Route::get('/news/detail/{slug}', [NewsController::class, 'detail']);
