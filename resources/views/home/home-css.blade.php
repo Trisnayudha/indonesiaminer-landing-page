@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/css/intlTelInput.css" />
+
 <style>
     /* The Modal (background) */
     .modal-custom {
@@ -274,19 +275,8 @@
             max-width: calc(50% - 1rem);
         }
     }
-</style>
-<link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/css/intlTelInput.css" />
-<script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-<script>
-    function onSubmit(token) {
-        document.getElementById("quform").submit();
-    }
-</script>
-<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
 
-<style>
-    /* Modal Overlay */
+
     .modal-overlay {
         display: none;
         /* Tersembunyi secara default */
@@ -393,4 +383,429 @@
         display: inline-block;
         margin-right: 1rem;
     }
+
+    .program-schedule-container {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 30px auto;
+        max-width: 100%;
+        width: 100%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Title Section */
+    .program-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+        font-weight: bold;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    /* Day Tabs */
+    .program-day-tabs .nav-tabs {
+        border-bottom: none;
+        background-color: #435469;
+        border-radius: 10px 10px 0 0;
+        padding: 0;
+        text-align: center;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .program-day-tabs .nav-tabs li {
+        flex-grow: 1;
+        position: relative;
+    }
+
+    .program-day-tabs .nav-tabs li a {
+        color: #ffffff;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 10px 10px 0 0;
+        display: inline-block;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .program-day-tabs .nav-tabs li.active a {
+        background-color: #ffffff;
+        color: #435469;
+        border-bottom: none;
+        position: relative;
+        z-index: 2;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .program-day-tabs .nav-tabs li.active a .program-date {
+        display: block;
+        margin-top: 5px;
+        font-size: 12px;
+        color: #666;
+    }
+
+    .program-day-tabs .nav-tabs li.active:before {
+        content: '';
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid #ffffff;
+        z-index: 1;
+    }
+
+    /* Hall Tabs */
+    .program-hall-tabs {
+        margin-top: -5px;
+    }
+
+    .program-hall-tabs .nav-tabs {
+        border-bottom: none;
+        margin-top: 0;
+        padding: 0;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .program-hall-tabs .nav-tabs li {
+        flex-grow: 1;
+    }
+
+    .program-hall-tabs .nav-tabs li a {
+        color: #9B9B9B;
+        padding: 8px;
+        background-color: #F8F8F8;
+        font-size: 14px;
+        text-transform: uppercase;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .program-hall-tabs .nav-tabs li.active a {
+        color: #DC143C;
+        border-bottom: 2px solid #DC143C;
+        background-color: #ffffff;
+    }
+
+    /* Session Info */
+    .session-info {
+        margin-top: 20px;
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .session-header {
+        display: flex;
+        align-items: center;
+    }
+
+    .speaker-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+    .session-details {
+        flex-grow: 1;
+    }
+
+    .session-time {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 5px;
+    }
+
+    .session-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #dc143c;
+        margin: 0;
+    }
+
+    .session-footer {
+        margin-top: 10px;
+    }
+
+    .session-footer i {
+        margin-right: 5px;
+    }
+
+    .session-footer a {
+        margin-left: 5px;
+    }
+
+    .session-share {
+        margin-left: 15px;
+        margin-top: 10px;
+    }
+
+    .session-share .share-button {
+        font-size: 20px;
+        color: #dc143c;
+    }
+
+    .accordion__item {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid rgba(0, 0, 0, .125);
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+    .accordion__button {
+        background-color: transparent;
+        display: flex;
+        position: relative;
+        align-items: center;
+        padding: 35px 140px 35px 25px;
+    }
+
+    .author.author-multi {
+        max-width: 100px;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .author.author-multi img {
+        border-radius: 50%;
+        margin-left: -10px;
+        width: 45px;
+        height: 45px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        border: 2px solid #fff;
+    }
+
+    .schedule-info h3 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .schedule-info ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    .schedule-info ul li {
+        display: inline;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .schedule-info ul li i {
+        color: #ff5252;
+        margin-right: 5px;
+    }
+
+    .accordion__panel {
+        padding: 20px 25px 35px;
+    }
+
+    .accordion__panel p {
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #666;
+        line-height: 1.8;
+    }
+
+    .location {
+        font-size: 14px;
+        color: #ff5252;
+    }
+
+    .location span {
+        color: #1e90ff;
+    }
+
+    .btn.btn-primary {
+        background-color: #ff5252;
+        border-color: #ff5252;
+        padding: 10px 20px;
+        font-size: 14px;
+        color: #fff;
+        border-radius: 25px;
+        text-transform: uppercase;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn.btn-primary:hover {
+        background-color: #e04b4b;
+        border-color: #e04b4b;
+    }
+
+    .accordion__button {
+        cursor: pointer;
+        /* Change cursor to pointer for interactivity */
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        /* Smooth transition for hover effects */
+    }
+
+    .accordion__button:hover {
+        background-color: #f5f5f5;
+        /* Lighten the background on hover */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        /* Add subtle shadow for depth */
+    }
+
+    .accordion__button:hover h3 {
+        color: #ff5252;
+        /* Change the color of the title on hover */
+    }
+
+    .accordion__button:hover ul li i {
+        color: #ff5252;
+        /* Change the icon color on hover */
+    }
+
+    .accordion__panel {
+        display: none;
+        transition: max-height 0.5s ease;
+        /* Smooth opening and closing of the panel */
+        overflow: hidden;
+        /* Hide overflow content during transition */
+    }
+
+    .speaker-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 speakers per row */
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    @media (max-width: 992px) {
+        .speaker-grid {
+            grid-template-columns: repeat(2, 1fr);
+            /* 2 speakers per row on medium screens */
+        }
+    }
+
+    @media (max-width: 576px) {
+        .speaker-grid {
+            grid-template-columns: 1fr;
+            /* 1 speaker per row on small screens */
+        }
+    }
+
+    /* Speaker Item */
+    .speaker-item {
+        background-color: #fff8eb;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: left;
+        transition: transform 0.3s ease;
+    }
+
+    .speaker-item:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Speaker Inner Structure */
+    .speaker-inner {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+    }
+
+    .speaker-thumb {
+        width: 100px;
+    }
+
+    .speaker-thumb img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    /* Speaker Info */
+    .speaker-content {
+        flex-grow: 1;
+    }
+
+    .speaker-infos h5 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #ff5a5f;
+        margin: 0;
+    }
+
+    .speaker-infos p {
+        font-size: 14px;
+        color: #666;
+        margin: 5px 0;
+    }
+
+    /* Speaker Company Logo */
+    .speaker-comp-logo img {
+        /* width: 50px; */
+        height: 50px;
+    }
+
+    /* Speaker Description */
+    .spkr-content-details p {
+        font-size: 14px;
+        color: #555;
+        margin: 10px 0;
+    }
+
+    /* Social Icons */
+    .social-icons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .social-icons li {
+        list-style: none;
+    }
+
+    .social-icons li a {
+        font-size: 18px;
+        color: #999;
+        transition: color 0.3s;
+    }
+
+    .social-icons li a:hover {
+        color: #ff5a5f;
+    }
+
+    /* Utility classes */
+    .d-flex {
+        display: flex;
+    }
+
+    .justify-content-between {
+        justify-content: space-between;
+    }
+
+    .flex-wrap {
+        flex-wrap: wrap;
+    }
 </style>
+<link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/css/intlTelInput.css" />
+<script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script>
+    function onSubmit(token) {
+        document.getElementById("quform").submit();
+    }
+</script>
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

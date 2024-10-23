@@ -457,3 +457,18 @@
     const listItem = document.querySelector('.list-item');
     listItem.addEventListener('click', openModal); // Buka modal saat list-item diklik
 </script>
+<script>
+    function toggleAccordion(button) {
+        // Find the panel element that is the sibling of the clicked button
+        var panel = button.parentElement.nextElementSibling;
+
+        // Toggle display between block and none
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            panel.style.display = "block";
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>

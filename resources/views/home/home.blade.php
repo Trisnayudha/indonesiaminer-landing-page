@@ -640,6 +640,244 @@
                 </li>
             </ul>
         </div>
+
+        <div class="ppb_speaker_classic one nopadding">
+            <div class="program-schedule-container">
+                <h2 class="program-title">CONFERENCE OR EVENT SCHEDULE</h2>
+                <div class="program-day-tabs">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#day1" data-toggle="tab">
+                                <strong>DAY 01</strong><br>
+                                <span class="program-date">17.05.2014</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#day2" data-toggle="tab">
+                                <strong>DAY 02</strong><br>
+                                <span class="program-date">18.05.2014</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#day3" data-toggle="tab">
+                                <strong>DAY 03</strong><br>
+                                <span class="program-date">19.05.2014</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#byspeaker" data-toggle="tab">
+                                <strong>BY SPEAKER</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="day1">
+                        <div class="program-hall-tabs">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#hallA" data-toggle="tab">HALL A</a></li>
+                                <li><a href="#hallB" data-toggle="tab">HALL B</a></li>
+                                <li><a href="#hallC" data-toggle="tab">HALL C</a></li>
+                                <li><a href="#hallD" data-toggle="tab">HALL D</a></li>
+                            </ul>
+                        </div>
+                        <div class="session-info">
+                            {{-- data program --}}
+                            <div class="accordion__item">
+                                <div class="accordion__heading" role="heading">
+                                    <div class="accordion__button" aria-expanded="false" onclick="toggleAccordion(this)">
+                                        <div class="author author-multi">
+                                            <img title="Steven Lucy" alt="Author"
+                                                src="https://mighty.tools/mockmind-api/content/human/1.jpg">
+                                            <img title="Jonaton Smith" alt="Author"
+                                                src="https://mighty.tools/mockmind-api/content/human/2.jpg">
+                                            <img title="John Smith" alt="Author"
+                                                src="https://mighty.tools/mockmind-api/content/human/3.jpg">
+                                            <img title="John Doe" alt="Author"
+                                                src="https://mighty.tools/mockmind-api/content/human/4.jpg">
+                                        </div>
+                                        <div class="schedule-info">
+                                            <h3>Time Management, Getting a Smart Start, Setting Goals</h3>
+                                            <ul>
+                                                <li><i class="icofont-user-suited"></i> By <span>Leonardo DiCaprio</span>
+                                                    of USA Inc</li>
+                                                <li><i class="icofont-wall-clock"></i> 13:00AM - 20:00PM</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion__panel" style="display: none; text-align:left">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                        Ipsum has been the industry standard dummy text ever since the 1500s.</p>
+                                    <div class="row h-100 align-items-center">
+                                        <div class="col-lg-6 col-md-7">
+                                            <div class="location">
+                                                <b>Location:</b> Hall 132, Building C, King Street, <span>USA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Speaker Profile -->
+                                    <div class="speaker-grid">
+                                        <!-- Speaker 1 -->
+                                        <div class="speaker-item">
+                                            <div class="speaker-inner">
+                                                <div class="speaker-thumb">
+                                                    <img src="https://mighty.tools/mockmind-api/content/human/62.jpg"
+                                                        alt="speaker">
+                                                </div>
+                                                <div class="speaker-content">
+                                                    <div
+                                                        class="spkr-content-title d-flex flex-wrap justify-content-between">
+                                                        <div class="speaker-infos">
+                                                            <h5><a href="speaker-details.html">Zisnad Q. Alex</a></h5>
+                                                            <p>Speaker</p>
+                                                        </div>
+                                                        <div class="speaker-comp-logo">
+                                                            <img src="https://indonesiaminer.com/uploads/company/1659595183.jpg"
+                                                                alt="spkr-company">
+                                                        </div>
+                                                    </div>
+                                                    <div class="spkr-content-details">
+                                                        <p>Completey conceplua high quality nice markes rather than long
+                                                            term impact human capital.</p>
+                                                        <ul class="social-icons">
+                                                            <li><a href="#"><i
+                                                                        class="fa-brands fa-facebook"></i></a>
+                                                            </li>
+                                                            <li><a href="#"> <i
+                                                                        class="fa-brands fa-twitter"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-brands fa-instagram"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Speaker 2 -->
+                                        <div class="speaker-item">
+                                            <div class="speaker-inner">
+                                                <div class="speaker-thumb">
+                                                    <img src="https://mighty.tools/mockmind-api/content/human/62.jpg"
+                                                        alt="speaker">
+                                                </div>
+                                                <div class="speaker-content">
+                                                    <div
+                                                        class="spkr-content-title d-flex flex-wrap justify-content-between">
+                                                        <div class="speaker-infos">
+                                                            <h5><a href="speaker-details.html">Zisnad Q. Alex</a></h5>
+                                                            <p>Speaker</p>
+                                                        </div>
+                                                        <div class="speaker-comp-logo">
+                                                            <img src="https://indonesiaminer.com/uploads/company/1659595183.jpg"
+                                                                alt="spkr-company">
+                                                        </div>
+                                                    </div>
+                                                    <div class="spkr-content-details">
+                                                        <p>Completey conceplua high quality nice markes rather than long
+                                                            term impact human capital.</p>
+                                                        <ul class="social-icons">
+                                                            <li><a href="#"><i
+                                                                        class="fa-brands fa-facebook"></i></a>
+                                                            </li>
+                                                            <li><a href="#"> <i
+                                                                        class="fa-brands fa-twitter"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-brands fa-instagram"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Speaker 3 -->
+                                        <div class="speaker-item">
+                                            <div class="speaker-inner">
+                                                <div class="speaker-thumb">
+                                                    <img src="https://mighty.tools/mockmind-api/content/human/62.jpg"
+                                                        alt="speaker">
+                                                </div>
+                                                <div class="speaker-content">
+                                                    <div
+                                                        class="spkr-content-title d-flex flex-wrap justify-content-between">
+                                                        <div class="speaker-infos">
+                                                            <h5><a href="speaker-details.html">Zisnad Q. Alex</a></h5>
+                                                            <p>Speaker</p>
+                                                        </div>
+                                                        <div class="speaker-comp-logo">
+                                                            <img src="https://indonesiaminer.com/uploads/company/1659595183.jpg"
+                                                                alt="spkr-company">
+                                                        </div>
+                                                    </div>
+                                                    <div class="spkr-content-details">
+                                                        <p>Completey conceplua high quality nice markes rather than long
+                                                            term impact human capital.</p>
+                                                        <ul class="social-icons">
+                                                            <li><a href="#"><i
+                                                                        class="fa-brands fa-facebook"></i></a>
+                                                            </li>
+                                                            <li><a href="#"> <i
+                                                                        class="fa-brands fa-twitter"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-brands fa-instagram"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Speaker 4 -->
+                                        <div class="speaker-item">
+                                            <div class="speaker-inner">
+                                                <div class="speaker-thumb">
+                                                    <img src="https://mighty.tools/mockmind-api/content/human/62.jpg"
+                                                        alt="speaker">
+                                                </div>
+                                                <div class="speaker-content">
+                                                    <div
+                                                        class="spkr-content-title d-flex flex-wrap justify-content-between">
+                                                        <div class="speaker-infos">
+                                                            <h5><a href="speaker-details.html">Zisnad Q. Alex</a></h5>
+                                                            <p>Speaker</p>
+                                                        </div>
+                                                        <div class="speaker-comp-logo">
+                                                            <img src="https://indonesiaminer.com/uploads/company/1659595183.jpg"
+                                                                alt="spkr-company">
+                                                        </div>
+                                                    </div>
+                                                    <div class="spkr-content-details">
+                                                        <p>Completey conceplua high quality nice markes rather than long
+                                                            term impact human capital.</p>
+                                                        <ul class="social-icons">
+                                                            <li><a href="#"><i
+                                                                        class="fa-brands fa-facebook"></i></a>
+                                                            </li>
+                                                            <li><a href="#"> <i
+                                                                        class="fa-brands fa-twitter"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-brands fa-instagram"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="one withsmallpadding ppb_header " style="text-align:center;padding:60px 0 60px 0;">
             <div class="standard_wrapper">
                 <div class="page_content_wrapper">
