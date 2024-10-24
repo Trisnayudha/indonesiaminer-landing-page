@@ -809,3 +809,65 @@
 <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<!-- CSS for Flip Effect -->
+<style>
+    .element.grid.one_fourth_bg {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .speaker_grid_link img {
+        width: 100%;
+        transition: all 0.3s ease;
+    }
+
+    .element.grid.one_fourth_bg:hover .speaker_grid_link img {
+        filter: blur(3px);
+        color: white !important;
+    }
+
+    .bio_overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #fff !important;
+        /* Warna teks putih */
+        background-color: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .element.grid.one_fourth_bg:hover .bio_overlay {
+        opacity: 1;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .social-icons a {
+        margin: 0 5px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+    .speaker_info_wrapper {
+        text-align: center;
+    }
+
+    .speaker_info_wrapper h4,
+    .speaker_desc {
+        margin: 5px 0;
+    }
+</style>
