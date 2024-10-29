@@ -104,24 +104,22 @@
                                         <div class="menu-main-menu-container">
                                             <ul id="main_menu" class="nav">
                                                 <li class="menu-item current-menu-item menu-item-has-children">
-                                                    <a href="{{ url('/') }}"
-                                                        style="text-transform: uppercase">HOME</a>
+                                                    <a href="#home-page" style="text-transform: uppercase">HOME</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
                                                     <a href="https://indonesiaminer.com/events/detail/2023-11-10085837-indonesia-miner-2024"
                                                         style="text-transform: uppercase">PROGRAMS</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="{{ url('/#speaker-page') }}"
+                                                    <a href="#speaker-page"
                                                         style="text-transform: uppercase">SPEAKERS</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="{{ url('/#exhibition-page') }}"
+                                                    <a href="#exhibition-page"
                                                         style="text-transform: uppercase">EXHIBITORS</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="{{ url('#foim2024') }}"
-                                                        style="text-transform: uppercase">FOIM
+                                                    <a href="#foim2024" style="text-transform: uppercase">FOIM
                                                         2024</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">

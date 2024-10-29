@@ -1,4 +1,4 @@
-@extends('template.index')
+@extends('template.index-home')
 @section('title', 'Indonesia Miner : Home')
 @section('header-bg', 'bg-transparent')
 @section('content')

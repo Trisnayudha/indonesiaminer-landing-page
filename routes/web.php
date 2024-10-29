@@ -4,6 +4,8 @@ use App\Helpers\WhatsappApi;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SpeakerController;
+use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +25,8 @@ Route::get('/ticket', [TicketController::class, 'index']);
 Route::post('/payment', [PaymentController::class, 'payment']);
 Route::get('/news', [NewsController::class, 'index']);
 Route::get('/news/detail/{slug}', [NewsController::class, 'detail']);
-
-Route::get('/test',function(){
+Route::get('/sponsors', [SponsorController::class, 'index']);
+Route::get('/speakers', [SpeakerController::class, 'index']);
+Route::get('/test', function () {
     return view('test');
 });
