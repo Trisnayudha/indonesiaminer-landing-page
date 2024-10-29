@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class MdChargingModel extends Model
 {
     use HasFactory;
+    protected $table = 'md_charging'; // Sesuaikan dengan nama tabel Anda jika berbeda
+
 }

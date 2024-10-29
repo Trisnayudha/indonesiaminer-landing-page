@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class MdKnowledgePartnerModel extends Model
 {
     use HasFactory;
+    protected $table = 'md_knowledge_partner'; // Sesuaikan dengan nama tabel Anda jika berbeda
+
 }

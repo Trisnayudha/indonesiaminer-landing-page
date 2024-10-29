@@ -10,7 +10,7 @@
     <meta name="format-detection" content="telephone=no" />
 
     @include('template.header')
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>
 

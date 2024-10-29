@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Helpers\General;
 use App\Repositories\MdRegistration;
 use Illuminate\Support\Facades\DB;
 
@@ -14,12 +15,12 @@ class MdRegistrationService extends MdRegistration
     {
         $data = MdRegistration::listAllHome();
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? asset($row->image) : '');
+            $row->image = (!empty($row->image) ? 'https://indonesiaminer.com/' . $row->image : '');
             $row->link = (!empty($row->link) ? $row->link : '#');
         }
 
         //        return fill_chunck($data, 5);
-        return multiple_array($data, 4);
+        return General::multiple_array($data,  4);
     }
 
     public static function listAll()

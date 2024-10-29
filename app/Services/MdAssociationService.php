@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Helpers\General;
 use App\Repositories\MdAssociation;
 use Illuminate\Support\Facades\DB;
 
@@ -25,12 +26,12 @@ class MdAssociationService extends MdAssociation
     {
         $data = MdAssociation::listAllHome2024();
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? asset($row->image) : '');
+            $row->image = (!empty($row->image) ? 'https://indonesiaminer.com/' . $row->image : '');
             $row->link = (!empty($row->link) ? $row->link : '#');
         }
 
         //        return fill_chunck($data, 5);
-        return multiple_array($data, 7);
+        return General::multiple_array($data,  7);
     }
 
     public static function listAll()

@@ -27,6 +27,7 @@ Route::get('/news', [NewsController::class, 'index']);
 Route::get('/news/detail/{slug}', [NewsController::class, 'detail']);
 Route::get('/sponsors', [SponsorController::class, 'index']);
 Route::get('/speakers', [SpeakerController::class, 'index']);
+Route::post('/detail-modal-search', [SponsorController::class, 'postDetailModalSearch']);
 Route::get('/test', function () {
     return view('test');
 });

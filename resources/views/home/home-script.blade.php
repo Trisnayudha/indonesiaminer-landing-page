@@ -384,42 +384,14 @@
         </div>
         <!-- Konten Modal -->
         <div class="drawer-content">
-            <!-- Konten Dinamis Modal -->
             <div class="header">
-                <img src="https://affiliateworldconferences.com/asia/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fawc-platform-prod%2Fo%2Fawa24%252Fdisplay-logos%252F1729497063_kudiixk_site-%255BC14-MonadLead).png%3Fgeneration%3D1729497065935938%26alt%3Dmedia&w=384&q=75"
-                    alt="MonadLead">
-                <div class="sponsor-level">Diamond Sponsor</div>
+                <img src="" alt="" style="width: 50%; padding:10px;">
+                <div class="sponsor-level"></div>
             </div>
             <div class="body" style="padding: 1rem">
-                <h3>MonadLead</h3>
-                <div class="info-item">
-                    <svg width="18px" height="18px" viewBox="0 0 14 14" fill="none">
-                        <!-- Ikon di sini -->
-                    </svg>
-                    <p>Affiliate Network | Bosnia and Herzegovina</p>
-                </div>
-                <div class="info-item">
-                    <svg width="18px" height="18px" viewBox="0 0 14 16" fill="none">
-                        <!-- Ikon di sini -->
-                    </svg>
-                    <p>Booth C14</p>
-                </div>
+                <h3></h3>
                 <article class="description-modal">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, impedit libero? Possimus
-                        voluptates illum inventore nesciunt! Vitae ullam, doloribus saepe, numquam natus suscipit
-                        dolore, sed provident ab soluta eum beatae?
-                        Porro dolorum corrupti distinctio exercitationem adipisci ipsam odit fuga molestias nobis!
-                        Inventore, alias consectetur veniam, excepturi optio deleniti necessitatibus ex est minus,
-                        cupiditate itaque recusandae voluptatum officia dignissimos atque dolores?
-                        Natus, dolor quaerat minima expedita alias sint architecto quibusdam molestiae eos ratione ut
-                        laboriosam repudiandae, vel perspiciatis nihil eaque quidem ipsum eveniet vero tempore obcaecati
-                        at incidunt enim! Perferendis, ratione?
-                        Similique quas cumque, nemo quidem eum reiciendis non sapiente quam at blanditiis, cupiditate
-                        quae id eos facere unde dolores sint quo eligendi repellat earum exercitationem molestiae?
-                        Accusantium itaque laborum maiores?
-                        Quisquam vel alias inventore et, saepe repudiandae quaerat at minima id harum, ipsam expedita
-                        aliquid adipisci tenetur, voluptates molestias facere provident. Placeat, natus? Facilis
-                        excepturi, accusamus voluptate repudiandae ratione cum!</p>
+                    <!-- Deskripsi akan dimasukkan di sini -->
                 </article>
             </div>
         </div>
@@ -427,36 +399,72 @@
 </div>
 
 
-<!-- Tambahkan script ini di akhir body -->
-<script>
-    // Dapatkan elemen modal dan tombol close
-    const modal = document.getElementById('modal');
-    const closeButton = document.querySelector('.close-button');
+<!-- Pastikan jQuery sudah di-include -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    // Fungsi untuk membuka modal
-    function openModal() {
-        modal.classList.add('show'); // Tambahkan kelas 'show' untuk menampilkan modal
-    }
+<script>
+    // Mengatur CSRF token untuk AJAX request
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
     // Fungsi untuk menutup modal
     function closeModal() {
-        modal.classList.remove('show'); // Hapus kelas 'show' untuk menyembunyikan modal
+        $('#modal').removeClass('show');
     }
 
     // Event listener untuk tombol close
-    closeButton.addEventListener('click', closeModal);
+    $(document).on('click', '.close-button', function() {
+        closeModal();
+    });
 
     // Menutup modal ketika mengklik di luar modal
-    window.addEventListener('click', function(event) {
-        if (event.target === modal) {
+    $(window).on('click', function(event) {
+        if ($(event.target).is('#modal')) {
             closeModal();
         }
     });
 
-    // Contoh pemanggilan modal saat item list diklik
-    const listItem = document.querySelector('.list-item');
-    listItem.addEventListener('click', openModal); // Buka modal saat list-item diklik
+    // Event listener untuk klik pada list-item
+    $(document).ready(function() {
+        $('.list-item').on('click', function() {
+            // Mendapatkan id dan type dari data attributes
+            const id = $(this).data('id');
+            const type = $(this).data('type');
+
+            // Membuat AJAX request ke API
+            $.ajax({
+                url: '/detail-modal-search',
+                method: 'POST',
+                data: {
+                    id: id,
+                    type: type
+                },
+                success: function(response) {
+                    if (response.status === 1) {
+                        // Update isi modal dengan data dari response
+                        $('#modal .header img').attr('src', response.item.image);
+                        $('#modal .header .sponsor-level').text(type);
+                        $('#modal .body h3').text(response.item.name);
+                        $('#modal .body .description-modal').html(response.item.desc);
+
+                        // Tampilkan modal
+                        $('#modal').addClass('show');
+                    } else {
+                        alert('Data tidak ditemukan.');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX Error:', error);
+                    alert('Terjadi kesalahan saat mengambil data.');
+                }
+            });
+        });
+    });
 </script>
+
 <script>
     function toggleAccordion(button) {
         // Find the panel element that is the sibling of the clicked button

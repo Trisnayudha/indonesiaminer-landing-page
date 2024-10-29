@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Helpers\General;
 use App\Repositories\MdKnowledgePartner;
 use Illuminate\Support\Facades\DB;
 
@@ -24,11 +25,11 @@ class MdKnowledgePartnerService extends MdKnowledgePartner
     {
         $data = MdKnowledgePartner::listAllHome2024();
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? asset($row->image) : '');
+            $row->image = (!empty($row->image) ? 'https://indonesiaminer.com/' . $row->image : '');
             $row->link = (!empty($row->link) ? $row->link : '#');
         }
 
-        return multiple_array($data, 24);
+        return General::multiple_array($data,  24);
     }
 
     public static function listAll()

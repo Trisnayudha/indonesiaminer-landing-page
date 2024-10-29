@@ -1,11 +1,11 @@
 @extends('template.index')
 @section('title', 'Indonesia Miner : Exhibition')
-{{-- @section('header-bg', 'bg-transparent') --}}
 @section('header-bg', 'bg-light')
 
 @section('content')
-    <div style="position: relative; margin-top:60px;">
-        <div class="one withsmallpadding ppb_header " style="text-align:center;padding:60px 0 60px 0;">
+    <div style="position: relative; margin-top:60px; margin-bottom:20px">
+        <!-- Header Section -->
+        <div class="one withsmallpadding ppb_header" style="text-align:center;padding:60px 0 60px 0;">
             <div class="standard_wrapper">
                 <div class="page_content_wrapper">
                     <div class="inner">
@@ -16,87 +16,189 @@
                 </div>
             </div>
         </div>
-        <div class="ppb_speaker_classic one nopadding ">
-            <ul class="list-container">
-                <li class="list-item">
-                    <div class="tag">PLATINUM SPONSOR</div>
-                    <figure class="image-container">
-                        <span
-                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0; margin: 0; padding: 0; position: absolute; inset: 0;">
-                            <img alt="Adcash"
-                                src="https://affiliateworldconferences.com/asia/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fawc-platform-prod%2Fo%2Fawa24%252Fdisplay-logos%252F1725602623_s1m8i8u_site-%255BC22-Chilli-Partners%255D.png%3Fgeneration%3D1725602624698592%26alt%3Dmedia&w=1920&q=75"
-                                decoding="async" data-nimg="fill"
-                                style="position: absolute; inset: 0; box-sizing: border-box; padding: 0; border: none; margin: auto; display: block; width: 0; height: 0; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
-                                sizes="100vw"
-                                srcset="https://affiliateworldconferences.com/asia/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fawc-platform-prod%2Fo%2Fawa24%252Fdisplay-logos%252F1725602623_s1m8i8u_site-%255BC22-Chilli-Partners%255D.png%3Fgeneration%3D1725602624698592%26alt%3Dmedia&w=1920&q=75" />
-                        </span>
-                    </figure>
-                    <div class="info">
-                        <h4>Adcash</h4>
-                        <p>Traffic Source | Estonia</p>
-                        <div class="description">
-                            <div>
-                                Adcash is a global online advertising platform for media buyers, affiliates, ad networks,
-                                and publishers.
-                                <span class="ellipsis">…</span>
-                            </div>
+
+        <!-- Sponsors Section -->
+        <div class="ppb_speaker_classic one nopadding">
+            <!-- Platinum Sponsors -->
+            @if (!empty($sponsor_platinum2024))
+                <ul class="list-container">
+                    @foreach ($sponsor_platinum2024 as $sponsors)
+                        @foreach ($sponsors as $sponsor)
+                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Sponsor">
+                                <div class="tag">PLATINUM SPONSOR</div>
+                                <figure class="image-container">
+                                    <img alt="{{ $sponsor->name }}" src="{{ $sponsor->image }}" />
+                                </figure>
+                                <div class="info">
+                                    <h4>{{ $sponsor->name }}</h4>
+                                    <div class="description">
+                                        <div>
+                                            {!! $sponsor->desc !!}
+                                            <span class="ellipsis">…</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                    @endforeach
+                </ul>
+            @endif
+
+            <!-- Gold Sponsors -->
+            @if (!empty($sponsor_gold2024))
+                <ul class="list-container lite">
+                    @foreach ($sponsor_gold2024 as $sponsors)
+                        @foreach ($sponsors as $sponsor)
+                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Sponsor">
+                                <figure class="image-container">
+                                    <img alt="{{ $sponsor->name }}" src="{{ $sponsor->image }}" />
+                                </figure>
+                            </li>
+                        @endforeach
+                    @endforeach
+                </ul>
+            @endif
+
+            <!-- Silver Sponsors -->
+            @if (!empty($sponsor_silver2024))
+                <ul class="list-container lite">
+                    @foreach ($sponsor_silver2024 as $sponsors)
+                        @foreach ($sponsors as $sponsor)
+                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Sponsor">
+                                <figure class="image-container">
+                                    <img alt="{{ $sponsor->name }}" src="{{ $sponsor->image }}" />
+                                </figure>
+                            </li>
+                        @endforeach
+                    @endforeach
+                </ul>
+            @endif
+
+            <!-- Registration Sponsors -->
+            <ul class="list-container lite">
+                @if (!empty($registration))
+                    @foreach ($registration as $sponsors)
+                        @foreach ($sponsors as $sponsor)
+                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="registration">
+                                <figure class="image-container">
+                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                </figure>
+                            </li>
+                        @endforeach
+                    @endforeach
+                @endif
+
+                <!-- Lanyard Sponsors -->
+                @if (!empty($landyard))
+                    @foreach ($landyard as $sponsors)
+                        @foreach ($sponsors as $sponsor)
+                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="landyard">
+                                <figure class="image-container">
+                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                </figure>
+                            </li>
+                        @endforeach
+                    @endforeach
+                @endif
+
+                <!-- Lunch Sponsors -->
+                @if (!empty($lunch))
+                    @foreach ($lunch as $sponsors)
+                        @foreach ($sponsors as $sponsor)
+                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="lunch">
+                                <figure class="image-container">
+                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                </figure>
+                            </li>
+                        @endforeach
+                    @endforeach
+                @endif
+
+                <!-- Charging Sponsors -->
+                @if (!empty($charging))
+                    @foreach ($charging as $sponsors)
+                        @foreach ($sponsors as $sponsor)
+                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="charging">
+                                <figure class="image-container">
+                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                </figure>
+                            </li>
+                        @endforeach
+                    @endforeach
+                @endif
+            </ul>
+
+            <!-- Knowledge Partners -->
+            @if (!empty($knowledge_partner2024))
+                <ul class="list-container lite">
+                    @foreach ($knowledge_partner2024 as $sponsors)
+                        @foreach ($sponsors as $sponsor)
+                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Knowledge Partner">
+                                <figure class="image-container">
+                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                </figure>
+                            </li>
+                        @endforeach
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+
+        <!-- Supporting Association & Media Partners -->
+        <div class="one withsmallpadding ppb_header" style="text-align:center;padding:60px 0 60px 0;">
+            <div class="standard_wrapper">
+                <div class="page_content_wrapper">
+                    <div class="inner">
+                        <div style="margin:auto;width:100%">
+                            <h2 class="ppb_title" style="text-align:center;color:black">SUPPORTING ASSOCIATION & MEDIA
+                                PARTNERS</h2>
                         </div>
                     </div>
-                </li>
-            </ul>
-            <ul class="list-container lite">
-                <li class="list-item">
-                    <figure class="image-container">
-                        <span
-                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0; margin: 0; padding: 0; position: absolute; inset: 0;">
-                            <img alt="Adcash"
-                                src="https://affiliateworldconferences.com/asia/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fawc-platform-prod%2Fo%2Fawa24%252Fdisplay-logos%252F1725602623_s1m8i8u_site-%255BC22-Chilli-Partners%255D.png%3Fgeneration%3D1725602624698592%26alt%3Dmedia&w=1920&q=75"
-                                decoding="async" data-nimg="fill"
-                                style="position: absolute; inset: 0; box-sizing: border-box; padding: 0; border: none; margin: auto; display: block; width: 0; height: 0; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
-                                sizes="100vw"
-                                srcset="https://affiliateworldconferences.com/asia/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fawc-platform-prod%2Fo%2Fawa24%252Fdisplay-logos%252F1725602623_s1m8i8u_site-%255BC22-Chilli-Partners%255D.png%3Fgeneration%3D1725602624698592%26alt%3Dmedia&w=1920&q=75" />
-                        </span>
-                    </figure>
-                </li>
-                <li class="list-item">
-                    <figure class="image-container">
-                        <span
-                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0; margin: 0; padding: 0; position: absolute; inset: 0;">
-                            <img alt="Adcash"
-                                src="https://affiliateworldconferences.com/asia/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fawc-platform-prod%2Fo%2Fawa24%252Fdisplay-logos%252F1725602623_s1m8i8u_site-%255BC22-Chilli-Partners%255D.png%3Fgeneration%3D1725602624698592%26alt%3Dmedia&w=1920&q=75"
-                                decoding="async" data-nimg="fill"
-                                style="position: absolute; inset: 0; box-sizing: border-box; padding: 0; border: none; margin: auto; display: block; width: 0; height: 0; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
-                                sizes="100vw"
-                                srcset="https://affiliateworldconferences.com/asia/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fawc-platform-prod%2Fo%2Fawa24%252Fdisplay-logos%252F1725602623_s1m8i8u_site-%255BC22-Chilli-Partners%255D.png%3Fgeneration%3D1725602624698592%26alt%3Dmedia&w=1920&q=75" />
-                        </span>
-                    </figure>
-                </li>
-                <li class="list-item">
-                    <figure class="image-container">
-                        <span
-                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0; margin: 0; padding: 0; position: absolute; inset: 0;">
-                            <img alt="Adcash"
-                                src="https://affiliateworldconferences.com/asia/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fawc-platform-prod%2Fo%2Fawa24%252Fdisplay-logos%252F1725602623_s1m8i8u_site-%255BC22-Chilli-Partners%255D.png%3Fgeneration%3D1725602624698592%26alt%3Dmedia&w=1920&q=75"
-                                decoding="async" data-nimg="fill"
-                                style="position: absolute; inset: 0; box-sizing: border-box; padding: 0; border: none; margin: auto; display: block; width: 0; height: 0; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
-                                sizes="100vw"
-                                srcset="https://affiliateworldconferences.com/asia/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fawc-platform-prod%2Fo%2Fawa24%252Fdisplay-logos%252F1725602623_s1m8i8u_site-%255BC22-Chilli-Partners%255D.png%3Fgeneration%3D1725602624698592%26alt%3Dmedia&w=1920&q=75" />
-                        </span>
-                    </figure>
-                </li>
-                <li class="list-item">
-                    <figure class="image-container">
-                        <span
-                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0; margin: 0; padding: 0; position: absolute; inset: 0;">
-                            <img alt="Adcash"
-                                src="https://affiliateworldconferences.com/asia/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fawc-platform-prod%2Fo%2Fawa24%252Fdisplay-logos%252F1725602623_s1m8i8u_site-%255BC22-Chilli-Partners%255D.png%3Fgeneration%3D1725602624698592%26alt%3Dmedia&w=1920&q=75"
-                                decoding="async" data-nimg="fill"
-                                style="position: absolute; inset: 0; box-sizing: border-box; padding: 0; border: none; margin: auto; display: block; width: 0; height: 0; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
-                                sizes="100vw"
-                                srcset="https://affiliateworldconferences.com/asia/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fawc-platform-prod%2Fo%2Fawa24%252Fdisplay-logos%252F1725602623_s1m8i8u_site-%255BC22-Chilli-Partners%255D.png%3Fgeneration%3D1725602624698592%26alt%3Dmedia&w=1920&q=75" />
-                        </span>
-                    </figure>
-                </li>
+                </div>
+            </div>
+        </div>
+        <div class="ppb_speaker_classic one nopadding">
+            <!-- Supporting Associations -->
+            @if (!empty($support_association2024))
+                <ul class="list-container lite">
+                    @foreach ($support_association2024 as $sponsors)
+                        @foreach ($sponsors as $sponsor)
+                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Association">
+                                <figure class="image-container">
+                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                </figure>
+                            </li>
+                        @endforeach
+                    @endforeach
+                </ul>
+            @endif
+
+            <!-- Media Partners -->
+            <ul class="list-container lite" style="padding-bottom: 20px;">
+                @if (!empty($media_partner2024))
+                    @foreach ($media_partner2024 as $sponsors)
+                        @foreach ($sponsors as $sponsor)
+                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Media Partner">
+                                <figure class="image-container">
+                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                </figure>
+                            </li>
+                        @endforeach
+                    @endforeach
+                @endif
+
+                <!-- Medical Partners -->
+                @if (!empty($medical))
+                    @foreach ($medical as $sponsors)
+                        @foreach ($sponsors as $sponsor)
+                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Medical Partner">
+                                <figure class="image-container">
+                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                </figure>
+                            </li>
+                        @endforeach
+                    @endforeach
+                @endif
             </ul>
         </div>
     </div>
