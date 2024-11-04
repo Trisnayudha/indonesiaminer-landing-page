@@ -143,10 +143,10 @@
                                         /* background-image: linear-gradient(to right, #f6d365 20%, #fda085 41%, #E8B44B 100%) !important;"
                                         * />BUY
                                     TICKETS!</a> --}}
-                                    {{-- <a href="#buy-tickets" id="get_ticket" class="button ghost"
+                                    <a href="#buy-tickets" id="get_ticket" class="button ghost"
                                         style="color: white;
                                     background-image: linear-gradient(to right, #E8B44B 20%, #E8B44B 41%, #E8B44B 100%) !important;">BUY
-                                        TICKETS!</a> --}}
+                                        TICKETS!</a>
 
                                     <!-- Begin side menu -->
                                     <a href="javascript:;" id="mobile_nav_icon"><span class="ti-menu"></span></a>

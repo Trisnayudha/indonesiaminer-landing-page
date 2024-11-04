@@ -39,13 +39,10 @@
                                 </div>
                                 <div class="ppb_header_content">
                                     <p>
-                                        <a href="#buy-tickets">
-
-                                            <button class="glow-on-hover" style="font-size: 14px; width: 260px;"> <b>
-                                                    REGISTER YOUR INTEREST
-                                                </b>
-                                            </button>
-                                        </a>
+                                        <button class="glow-on-hover" style="font-size: 14px; width: 260px;"> <b>
+                                                REGISTER YOUR INTEREST
+                                            </b>
+                                        </button>
                                     </p>
                                 </div>
                             </div>
@@ -254,7 +251,7 @@
                 </div>
                 <div class="one_half_bg" style="padding:8px;">
                     <video style="max-width: 100%; height : auto;" playsinline autoplay muted loop>
-                        <source src="{{ asset('img/section_1.mp4') }}" type="video/mp4">
+                        <source src="{{ asset('assets/img/section_1.mp4') }}" type="video/mp4">
                     </video>
                 </div>
                 <br class="clear" />
