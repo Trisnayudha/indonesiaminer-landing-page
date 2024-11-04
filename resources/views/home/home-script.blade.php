@@ -131,7 +131,7 @@
 <script>
     $(document).ready(function() {
         // Menampilkan modal saat tombol diklik
-        $(".glow-on-hover").click(function() {
+        $("#interest").click(function() {
             $("#myModal").show();
         });
 
@@ -400,7 +400,7 @@
 
 
 <!-- Pastikan jQuery sudah di-include -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 
 <script>
     // Mengatur CSRF token untuk AJAX request

@@ -34,22 +34,22 @@
                         <a href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="menu-item menu-item-has-children">
-                        <a href="{{ url('/events') }}">Events</a>
+                        <a href="{{ url('/program') }}">Program</a>
 
                     </li>
                     <li class="menu-item menu-item-has-children">
-                        <a href="{{ url('/directory') }}">Directory</a>
+                        <a href="{{ url('/speakers') }}">Speakers</a>
                     </li>
                     <li class="menu-item menu-item-has-children">
-                        <a href="{{ url('news') }}">News</a>
+                        <a href="{{ url('exhibitor') }}">Exhibitor</a>
 
                     </li>
                     <li class="menu-item menu-item-has-children menu-item-59">
-                        <a href="{{ url('sponsors') }}">Sponsors</a>
+                        <a href="{{ url('foim-2024') }}">FOIM 2024</a>
 
                     </li>
                     <li class="menu-item menu-item-has-children">
-                        <a href="{{ url('about') }}">About Us</a>
+                        <a href="{{ url('/') }}">Mining Directory</a>
                     </li>
                 </ul>
             </div>
@@ -80,18 +80,18 @@
                     <div id="logo_wrapper">
                         <div id="logo_normal" class="logo_container">
                             <div class="logo_align">
-                                <a id="custom_logo" class="logo_wrapper hidden" href="index-2.html">
+                                <a id="custom_logo" class="logo_wrapper hidden" href="{{ url('/') }}">
                                     <img src="https://indonesiaminer.com/vendor/front/images/indominer-icon.png"
-                                        class="kecil" />
+                                        class="kecil" style="width: 70%" />
                                 </a>
                             </div>
                         </div>
 
                         <div id="logo_transparent" class="logo_container">
                             <div class="logo_align">
-                                <a id="custom_logo_transparent" class="logo_wrapper default" href="index-2.html">
+                                <a id="custom_logo_transparent" class="logo_wrapper default" href="{{ url('/') }}">
                                     <img src="https://indonesiaminer.com/vendor/front/images/indominer-icon.png"
-                                        class="kecil" />
+                                        class="kecil" style="width: 70%" />
                                 </a>
                             </div>
                         </div>
