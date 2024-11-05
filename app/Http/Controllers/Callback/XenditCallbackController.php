@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BookingModel;
 use App\Models\Company;
 use App\Models\CompanyRegPay;
+use App\Models\Events;
 use App\Models\ExhibitionCartList;
 use App\Models\ExhibitionPayment;
 use App\Models\MsPhoneCode;
@@ -528,7 +529,7 @@ Code Access: {$paymentData->code_payment}
      */
     private function sendDelegateAccessEmail($paymentData, $qrCodePath)
     {
-        $delegateDetail = UsersDelegate::detailFormByPaymentId($paymentData->id);
+        $delegateDetail = Events::where('payment_id', $paymentData->id)->first();
         if (empty($delegateDetail->id)) {
             return;
         }
