@@ -577,6 +577,7 @@ Code Access: {$paymentData->code_payment}
             'create_date' => date('d, M Y H:i'),
             'code_payment' => $data['external_id'],
             'events_name' => $delegateDetail->events_name,
+            'voucher_price' => null
         ];
 
         $pdf = Pdf::loadView('email.invoice-new-multiple', $emailData);
