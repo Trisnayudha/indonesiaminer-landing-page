@@ -563,7 +563,8 @@ Code Access: {$paymentData->code_payment}
     private function sendBookingPaymentReceipt($payment, $data, $itemDetails)
     {
         $booking = BookingModel::find($payment->booking_id);
-        $delegateDetail = UsersDelegate::detailFormByPaymentId($payment->id);
+        $delegateDetail = Events::join('payment', 'payment.events_id', 'events.id')->where('payment.id', $payment->id)->first();
+
 
         $emailData = [
             'name' => $booking->name_contact,
@@ -677,7 +678,7 @@ Best Regards Bot Indonesia Miner
      */
     private function sendSinglePaymentEmail($payment, $data, $qrCodePath)
     {
-        $delegateDetail = UsersDelegate::detailFormByPaymentId($payment->id);
+        $delegateDetail = Events::join('payment', 'payment.events_id', 'events.id')->where('payment.id', $payment->id)->first();
         if (empty($delegateDetail->id)) {
             return;
         }
