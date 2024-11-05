@@ -655,6 +655,7 @@
         /* Change cursor to pointer for interactivity */
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
         /* Smooth transition for hover effects */
+        text-align: justify;
     }
 
     .accordion__button:hover {
@@ -712,6 +713,8 @@
         padding: 20px;
         text-align: left;
         transition: transform 0.3s ease;
+        margin-bottom: 20px;
+        /* Tambahkan margin bawah untuk spasi antar item */
     }
 
     .speaker-item:hover {
@@ -721,12 +724,17 @@
     /* Speaker Inner Structure */
     .speaker-inner {
         display: flex;
-        align-items: center;
-        column-gap: 20px;
+        align-items: flex-start;
+        /* Pastikan konten dimulai dari atas */
+        gap: 20px;
+        flex-wrap: wrap;
+        /* Agar elemen bisa turun ke bawah jika ruang tidak cukup */
     }
 
     .speaker-thumb {
         width: 100px;
+        flex-shrink: 0;
+        /* Mencegah gambar menyusut */
     }
 
     .speaker-thumb img {
@@ -735,9 +743,23 @@
         border-radius: 50%;
     }
 
-    /* Speaker Info */
+    /* Speaker Content */
     .speaker-content {
-        flex-grow: 1;
+        flex: 1;
+        /* Mengambil sisa ruang yang tersedia */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Speaker Title */
+    .spkr-content-title {
+        display: flex;
+        align-items: center;
+        /* Menjaga nama dan logo perusahaan sejajar secara vertikal */
+        justify-content: space-between;
+        flex-wrap: wrap;
+        /* Agar elemen turun jika ruang tidak cukup */
+        gap: 10px;
     }
 
     .speaker-infos h5 {
@@ -755,15 +777,22 @@
 
     /* Speaker Company Logo */
     .speaker-comp-logo img {
-        /* width: 50px; */
-        height: 50px;
+        max-width: 100px;
+        height: auto;
+        /* Tambahkan batasan ukuran agar responsif */
     }
 
     /* Speaker Description */
+    .spkr-content-details {
+        margin-top: 10px;
+    }
+
     .spkr-content-details p {
         font-size: 14px;
         color: #555;
         margin: 10px 0;
+        word-break: break-word;
+        /* Agar kata panjang bisa terputus dan tidak merusak layout */
     }
 
     /* Social Icons */
@@ -786,17 +815,30 @@
         color: #ff5a5f;
     }
 
-    /* Utility classes */
-    .d-flex {
-        display: flex;
-    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .speaker-inner {
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .justify-content-between {
-        justify-content: space-between;
-    }
+        .spkr-content-title {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
-    .flex-wrap {
-        flex-wrap: wrap;
+        .speaker-comp-logo {
+            margin-top: 10px;
+        }
+
+        .speaker-content {
+            align-items: center;
+        }
+
+        .spkr-content-details p {
+            text-align: center;
+        }
     }
 </style>
 <link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/css/intlTelInput.css" />

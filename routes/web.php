@@ -4,6 +4,7 @@ use App\Helpers\WhatsappApi;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SpeakerController;
 use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\TicketController;
@@ -28,6 +29,15 @@ Route::get('/news/detail/{slug}', [NewsController::class, 'detail']);
 Route::get('/sponsors', [SponsorController::class, 'index']);
 Route::get('/speakers', [SpeakerController::class, 'index']);
 Route::post('/detail-modal-search', [SponsorController::class, 'postDetailModalSearch']);
+
+Route::get('/program', [ProgramController::class, 'index']);
+Route::get('/calendar/schedule', [ProgramController::class, 'getListCalendarSchedule']);
+Route::get('/calendar/workshop', [ProgramController::class, 'getListCalendarWorkshop']);
+Route::get('/calendar/ministage', [ProgramController::class, 'getListCalendarMinistage']);
+Route::get('/schedule', [ProgramController::class, 'getListSchedule']);
+Route::get('/workshop', [ProgramController::class, 'getListWorkshop']);
+Route::get('/ministage', [ProgramController::class, 'getListMinistage']);
+
 Route::get('/test', function () {
     return view('test');
 });

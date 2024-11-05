@@ -897,11 +897,6 @@
                                 <span class="program-date">19.05.2014</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#byspeaker" data-toggle="tab">
-                                <strong>BY SPEAKER</strong>
-                            </a>
-                        </li>
                     </ul>
                 </div>
 
@@ -998,8 +993,7 @@
                                                         alt="speaker">
                                                 </div>
                                                 <div class="speaker-content">
-                                                    <div
-                                                        class="spkr-content-title d-flex flex-wrap justify-content-between">
+                                                    <div class="spkr-content-title d-flex align-items-center">
                                                         <div class="speaker-infos">
                                                             <h5><a href="speaker-details.html">Zisnad Q. Alex</a></h5>
                                                             <p>Speaker</p>
@@ -1010,22 +1004,24 @@
                                                         </div>
                                                     </div>
                                                     <div class="spkr-content-details">
-                                                        <p>Completey conceplua high quality nice markes rather than long
-                                                            term impact human capital.</p>
+                                                        <p>
+                                                            Completey conceptualize high-quality niche markets rather than
+                                                            long-term impact on human capital.
+                                                            **[Tambahkan teks panjang di sini untuk menguji]**
+                                                        </p>
                                                         <ul class="social-icons">
                                                             <li><a href="#"><i
-                                                                        class="fa-brands fa-facebook"></i></a>
+                                                                        class="fa-brands fa-facebook"></i></a></li>
+                                                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a>
                                                             </li>
-                                                            <li><a href="#"> <i
-                                                                        class="fa-brands fa-twitter"></i></a></li>
                                                             <li><a href="#"><i
-                                                                        class="fa-brands fa-instagram"></i></a>
-                                                            </li>
+                                                                        class="fa-brands fa-instagram"></i></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
 
                                         <!-- Speaker 3 -->
                                         <div class="speaker-item">
