@@ -529,7 +529,7 @@ Code Access: {$paymentData->code_payment}
      */
     private function sendDelegateAccessEmail($paymentData, $qrCodePath)
     {
-        $delegateDetail = Events::where('payment_id', $paymentData->id)->first();
+        $delegateDetail = Events::join('payment', 'payment.events_id', 'events.id')->where('payment.id', $paymentData->id)->first();
         if (empty($delegateDetail->id)) {
             return;
         }
