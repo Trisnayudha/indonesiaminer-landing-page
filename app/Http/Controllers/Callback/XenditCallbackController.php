@@ -113,7 +113,7 @@ class XenditCallbackController extends Controller
      */
     private function processMiningDirectoryPayment($data)
     {
-        $paymentReg = CompanyRegPay::findBy('code', $data['external_id']);
+        $paymentReg = CompanyRegPay::where('code', $data['external_id'])->first();
 
         if (empty($paymentReg->id)) {
             return [
@@ -178,7 +178,7 @@ class XenditCallbackController extends Controller
      */
     private function processOtherPayment($data)
     {
-        $payment = Payment::findBy('code_payment', $data['external_id']);
+        $payment = Payment::where('code_payment', $data['external_id'])->first();
 
         if (empty($payment)) {
             return [
