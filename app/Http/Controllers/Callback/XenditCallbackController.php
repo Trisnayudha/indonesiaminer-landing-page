@@ -570,7 +570,7 @@ Code Access: {$paymentData->code_payment}
             'name' => $booking->name_contact,
             'email' => $booking->email_contact,
             'phone' => $booking->phone_contact,
-            'company' => $booking->company_contact,
+            'company_name' => $booking->company_contact,
             'item' => $itemDetails,
             'status' => 'Paid Off',
             'total_price' => number_format($data['paid_amount'], 0, ',', '.'),
