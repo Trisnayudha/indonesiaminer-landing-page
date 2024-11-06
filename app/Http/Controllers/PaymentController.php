@@ -28,23 +28,23 @@ class PaymentController extends Controller
             // Validasi data request
             $validatedData = $request->validate([
                 // Validasi data peserta
-                'name'                       => 'required|array',
-                'name.*'                     => 'required|string|max:255',
-                'email'                      => 'required|array',
-                'email.*'                    => 'required|email',
-                'phone'                      => 'required|array',
-                'phone.*'                    => 'required|string',
-                'job_title'                  => 'required|array',
-                'job_title.*'                => 'required|string',
-                'company'                    => 'required|array',
-                'company.*'                  => 'required|string',
+                'name'                       => 'array',
+                'name.*'                     => 'string|max:255',
+                'email'                      => 'array',
+                'email.*'                    => 'email',
+                'phone'                      => 'array',
+                'phone.*'                    => 'string',
+                'job_title'                  => 'array',
+                'job_title.*'                => 'string',
+                'company'                    => 'array',
+                'company.*'                  => 'string',
                 'job_title_detail'           => 'sometimes|array',
                 'job_title_detail.*'         => 'nullable|string',
 
                 // Validasi data kontak pemesanan
-                'name_booking'               => 'required|string|max:255',
-                'email_booking'              => 'required|email',
-                'phone_booking'              => 'required|string',
+                'name_booking'               => 'string|max:255',
+                'email_booking'              => 'email',
+                'phone_booking'              => 'string',
                 'job_title_booking'          => 'string|nullable',
                 'company_booking'            => 'string|nullable',
                 'city'                       => 'string|nullable',
@@ -53,17 +53,17 @@ class PaymentController extends Controller
                 'company_website'            => 'string|nullable',
 
                 // Validasi detail acara
-                'events_id_new'              => 'required|integer|exists:events,id',
-                'events_tickets_id_new'      => 'required|integer',
-                'events_tickets_title_new'   => 'required|string',
-                'price_rupiah_new'           => 'required|numeric',
-                'price_dollar_new'           => 'required|numeric',
-                'total_price_val_new'        => 'required|numeric',
-                'total_price_dollar_val_new' => 'required|numeric',
+                'events_id_new'              => 'integer|exists:events,id',
+                'events_tickets_id_new'      => 'integer',
+                'events_tickets_title_new'   => 'string',
+                'price_rupiah_new'           => 'numeric',
+                'price_dollar_new'           => 'numeric',
+                'total_price_val_new'        => 'numeric',
+                'total_price_dollar_val_new' => 'numeric',
                 'voucher_price_new'          => 'numeric|nullable',
                 'voucher_price_dollar_new'   => 'numeric|nullable',
                 'voucher_code'               => 'string|nullable',
-                'rate_idr'                   => 'required|numeric',
+                'rate_idr'                   => 'numeric',
             ]);
 
             // Mulai transaksi database
@@ -209,7 +209,7 @@ Code Payment: $codePayment
             Xendit::setApiKey($secretKey);
 
             // Buat invoice via Xendit
-            $codePayment = $codePayment ?? RandomCode($codePaymentList, 7); // Pastikan $codePayment terisi
+            $codePayment = $codePayment ?? strtoupper(Str::random(7)); // Pastikan $codePayment terisi
 
             $invoiceParams = [
                 'external_id'          => $codePayment,
