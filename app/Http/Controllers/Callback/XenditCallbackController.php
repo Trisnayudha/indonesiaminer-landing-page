@@ -380,7 +380,7 @@ class XenditCallbackController extends Controller
     {
         $company = Company::find($exhibitionPayment->company_id);
         $whatsapp = new WhatsappApi();
-        $whatsapp->phone = '083829314436';
+        $whatsapp->phone = '120363347094951003';
         $whatsapp->message = 'Success payment from ' . $company->name;
         $whatsapp->WhatsappMessage();
     }
@@ -609,7 +609,7 @@ Best Regards Bot Indonesia Miner
         ";
 
         $whatsapp = new WhatsappApi();
-        $whatsapp->phone = '087785140389';
+        $whatsapp->phone = '120363347094951003';
         $whatsapp->message = $message;
         $whatsapp->WhatsappMessage();
     }
