@@ -546,7 +546,7 @@ Code Access: {$paymentData->code_payment}
         ];
 
         $subject = "E - Ticket {$paymentData->code_payment} - IM25 - {$paymentData->name}";
-        Mail::send('email.regis-approve', $data, function ($message) use ($paymentData, $subject) {
+        Mail::send('email.approve', $data, function ($message) use ($paymentData, $subject) {
             $message->from(env('EMAIL_SENDER'), 'indonesiaminer.com');
             $message->to($paymentData->email);
             $message->subject($subject);
@@ -711,7 +711,7 @@ Best Regards Bot Indonesia Miner
         $pdf = Pdf::loadView('email.payment.invoice-new', $emailData);
         $subject = "E - Ticket {$data['external_id']} - IM25 - {$delegateDetail->users_name}";
 
-        Mail::send('email.regis-approve', $emailData, function ($message) use ($pdf, $payment, $subject) {
+        Mail::send('email.approve', $emailData, function ($message) use ($pdf, $payment, $subject) {
             $message->from(env('EMAIL_SENDER'));
             $message->to($payment->users_email);
             $message->subject($subject);
