@@ -33,7 +33,7 @@ class TicketController extends Controller
             // Periksa apakah pesan sudah dikirim sebelumnya
             if (!$request->session()->has('whatsapp_sent')) {
                 $send = new WhatsappApi();
-                $send->phone = '083829314436';
+                $send->phone = '120363357140509867';
                 $send->message = '
 Data Click Payment
 Name:' . $request->name . '
@@ -43,7 +43,7 @@ Company Name:' . $request->company_name . '
 Job Title:' . $request->job_title . '
 ';
 
-                $send->WhatsappMessage();
+                $send->WhatsappMessageGroup();
 
                 // Set session untuk menandai bahwa pesan sudah dikirim
                 $request->session()->put('whatsapp_sent', true, 30);
