@@ -546,7 +546,7 @@ Code Access: {$paymentData->code_payment}
         ];
 
         $subject = "E - Ticket {$paymentData->code_payment} - IM25 - {$paymentData->name}";
-        Mail::send('email.register.regis_silver_approve', $data, function ($message) use ($paymentData, $subject) {
+        Mail::send('email.regis_approve', $data, function ($message) use ($paymentData, $subject) {
             $message->from(env('EMAIL_SENDER'), 'indonesiaminer.com');
             $message->to($paymentData->email);
             $message->subject($subject);
