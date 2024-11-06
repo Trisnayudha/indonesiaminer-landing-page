@@ -1681,18 +1681,18 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ url('ticket') }}" method="GET">
-                    <div style="margin-top:0px;padding-top:0px;">
-                        <p style="text-align: center">
-                        <h1> RESERVE YOUR SPOT</h1>
-                        </p>
-                        <p style="text-align: center">
-                            Complete the form below
-                        </p>
-                    </div>
+                <div style="margin-top:0px;padding-top:0px;">
+                    <p style="text-align: center">
+                    <h1> RESERVE YOUR SPOT</h1>
+                    </p>
+                    <p style="text-align: center">
+                        Complete the form below
+                    </p>
+                </div>
+                <form action="{{ url('ticket') }}" method="GET" id="reserveForm">
                     <div class="modal-body">
+                        <input type="hidden" name="count" value="1">
                         <div class="row">
-                            <input type="hidden" name="count" value="1">
                             <div class="col-sm-12">
                                 <label for="name"> Name</label>
                                 <input type="text" class="form-control" name="name" required>
@@ -1700,7 +1700,7 @@
                             <div class="col-sm-6">
                                 <label for="job_title"> Job Title</label>
                                 <select name="job_title" id="job_title" class="form-control" required>
-                                    <option>Default</option>
+                                    <option value="">Select Job Title</option>
                                     @foreach ($job_title as $item)
                                         <option value="{{ $item->job_title }}">{{ $item->job_title }}</option>
                                     @endforeach
@@ -1712,7 +1712,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="email"> Email </label>
-                                <input type="email" class="form-control" name="email" required>
+                                <input type="email" class="form-control" name="email" id="email_reserve"
+                                    required>
                             </div>
                             <div class="col-sm-6">
                                 <label for="phone"> Mobile Number</label>
@@ -1723,13 +1724,13 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        {{-- <button type="button" class="btn-next-outline-disabled" data-dismiss="modal">Close</button> --}}
                         <button type="submit" class="btn select-ticket">Submit</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
 @endsection
 
 @push('head')
@@ -1737,4 +1738,34 @@
 @endpush
 @push('bottom')
     @include('home.home-script')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('reserveForm');
+
+            form.addEventListener('submit', function(event) {
+                // Prevent form submission for validation
+                event.preventDefault();
+
+                // Get email value
+                const email = document.getElementById('email_reserve').value;
+
+                // List of personal email domains
+                const personalEmailDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com',
+                    'aol.com'
+                ];
+
+                // Extract domain from the email address
+                const emailDomain = email.split('@')[1];
+
+                // Validate email for corporate domain
+                if (personalEmailDomains.includes(emailDomain)) {
+                    alert('Please use your corporate email address, not a personal one.');
+                    return;
+                }
+
+                // If all validations pass, submit the form
+                form.submit();
+            });
+        });
+    </script>
 @endpush
