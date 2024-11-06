@@ -543,7 +543,8 @@ Code Access: {$paymentData->code_payment}
             'events_date' => $dateEvents,
             'events_link' => url('events-join/show/' . $delegateDetail->events_slug),
             'qr_code' => $qrCodePath,
-            'pesan1' => 'delegate'
+            'pesan1' => 'delegate',
+            'pesan' => ''
         ];
 
         $subject = "E - Ticket {$paymentData->code_payment} - IM25 - {$paymentData->name}";
