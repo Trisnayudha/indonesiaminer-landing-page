@@ -529,7 +529,7 @@ Code Access: {$paymentData->code_payment}
      */
     private function sendDelegateAccessEmail($paymentData, $qrCodePath)
     {
-        $delegateDetail = Events::join('payment', 'payment.events_id', 'events.id')->where('payment.id', $paymentData->id)->first();
+        $delegateDetail = Events::where('id', $paymentData->events_id)->first();
         if (empty($delegateDetail->id)) {
             return;
         }
@@ -565,7 +565,6 @@ Code Access: {$paymentData->code_payment}
         $booking = BookingModel::find($payment->booking_id);
         $delegateDetail = Events::join('payment', 'payment.events_id', 'events.id')->where('payment.id', $payment->id)->first();
 
-
         $emailData = [
             'name' => $booking->name_contact,
             'email' => $booking->email_contact,
@@ -587,7 +586,7 @@ Code Access: {$paymentData->code_payment}
             $message->from(env('EMAIL_SENDER'));
             $message->to($booking->email_contact);
             $message->subject('Thank you for payment - INDONESIA MINER 2025');
-            $message->attachData($pdf->output(), $data['code_payment'] . '_Indonesia_Miner_2025.pdf');
+            $message->attachData($pdf->output(), $data['external_id'] . '_Indonesia_Miner_2025.pdf');
         });
     }
 
@@ -712,7 +711,7 @@ Best Regards Bot Indonesia Miner
         $pdf = Pdf::loadView('email.payment.invoice-new', $emailData);
         $subject = "E - Ticket {$data['external_id']} - IM25 - {$delegateDetail->users_name}";
 
-        Mail::send('email.register.regis_silver_approve', $emailData, function ($message) use ($pdf, $payment, $subject) {
+        Mail::send('email.regis_approve', $emailData, function ($message) use ($pdf, $payment, $subject) {
             $message->from(env('EMAIL_SENDER'));
             $message->to($payment->users_email);
             $message->subject($subject);
