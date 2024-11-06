@@ -186,7 +186,7 @@
 
             <br>
             <p>
-                <img src="{{ asset($qr_code) }}" alt="qr_code_({{ $qr_code }})">
+                <img src="{{ $qr_code }}" alt="qr_code_({{ $qr_code }})">
             </p>
             {{-- <p>This email is registered to access <a href="https://indonesiaminer.com/apps">
                     Indonesia Miner Mobile Apps

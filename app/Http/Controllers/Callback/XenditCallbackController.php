@@ -445,7 +445,7 @@ class XenditCallbackController extends Controller
 
         $fileName = 'img-' . time() . '.png';
         $outputPath = 'public/uploads/payment/qr-code/' . $fileName;
-        $storagePath = 'storage/uploads/payment/qr-code/' . $fileName;
+        $storagePath = url('storage/uploads/payment/qr-code/' . $fileName);
 
         Storage::put($outputPath, $qrCodeImage);
 
