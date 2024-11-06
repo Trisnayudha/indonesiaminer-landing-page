@@ -613,7 +613,7 @@ Best Regards Bot Indonesia Miner
         $whatsapp = new WhatsappApi();
         $whatsapp->phone = '120363347094951003';
         $whatsapp->message = $message;
-        $whatsapp->WhatsappMessage();
+        $whatsapp->WhatsappMessageGroup();
     }
 
     /**
