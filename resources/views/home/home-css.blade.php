@@ -129,7 +129,6 @@
     }
 
     .list-item .tag {
-        background: linear-gradient(235deg, rgb(228, 55, 254) 11%, rgb(103, 65, 255) 132.18%);
         color: #fff;
         text-align: center;
         padding: 0.5rem;
@@ -137,6 +136,47 @@
         letter-spacing: 0.04em;
         font-weight: 600;
         width: 100%;
+    }
+
+    .platinum {
+        background: linear-gradient(235deg, rgb(228, 55, 254) 11%, rgb(103, 65, 255) 132.18%);
+
+    }
+
+    .gold {
+        background: linear-gradient(235deg, rgb(255, 223, 0), rgb(255, 193, 7));
+    }
+
+    .silver {
+        background: linear-gradient(235deg, rgb(192, 192, 192), rgb(169, 169, 169));
+    }
+
+    .registration {
+        background: linear-gradient(235deg, rgb(102, 205, 170), rgb(60, 179, 113));
+    }
+
+    .lanyard {
+        background: linear-gradient(235deg, rgb(70, 130, 180), rgb(100, 149, 237));
+    }
+
+    .lunch {
+        background: linear-gradient(235deg, rgb(255, 99, 71), rgb(255, 69, 0));
+    }
+
+    .charging {
+        background: linear-gradient(235deg, rgb(255, 140, 0), rgb(255, 165, 0));
+    }
+
+    .knowledge {
+        background: linear-gradient(235deg, rgb(147, 112, 219), rgb(186, 85, 211));
+    }
+
+    .media {
+        background: linear-gradient(235deg, rgb(255, 0, 255) 11%, rgb(255, 105, 180) 132.18%);
+    }
+
+    .medical {
+        background: linear-gradient(235deg, rgb(220, 20, 60) 11%, rgb(255, 69, 0) 132.18%);
     }
 
     .list-item .image-container {
@@ -246,7 +286,6 @@
 
     /* Sembunyikan elemen yang tidak diperlukan pada versi lite */
     .list-container.lite .list-item .info,
-    .list-container.lite .list-item .tag,
     .list-container.lite .list-item .description {
         display: none;
     }

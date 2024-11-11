@@ -1,3 +1,7 @@
+<!-- Pastikan jQuery sudah di-include -->
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script> --}}
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+
 <div id="myModal" class="modal-custom">
     <div class="modal-custom-content">
         <span class="close">&times;</span>
@@ -201,6 +205,7 @@
     });
     $(document).ready(function() {
         $('#subcribe_interest').click(function(event) {
+            console.log('subcribe')
             event.preventDefault();
 
             // Show loading message
@@ -260,7 +265,114 @@
         });
     });
 </script>
+<!-- Modal Overlay -->
+<div id="modal" class="modal-overlay">
+    <div class="modal-drawer">
+        <!-- Header Modal -->
+        <div class="drawer-header" aria-label="Drawer Header">
+            <span class="close-button">
+                <!-- Ikon Close -->
+                <svg width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                    stroke="#7C7C7C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </span>
+        </div>
+        <!-- Konten Modal -->
+        <div class="drawer-content">
+            <div class="header">
+                <img src="" alt="" style="width: 50%; padding:10px;">
+                <div class="sponsor-level"></div>
+            </div>
+            <div class="body" style="padding: 1rem">
+                <h3></h3>
+                <article class="description-modal">
+                    <!-- Deskripsi akan dimasukkan di sini -->
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Mengatur CSRF token untuk AJAX request
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
+    // Fungsi untuk menutup modal
+    function closeModal() {
+        $('#modal').removeClass('show');
+    }
+
+    // Event listener untuk tombol close
+    $(document).on('click', '.close-button', function() {
+        closeModal();
+    });
+
+    // Menutup modal ketika mengklik di luar modal
+    $(window).on('click', function(event) {
+        if ($(event.target).is('#modal')) {
+            closeModal();
+        }
+    });
+
+    // Event listener untuk klik pada list-item
+    $(document).ready(function() {
+        $('.list-item').on('click', function() {
+            console.log('masuk');
+            // Mendapatkan id dan type dari data attributes
+            const id = $(this).data('id');
+            const type = $(this).data('type');
+
+            // Membuat AJAX request ke API
+            $.ajax({
+                url: '/detail-modal-search',
+                method: 'POST',
+                data: {
+                    id: id,
+                    type: type
+                },
+                success: function(response) {
+                    if (response.status === 1) {
+                        // Update isi modal dengan data dari response
+                        $('#modal .header img').attr('src', response.item.image);
+                        $('#modal .header .sponsor-level').text(type);
+                        $('#modal .body h3').text(response.item.name);
+                        $('#modal .body .description-modal').html(response.item.desc);
+
+                        // Tampilkan modal
+                        $('#modal').addClass('show');
+                    } else {
+                        alert('Data tidak ditemukan.');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX Error:', error);
+                    alert('Terjadi kesalahan saat mengambil data.');
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    function toggleAccordion(button) {
+        // Find the panel element that is the sibling of the clicked button
+        var panel = button.parentElement.nextElementSibling;
+
+        // Toggle display between block and none
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            panel.style.display = "block";
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         function scrollToHash() {
@@ -328,7 +440,6 @@
 
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 <script>
     $(document).ready(function() {
         $('.popup-youtube').magnificPopup({
@@ -366,117 +477,4 @@
 
         window.addEventListener('hashchange', scrollToHash);
     });
-</script>
-
-<!-- Modal Overlay -->
-<div id="modal" class="modal-overlay">
-    <div class="modal-drawer">
-        <!-- Header Modal -->
-        <div class="drawer-header" aria-label="Drawer Header">
-            <span class="close-button">
-                <!-- Ikon Close -->
-                <svg width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                    stroke="#7C7C7C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </span>
-        </div>
-        <!-- Konten Modal -->
-        <div class="drawer-content">
-            <div class="header">
-                <img src="" alt="" style="width: 50%; padding:10px;">
-                <div class="sponsor-level"></div>
-            </div>
-            <div class="body" style="padding: 1rem">
-                <h3></h3>
-                <article class="description-modal">
-                    <!-- Deskripsi akan dimasukkan di sini -->
-                </article>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Pastikan jQuery sudah di-include -->
-{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
-
-<script>
-    // Mengatur CSRF token untuk AJAX request
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    // Fungsi untuk menutup modal
-    function closeModal() {
-        $('#modal').removeClass('show');
-    }
-
-    // Event listener untuk tombol close
-    $(document).on('click', '.close-button', function() {
-        closeModal();
-    });
-
-    // Menutup modal ketika mengklik di luar modal
-    $(window).on('click', function(event) {
-        if ($(event.target).is('#modal')) {
-            closeModal();
-        }
-    });
-
-    // Event listener untuk klik pada list-item
-    $(document).ready(function() {
-        $('.list-item').on('click', function() {
-            // Mendapatkan id dan type dari data attributes
-            const id = $(this).data('id');
-            const type = $(this).data('type');
-
-            // Membuat AJAX request ke API
-            $.ajax({
-                url: '/detail-modal-search',
-                method: 'POST',
-                data: {
-                    id: id,
-                    type: type
-                },
-                success: function(response) {
-                    if (response.status === 1) {
-                        // Update isi modal dengan data dari response
-                        $('#modal .header img').attr('src', response.item.image);
-                        $('#modal .header .sponsor-level').text(type);
-                        $('#modal .body h3').text(response.item.name);
-                        $('#modal .body .description-modal').html(response.item.desc);
-
-                        // Tampilkan modal
-                        $('#modal').addClass('show');
-                    } else {
-                        alert('Data tidak ditemukan.');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error('AJAX Error:', error);
-                    alert('Terjadi kesalahan saat mengambil data.');
-                }
-            });
-        });
-    });
-</script>
-
-<script>
-    function toggleAccordion(button) {
-        // Find the panel element that is the sibling of the clicked button
-        var panel = button.parentElement.nextElementSibling;
-
-        // Toggle display between block and none
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-            button.setAttribute('aria-expanded', 'false');
-        } else {
-            panel.style.display = "block";
-            button.setAttribute('aria-expanded', 'true');
-        }
-    }
 </script>
