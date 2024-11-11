@@ -11,6 +11,7 @@ use App\Models\MdMediaPartnerModel;
 use App\Models\MdMedicalModel;
 use App\Models\MdRegistrationModel;
 use App\Models\MdSponsorModel;
+use App\Services\EventsCompanyService;
 use App\Services\MdAssociationService;
 use App\Services\MdChargingService;
 use App\Services\MdKnowledgePartnerService;
@@ -37,6 +38,7 @@ class SponsorController extends Controller
         $data['registration'] = MdRegistrationService::listAllHome();
         $data['lunch'] = MdLunchService::listAllHome();
         $data['landyard'] = MdLandyarkService::listAllHome();
+        $data['exhibitor'] = EventsCompanyService::listExhibitionSponsor(12, 50);
 
         // dd($data);
         return view('sponsors.index', $data);

@@ -211,6 +211,30 @@
                 @endif
             </ul>
         </div>
+        <div class="one withsmallpadding ppb_header" style="text-align:center;padding:60px 0 60px 0;">
+            <div class="standard_wrapper">
+                <div class="page_content_wrapper">
+                    <div class="inner">
+                        <div style="margin:auto;width:100%">
+                            <h2 class="ppb_title" style="text-align:center;color:black">Exhibition List</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="list-container lite" style="padding-bottom: 20px;">
+                @if (!empty($exhibitor))
+                    @foreach ($exhibitor as $sponsors)
+                        @foreach ($sponsors as $sponsor)
+                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Media Partner">
+                                <figure class="image-container">
+                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                </figure>
+                            </li>
+                        @endforeach
+                    @endforeach
+                @endif
+            </ul>
+        </div>
     </div>
 @endsection
 
