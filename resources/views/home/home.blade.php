@@ -583,7 +583,7 @@
                 </div>
             </div>
             <div class="ppb_header_content">
-                <a href="https://indonesiaminer.com/events/detail/2023-11-10085837-indonesia-miner-2024" target="_blank">
+                <a href="{{ url('/speakers') }}" target="_blank">
                     <button class="glow-on-hover">
                         <b>
                             <span>See More Speakers</span>
@@ -724,386 +724,237 @@
             </div>
         </div>
 
-        <div class="one withsmallpadding ppb_header " style="text-align:center;padding:60px 0 60px 0;">
-            <div class="standard_wrapper">
-                <div class="page_content_wrapper">
-                    <div class="inner">
-                        <div style="margin:auto;width:100%">
-                            <h2 class="ppb_title" style="text-align:center;color:black">SPONSORS
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Sponsors Section -->
-        <div class="ppb_speaker_classic one nopadding">
-            <!-- Platinum Sponsors -->
-            @if (!empty($sponsor_platinum2024))
-                <ul class="list-container">
-                    @foreach ($sponsor_platinum2024 as $sponsors)
-                        @foreach ($sponsors as $sponsor)
-                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Sponsor">
-                                <div class="tag">PLATINUM SPONSOR</div>
-                                <figure class="image-container">
-                                    <img alt="{{ $sponsor->name }}" src="{{ $sponsor->image }}" />
-                                </figure>
-                                <div class="info">
-                                    <h4>{{ $sponsor->name }}</h4>
-                                    <div class="description">
-                                        <div>
-                                            {!! $sponsor->desc !!}
-                                            <span class="ellipsis">…</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        @endforeach
-                    @endforeach
-                </ul>
-            @endif
-
-            <!-- Gold Sponsors -->
-            @if (!empty($sponsor_gold2024))
-                <ul class="list-container lite">
-                    @foreach ($sponsor_gold2024 as $sponsors)
-                        @foreach ($sponsors as $sponsor)
-                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Sponsor">
-                                <figure class="image-container">
-                                    <img alt="{{ $sponsor->name }}" src="{{ $sponsor->image }}" />
-                                </figure>
-                            </li>
-                        @endforeach
-                    @endforeach
-                </ul>
-            @endif
-
-            <!-- Silver Sponsors -->
-            @if (!empty($sponsor_silver2024))
-                <ul class="list-container lite">
-                    @foreach ($sponsor_silver2024 as $sponsors)
-                        @foreach ($sponsors as $sponsor)
-                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Sponsor">
-                                <figure class="image-container">
-                                    <img alt="{{ $sponsor->name }}" src="{{ $sponsor->image }}" />
-                                </figure>
-                            </li>
-                        @endforeach
-                    @endforeach
-                </ul>
-            @endif
-
-            <!-- Registration Sponsors -->
-            <ul class="list-container lite">
-                @if (!empty($registration))
-                    @foreach ($registration as $sponsors)
-                        @foreach ($sponsors as $sponsor)
-                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="registration">
-                                <figure class="image-container">
-                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
-                                </figure>
-                            </li>
-                        @endforeach
-                    @endforeach
-                @endif
-
-                <!-- Lanyard Sponsors -->
-                @if (!empty($landyard))
-                    @foreach ($landyard as $sponsors)
-                        @foreach ($sponsors as $sponsor)
-                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="landyard">
-                                <figure class="image-container">
-                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
-                                </figure>
-                            </li>
-                        @endforeach
-                    @endforeach
-                @endif
-
-                <!-- Lunch Sponsors -->
-                @if (!empty($lunch))
-                    @foreach ($lunch as $sponsors)
-                        @foreach ($sponsors as $sponsor)
-                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="lunch">
-                                <figure class="image-container">
-                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
-                                </figure>
-                            </li>
-                        @endforeach
-                    @endforeach
-                @endif
-
-                <!-- Charging Sponsors -->
-                @if (!empty($charging))
-                    @foreach ($charging as $sponsors)
-                        @foreach ($sponsors as $sponsor)
-                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="charging">
-                                <figure class="image-container">
-                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
-                                </figure>
-                            </li>
-                        @endforeach
-                    @endforeach
-                @endif
-            </ul>
-
-            <!-- Knowledge Partners -->
-            @if (!empty($knowledge_partner2024))
-                <ul class="list-container lite">
-                    @foreach ($knowledge_partner2024 as $sponsors)
-                        @foreach ($sponsors as $sponsor)
-                            <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Knowledge Partner">
-                                <figure class="image-container">
-                                    <img alt="IM2025" src="{{ $sponsor->image }}" />
-                                </figure>
-                            </li>
-                        @endforeach
-                    @endforeach
-                </ul>
-            @endif
-            <div class="ppb_header_content">
-                <a href="{{ url('sponsors') }}" target="_blank">
-                    <button class="glow-on-hover">
-                        <b>
-                            <span>See More Sponsor</span>
-                        </b>
-                    </button>
-                </a>
-                <br>
-            </div>
-        </div>
-
-
-        <div class="ppb_speaker_classic one nopadding">
-            <div class="program-schedule-container">
-                <h2 class="program-title">CONFERENCE OR EVENT SCHEDULE</h2>
-                <div class="program-day-tabs">
-                    <ul class="nav nav-tabs">
-                        <li class="active">
-                            <a href="#day1" data-toggle="tab">
-                                <strong>DAY 01</strong><br>
-                                <span class="program-date">17.05.2014</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#day2" data-toggle="tab">
-                                <strong>DAY 02</strong><br>
-                                <span class="program-date">18.05.2014</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#day3" data-toggle="tab">
-                                <strong>DAY 03</strong><br>
-                                <span class="program-date">19.05.2014</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="tab-content">
-                    <div class="tab-pane active" id="day1">
-                        <div class="program-hall-tabs">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#hallA" data-toggle="tab">HALL A</a></li>
-                                <li><a href="#hallB" data-toggle="tab">HALL B</a></li>
-                                <li><a href="#hallC" data-toggle="tab">HALL C</a></li>
-                                <li><a href="#hallD" data-toggle="tab">HALL D</a></li>
-                            </ul>
-                        </div>
-                        <div class="session-info">
-                            {{-- data program --}}
-                            <div class="accordion__item">
-                                <div class="accordion__heading" role="heading">
-                                    <div class="accordion__button" aria-expanded="false" onclick="toggleAccordion(this)">
-                                        <div class="author author-multi">
-                                            <img title="Steven Lucy" alt="Author"
-                                                src="https://mighty.tools/mockmind-api/content/human/1.jpg">
-                                            <img title="Jonaton Smith" alt="Author"
-                                                src="https://mighty.tools/mockmind-api/content/human/2.jpg">
-                                            <img title="John Smith" alt="Author"
-                                                src="https://mighty.tools/mockmind-api/content/human/3.jpg">
-                                            <img title="John Doe" alt="Author"
-                                                src="https://mighty.tools/mockmind-api/content/human/4.jpg">
-                                        </div>
-                                        <div class="schedule-info">
-                                            <h3>Time Management, Getting a Smart Start, Setting Goals</h3>
-                                            <ul>
-                                                <li><i class="icofont-user-suited"></i> By <span>Leonardo DiCaprio</span>
-                                                    of USA Inc</li>
-                                                <li><i class="icofont-wall-clock"></i> 13:00AM - 20:00PM</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="accordion__panel" style="display: none; text-align:left">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry standard dummy text ever since the 1500s.</p>
-                                    <div class="row h-100 align-items-center">
-                                        <div class="col-lg-6 col-md-7">
-                                            <div class="location">
-                                                <b>Location:</b> Hall 132, Building C, King Street, <span>USA</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Speaker Profile -->
-                                    <div class="speaker-grid">
-                                        <!-- Speaker 1 -->
-                                        <div class="speaker-item">
-                                            <div class="speaker-inner">
-                                                <div class="speaker-thumb">
-                                                    <img src="https://mighty.tools/mockmind-api/content/human/62.jpg"
-                                                        alt="speaker">
-                                                </div>
-                                                <div class="speaker-content">
-                                                    <div
-                                                        class="spkr-content-title d-flex flex-wrap justify-content-between">
-                                                        <div class="speaker-infos">
-                                                            <h5><a href="speaker-details.html">Zisnad Q. Alex</a></h5>
-                                                            <p>Speaker</p>
-                                                        </div>
-                                                        <div class="speaker-comp-logo">
-                                                            <img src="https://indonesiaminer.com/uploads/company/1659595183.jpg"
-                                                                alt="spkr-company">
-                                                        </div>
-                                                    </div>
-                                                    <div class="spkr-content-details">
-                                                        <p>Completey conceplua high quality nice markes rather than long
-                                                            term impact human capital.</p>
-                                                        <ul class="social-icons">
-                                                            <li><a href="#"><i
-                                                                        class="fa-brands fa-facebook"></i></a>
-                                                            </li>
-                                                            <li><a href="#"> <i
-                                                                        class="fa-brands fa-twitter"></i></a></li>
-                                                            <li><a href="#"><i
-                                                                        class="fa-brands fa-instagram"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Speaker 2 -->
-                                        <div class="speaker-item">
-                                            <div class="speaker-inner">
-                                                <div class="speaker-thumb">
-                                                    <img src="https://mighty.tools/mockmind-api/content/human/62.jpg"
-                                                        alt="speaker">
-                                                </div>
-                                                <div class="speaker-content">
-                                                    <div class="spkr-content-title d-flex align-items-center">
-                                                        <div class="speaker-infos">
-                                                            <h5><a href="speaker-details.html">Zisnad Q. Alex</a></h5>
-                                                            <p>Speaker</p>
-                                                        </div>
-                                                        <div class="speaker-comp-logo">
-                                                            <img src="https://indonesiaminer.com/uploads/company/1659595183.jpg"
-                                                                alt="spkr-company">
-                                                        </div>
-                                                    </div>
-                                                    <div class="spkr-content-details">
-                                                        <p>
-                                                            Completey conceptualize high-quality niche markets rather than
-                                                            long-term impact on human capital.
-                                                            **[Tambahkan teks panjang di sini untuk menguji]**
-                                                        </p>
-                                                        <ul class="social-icons">
-                                                            <li><a href="#"><i
-                                                                        class="fa-brands fa-facebook"></i></a></li>
-                                                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                                            </li>
-                                                            <li><a href="#"><i
-                                                                        class="fa-brands fa-instagram"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!-- Speaker 3 -->
-                                        <div class="speaker-item">
-                                            <div class="speaker-inner">
-                                                <div class="speaker-thumb">
-                                                    <img src="https://mighty.tools/mockmind-api/content/human/62.jpg"
-                                                        alt="speaker">
-                                                </div>
-                                                <div class="speaker-content">
-                                                    <div
-                                                        class="spkr-content-title d-flex flex-wrap justify-content-between">
-                                                        <div class="speaker-infos">
-                                                            <h5><a href="speaker-details.html">Zisnad Q. Alex</a></h5>
-                                                            <p>Speaker</p>
-                                                        </div>
-                                                        <div class="speaker-comp-logo">
-                                                            <img src="https://indonesiaminer.com/uploads/company/1659595183.jpg"
-                                                                alt="spkr-company">
-                                                        </div>
-                                                    </div>
-                                                    <div class="spkr-content-details">
-                                                        <p>Completey conceplua high quality nice markes rather than long
-                                                            term impact human capital.</p>
-                                                        <ul class="social-icons">
-                                                            <li><a href="#"><i
-                                                                        class="fa-brands fa-facebook"></i></a>
-                                                            </li>
-                                                            <li><a href="#"> <i
-                                                                        class="fa-brands fa-twitter"></i></a></li>
-                                                            <li><a href="#"><i
-                                                                        class="fa-brands fa-instagram"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Speaker 4 -->
-                                        <div class="speaker-item">
-                                            <div class="speaker-inner">
-                                                <div class="speaker-thumb">
-                                                    <img src="https://mighty.tools/mockmind-api/content/human/62.jpg"
-                                                        alt="speaker">
-                                                </div>
-                                                <div class="speaker-content">
-                                                    <div
-                                                        class="spkr-content-title d-flex flex-wrap justify-content-between">
-                                                        <div class="speaker-infos">
-                                                            <h5><a href="speaker-details.html">Zisnad Q. Alex</a></h5>
-                                                            <p>Speaker</p>
-                                                        </div>
-                                                        <div class="speaker-comp-logo">
-                                                            <img src="https://indonesiaminer.com/uploads/company/1659595183.jpg"
-                                                                alt="spkr-company">
-                                                        </div>
-                                                    </div>
-                                                    <div class="spkr-content-details">
-                                                        <p>Completey conceplua high quality nice markes rather than long
-                                                            term impact human capital.</p>
-                                                        <ul class="social-icons">
-                                                            <li><a href="#"><i
-                                                                        class="fa-brands fa-facebook"></i></a>
-                                                            </li>
-                                                            <li><a href="#"> <i
-                                                                        class="fa-brands fa-twitter"></i></a></li>
-                                                            <li><a href="#"><i
-                                                                        class="fa-brands fa-instagram"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
+        <div style="position: relative; margin-top:60px; margin-bottom:20px">
+            <!-- Header Section -->
+            <div class="one withsmallpadding ppb_header" style="text-align:center;padding:60px 0 60px 0;">
+                <div class="standard_wrapper">
+                    <div class="page_content_wrapper">
+                        <div class="inner">
+                            <div style="margin:auto;width:100%">
+                                <h2 class="ppb_title" style="text-align:center;color:black">SPONSORS</h2>
                             </div>
-
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Sponsors Section -->
+            <div class="ppb_speaker_classic one nopadding">
+                <!-- Platinum Sponsors -->
+                @if (!empty($sponsor_platinum2024))
+                    <ul class="list-container">
+                        @foreach ($sponsor_platinum2024 as $sponsors)
+                            @foreach ($sponsors as $sponsor)
+                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Sponsor">
+                                    <div class="tag platinum">PLATINUM SPONSOR</div>
+                                    <figure class="image-container">
+                                        <img alt="{{ $sponsor->name }}" src="{{ $sponsor->image }}" />
+                                    </figure>
+                                    <div class="info">
+                                        <h4>{{ $sponsor->name }}</h4>
+                                        <div class="description">
+                                            <div>
+                                                {!! $sponsor->desc !!}
+                                                <span class="ellipsis">…</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+                        @endforeach
+                    </ul>
+                @endif
+
+                <!-- Gold Sponsors -->
+                @if (!empty($sponsor_gold2024))
+                    <ul class="list-container lite">
+                        @foreach ($sponsor_gold2024 as $sponsors)
+                            @foreach ($sponsors as $sponsor)
+                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Sponsor">
+                                    <div class="tag gold">GOLD SPONSOR</div>
+                                    <figure class="image-container">
+                                        <img alt="{{ $sponsor->name }}" src="{{ $sponsor->image }}" />
+                                    </figure>
+                                </li>
+                            @endforeach
+                        @endforeach
+                    </ul>
+                @endif
+
+                <!-- Silver Sponsors -->
+                @if (!empty($sponsor_silver2024))
+                    <ul class="list-container lite">
+                        @foreach ($sponsor_silver2024 as $sponsors)
+                            @foreach ($sponsors as $sponsor)
+                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Sponsor">
+                                    <div class="tag silver">SILVER SPONSOR</div>
+                                    <figure class="image-container">
+                                        <img alt="{{ $sponsor->name }}" src="{{ $sponsor->image }}" />
+                                    </figure>
+                                </li>
+                            @endforeach
+                        @endforeach
+                    </ul>
+                @endif
+
+                <!-- Registration Sponsors -->
+                <ul class="list-container lite">
+                    @if (!empty($registration))
+                        @foreach ($registration as $sponsors)
+                            @foreach ($sponsors as $sponsor)
+                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="registration">
+                                    <div class="tag registration">REGISTRATION SPONSOR</div>
+                                    <figure class="image-container">
+                                        <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                    </figure>
+                                </li>
+                            @endforeach
+                        @endforeach
+                    @endif
+
+                    <!-- Lanyard Sponsors -->
+                    @if (!empty($landyard))
+                        @foreach ($landyard as $sponsors)
+                            @foreach ($sponsors as $sponsor)
+                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="landyard">
+                                    <div class="tag lanyard">LANDYARD & BADGES SPONSOR</div>
+                                    <figure class="image-container">
+                                        <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                    </figure>
+                                </li>
+                            @endforeach
+                        @endforeach
+                    @endif
+
+                    <!-- Lunch Sponsors -->
+                    @if (!empty($lunch))
+                        @foreach ($lunch as $sponsors)
+                            @foreach ($sponsors as $sponsor)
+                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="lunch">
+                                    <div class="tag lunch">LUNCH SPONSOR</div>
+                                    <figure class="image-container">
+                                        <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                    </figure>
+                                </li>
+                            @endforeach
+                        @endforeach
+                    @endif
+
+                    <!-- Charging Sponsors -->
+                    @if (!empty($charging))
+                        @foreach ($charging as $sponsors)
+                            @foreach ($sponsors as $sponsor)
+                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="charging">
+                                    <div class="tag charging">CHARGING SPONSOR</div>
+                                    <figure class="image-container">
+                                        <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                    </figure>
+                                </li>
+                            @endforeach
+                        @endforeach
+                    @endif
+                </ul>
+
+                <!-- Knowledge Partners -->
+                @if (!empty($knowledge_partner2024))
+                    <ul class="list-container lite">
+                        @foreach ($knowledge_partner2024 as $sponsors)
+                            @foreach ($sponsors as $sponsor)
+                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Knowledge Partner">
+                                    <div class="tag knowledge">KNOWLEDGE SPONSOR</div>
+                                    <figure class="image-container">
+                                        <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                    </figure>
+                                </li>
+                            @endforeach
+                        @endforeach
+                    </ul>
+                @endif
+            </div>
+
+
+            <!-- Supporting Association & Media Partners -->
+            <div class="one withsmallpadding ppb_header" style="text-align:center;padding:60px 0 60px 0;">
+                <div class="standard_wrapper">
+                    <div class="page_content_wrapper">
+                        <div class="inner">
+                            <div style="margin:auto;width:100%">
+                                <h2 class="ppb_title" style="text-align:center;color:black">SUPPORTING ASSOCIATION & MEDIA
+                                    PARTNERS</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ppb_speaker_classic one nopadding">
+                <!-- Supporting Associations -->
+                @if (!empty($support_association2024))
+                    <ul class="list-container lite">
+                        @foreach ($support_association2024 as $sponsors)
+                            @foreach ($sponsors as $sponsor)
+                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Association">
+                                    <figure class="image-container">
+                                        <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                    </figure>
+                                </li>
+                            @endforeach
+                        @endforeach
+                    </ul>
+                @endif
+
+                <!-- Media Partners -->
+                <ul class="list-container lite" style="padding-bottom: 20px;">
+                    @if (!empty($media_partner2024))
+                        @foreach ($media_partner2024 as $sponsors)
+                            @foreach ($sponsors as $sponsor)
+                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Media Partner">
+                                    <div class="tag medical">MEDIA PARTNER</div>
+                                    <figure class="image-container">
+                                        <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                    </figure>
+                                </li>
+                            @endforeach
+                        @endforeach
+                    @endif
+
+                    <!-- Medical Partners -->
+                    @if (!empty($medical))
+                        @foreach ($medical as $sponsors)
+                            @foreach ($sponsors as $sponsor)
+                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Medical Partner">
+                                    <div class="tag medical">MEDICAL PARTNER</div>
+                                    <figure class="image-container">
+                                        <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                    </figure>
+                                </li>
+                            @endforeach
+                        @endforeach
+                    @endif
+                </ul>
+            </div>
+            <div class="one withsmallpadding ppb_header" style="text-align:center;padding:60px 0 60px 0;">
+                <div class="standard_wrapper">
+                    <div class="page_content_wrapper">
+                        <div class="inner">
+                            <div style="margin:auto;width:100%">
+                                <h2 class="ppb_title" style="text-align:center;color:black">Exhibition List</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-container lite" style="padding-bottom: 20px;">
+                    @if (!empty($exhibitor))
+                        @foreach ($exhibitor as $sponsors)
+                            @foreach ($sponsors as $sponsor)
+                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Media Partner">
+                                    <figure class="image-container">
+                                        <img alt="IM2025" src="{{ $sponsor->image }}" />
+                                    </figure>
+                                </li>
+                            @endforeach
+                        @endforeach
+                    @endif
+                </ul>
             </div>
         </div>
 
@@ -1621,9 +1472,16 @@
                             <div class="quform-element">
                                 <br />
                                 <span class="wpcf7-form-control-wrap your-name">
-                                    <input id="company_interest" type="text" name="company_interest"
-                                        size="40" class="input1" aria-required="true" aria-invalid="false"
-                                        placeholder="Company*" required />
+                                    <input id="company_interest" type="text" name="company_interest" size="40"
+                                        class="input1" aria-required="true" aria-invalid="false" placeholder="Company*"
+                                        required />
+                                </span>
+                            </div>
+                            <div class="quform-element">
+                                <br />
+                                <span class="wpcf7-form-control-wrap your-name">
+                                    <input id="phoneNumber" type="text" name="phone" size="40" class="input1"
+                                        aria-required="true" aria-invalid="false" placeholder="Phone Number" required />
                                 </span>
                             </div>
                             <div class="quform-element">
@@ -1735,6 +1593,11 @@
 
 @push('head')
     @include('home.home-css')
+    <style>
+        .iti {
+            display: block !important;
+        }
+    </style>
 @endpush
 @push('bottom')
     @include('home.home-script')

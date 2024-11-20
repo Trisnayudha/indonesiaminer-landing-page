@@ -822,190 +822,208 @@
     }
 
     .pricing-table-get {
-        border-radius: 3px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-column-gap: 18px;
         grid-row-gap: 20px;
         margin: auto;
         color: black;
+        border-radius: 3px;
     }
 
+    /* Container styling */
     .container-get {
-        margin: auto;
         background-color: #fff;
         width: 450px;
+        max-width: 100%;
         height: auto;
+        margin: 20px auto;
         border-radius: 20px;
         box-shadow: 5px 5px 8px grey, -5px -5px 10px grey;
+        overflow: hidden;
     }
 
-    .container-get .header-get {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: rgb(214 156 37);
-        border-radius: 20px 20px 0px 0px;
-        height: 35px;
-        color: #fff;
-        text-transform: uppercase;
-    }
-
+    .container-get .header-get,
     .container-get .header-get2 {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #094662;
-        border-radius: 20px 20px 0px 0px;
-        height: 35px;
+        height: 50px;
+        font-size: 1.2rem;
         color: #fff;
         text-transform: uppercase;
     }
 
-    .container-get .background-get {
-        height: 150px;
-        background-color: rgb(232, 180, 75);
+    .container-get .header-get {
+        background-color: rgb(214, 156, 37);
+    }
+
+    .container-get .header-get2 {
+        background-color: #094662;
+    }
+
+    .container-get .background-get,
+    .container-get .background-get2 {
+        height: 100px;
         position: relative;
+        background-color: rgb(232, 180, 75);
     }
 
     .container-get .background-get2 {
-        height: 150px;
         background-color: #00537a;
-        position: relative;
     }
 
-    .container-get .background-get:after {
-        content: "BOOTH ONLY";
-        color: #fff;
-        position: absolute;
-        top: 30px;
-        margin: auto;
-        left: 0;
-        right: 0;
-        text-align: center;
-        font-size: 30px;
-        font-weight: 900;
-    }
-
-    .container-get .background-get .img {
-        position: absolute;
-        bottom: -25px;
-        margin: auto;
-        left: 0;
-        right: 0;
-        width: 100px;
-        height: 100px;
-        border-radius: 10px;
-        box-shadow: 2px 2px 5px grey, -2px -2px 5px grey;
-    }
-
+    .container-get .background-get:after,
     .container-get .background-get2:after {
-        content: "SPONSORSHIP";
+        content: attr(data-label);
         color: #fff;
         position: absolute;
-        top: 30px;
-        margin: auto;
+        top: 20px;
         left: 0;
         right: 0;
         text-align: center;
-        font-size: 30px;
+        font-size: 1.5rem;
         font-weight: 900;
     }
 
+    .container-get .background-get .img,
     .container-get .background-get2 .img {
         position: absolute;
-        bottom: -25px;
-        margin: auto;
-        left: 0;
-        right: 0;
-        width: 100px;
-        height: 100px;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 80px;
         border-radius: 10px;
         box-shadow: 2px 2px 5px grey, -2px -2px 5px grey;
     }
 
     .container-get .content-get {
-        margin-top: 50px;
+        padding: 20px 10px;
     }
 
     .container-get .content-get ul {
         list-style: none;
-        margin: 0px 20px;
         padding: 0;
+        margin: 0;
+    }
+
+    .container-get .content-get ul li {
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
     }
 
     .container-get .content-get ul li div {
         display: flex;
         align-items: center;
-        margin: 10px 0px;
     }
 
     .container-get .content-get ul li div svg {
-        margin-right: 5px;
-        width: 20px;
-    }
-
-    .container-get .button {
-        width: 90%;
+        margin-right: 8px;
+        width: 24px;
     }
 
     .container-get .cssbuttons-io-button {
-        margin: auto;
-        background: radial-gradient(49.23% 25319.6% at 3.27% 50.77%, rgb(255, 159, 40) 0%, rgba(255, 159, 40, 0) 100%), rgb(248, 219, 74);
-        ;
-        color: white;
-        font-family: inherit;
-        padding: 0.35em;
-        padding-left: 1.2em;
-        font-size: 17px;
-        margin-top: 50px;
-        font-weight: 500;
-        border-radius: 0.9em;
-        border: none;
-        letter-spacing: 0.05em;
+        width: 80%;
+        padding: 0.8em;
+        font-size: 1rem;
+        margin: 20px auto;
         display: flex;
         align-items: center;
-        box-shadow: inset 0 0 1.6em -0.6em radial-gradient(49.23% 25319.6% at 3.27% 50.77%, rgb(255, 159, 40) 0%, rgba(255, 159, 40, 0) 100%), rgb(248, 219, 74);
-        ;
-        overflow: hidden;
+        justify-content: center;
+        background: radial-gradient(circle, #f8db4a, #ff9f28);
+        color: white;
+        border: none;
+        border-radius: 0.9em;
+        box-shadow: inset 0 0 1.6em -0.6em rgba(255, 159, 40, 0.8), rgb(248, 219, 74);
         position: relative;
-        height: 2.8em;
-        margin-bottom: 10px;
-        padding-right: 3.3em;
+        overflow: hidden;
+        cursor: pointer;
     }
 
     .container-get .cssbuttons-io-button .icon {
         background: white;
-        margin-left: 1em;
-        position: absolute;
+        height: 2.2em;
+        width: 2.2em;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 2.2em;
-        width: 2.2em;
-        border-radius: 0.7em;
-        box-shadow: 0.1em 0.1em 0.6em 0.2em radial-gradient(49.23% 25319.6% at 3.27% 50.77%, rgb(255, 159, 40) 0%, rgba(255, 159, 40, 0) 100%), rgb(248, 219, 74);
-        ;
-        right: 0.3em;
+        margin-left: 1em;
         transition: all 0.3s;
     }
 
-    .container-get .cssbuttons-io-button:hover .icon {
-        width: calc(100% - 0.6em);
+    .container-get .cssbuttons-io-button .icon svg {
+        width: 1.2em;
+        color: black;
     }
 
-    .container-get .cssbuttons-io-button .icon svg {
-        width: 1.1em;
-        transition: transform 0.3s;
-        color: black;
+    .container-get .cssbuttons-io-button:hover .icon {
+        width: calc(100% - 1.5em);
     }
 
     .container-get .cssbuttons-io-button:hover .icon svg {
         transform: translateX(0.1em);
     }
 
-    .container-get .cssbuttons-io-button:active .icon {
-        transform: scale(0.95);
+    @media (max-width: 768px) {
+        .pricing-table-get {
+            grid-template-columns: 1fr;
+        }
+
+        .container-get {
+            width: 90%;
+        }
+
+        .container-get .header-get,
+        .container-get .header-get2 {
+            font-size: 1rem;
+            height: 40px;
+        }
+
+        .container-get .background-get:after,
+        .container-get .background-get2:after {
+            font-size: 1.25rem;
+        }
+
+        .container-get .cssbuttons-io-button {
+            font-size: 0.9rem;
+            padding: 0.7em;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .container-get {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .container-get .header-get,
+        .container-get .header-get2 {
+            font-size: 0.9rem;
+            height: 35px;
+        }
+
+        .container-get .background-get:after,
+        .container-get .background-get2:after {
+            font-size: 1rem;
+        }
+
+        .container-get .content-get {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .container-get .content-get ul li div svg {
+            width: 20px;
+        }
+
+        .container-get .cssbuttons-io-button {
+            font-size: 12px;
+            padding: 0.6em;
+            height: auto;
+        }
     }
 </style>
 

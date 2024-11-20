@@ -1,4 +1,4 @@
-@extends('template.frontend.index-home')
+@extends('template.index')
 @section('title', 'Indonesia Miner : Exhibition')
 {{-- @section('header-bg', 'bg-transparent') --}}
 @section('header-bg', 'bg-light')
@@ -28,6 +28,74 @@
                             educate, empower and engage Indonesia Miners most important
                             audience.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="ppb_speaker_grid one nopadding" style="margin-top:30px;">
+            <div class="page_content_wrapper page_main_content sidebar_content full_width fixed_column">
+                <div id="15738080891821730550" data-columns="3">
+                    <div class="element grid one_third_bg">
+                        <a class="speaker_grid_link" href="#"><img
+                                src="{{ asset('new-home/exhibition/exhibition_4.jpg') }}" alt="John Doe" class="" />
+                            <div class="speaker_info_wrapper">
+                                {{-- <h4>John Doe</h4>
+                                <div class="speaker_desc">Founder Envato</div> --}}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="element grid one_third_bg">
+                        <a class="speaker_grid_link" href="#"><img
+                                src="{{ asset('new-home/exhibition/exhibition_5.png') }}" alt="Joanna Smith"
+                                class="" />
+                            <div class="speaker_info_wrapper">
+                                {{-- <h4>Joanna Smith</h4>
+                                <div class="speaker_desc">VP Design Apple</div> --}}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="element grid one_third_bg">
+                        <a class="speaker_grid_link" href="#"><img
+                                src="{{ asset('new-home/exhibition/exhibition_3.jpg') }}" alt="Luis Gallop"
+                                class="" />
+                            <div class="speaker_info_wrapper">
+                                {{-- <h4>Luis Gallop</h4>
+                                <div class="speaker_desc">Head Engineering Dell</div> --}}
+                            </div>
+                        </a>
+                    </div>
+                    <br class="clear" />
+                    <div class="element grid one_third_bg">
+                        <a class="speaker_grid_link" href="#"><img
+                                src="{{ asset('new-home/exhibition/exhibition_2.jpg') }}" alt="Katie Stricker"
+                                class="" />
+                            <div class="speaker_info_wrapper">
+                                {{-- <h4>Katie Stricker</h4>
+                                <div class="speaker_desc">Co-founder Blackbox</div> --}}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="element grid one_third_bg">
+                        <a class="speaker_grid_link" href="#"><img
+                                src="{{ asset('new-home/exhibition/exhibition_1.jpg') }}"
+                                alt="Espen
+                            Brunberg" class="" />
+                            <div class="speaker_info_wrapper">
+                                {{-- <h4>Espen Brunberg</h4>
+                                <div class="speaker_desc">Web Technologist</div> --}}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="element grid one_third_bg">
+                        <a class="speaker_grid_link" href="#"><img
+                                src="{{ asset('new-home/exhibition/exhibition_6.jpg') }}" alt="Kevin Chase"
+                                class="" />
+                            <div class="speaker_info_wrapper">
+                                {{-- <h4>Kevin Chase</h4>
+                                <div class="speaker_desc">Chairman Tesla</div> --}}
+                            </div>
+                        </a>
+                    </div>
+                    <br class="clear" />
                 </div>
             </div>
         </div>
@@ -105,7 +173,8 @@
                                 <li>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6" style="color: green;">
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6"
+                                            style="color: green;">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
@@ -116,7 +185,8 @@
                                 <li>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6" style="color: green;">
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6"
+                                            style="color: green;">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
@@ -127,7 +197,8 @@
                                 <li>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6" style="color: green;">
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6"
+                                            style="color: green;">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
@@ -138,7 +209,8 @@
                                 <li>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6" style="color: green;">
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6"
+                                            style="color: green;">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
@@ -687,6 +759,32 @@
             }
         }
     </script>
+
+    @if (session('success'))
+        <script>
+            swal({
+                title: 'THANK YOU',
+                text: "{{ session('success') }}",
+                icon: "success",
+                customClass: {
+                    content: 'custom-swal-text'
+                }
+            });
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            swal({
+                title: 'Error',
+                text: "{{ session('error') }}",
+                icon: "error",
+                customClass: {
+                    content: 'custom-swal-text'
+                }
+            });
+        </script>
+    @endif
 @endpush
 @push('head')
     <style>

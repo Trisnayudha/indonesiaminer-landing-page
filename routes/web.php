@@ -1,6 +1,8 @@
 <?php
 
 use App\Helpers\WhatsappApi;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ExhibitionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PaymentController;
@@ -29,7 +31,11 @@ Route::get('/news/detail/{slug}', [NewsController::class, 'detail']);
 Route::get('/sponsors', [SponsorController::class, 'index']);
 Route::get('/speakers', [SpeakerController::class, 'index']);
 Route::post('/detail-modal-search', [SponsorController::class, 'postDetailModalSearch']);
+Route::post('contact/interest', [ContactController::class, 'postInterest']);
+Route::post('contact/exhibition', [ContactController::class, 'postExhibition']);
+Route::post('contact/sponsorship', [ContactController::class, 'postSponsorship']);
 
+Route::get('/exhibition', [ExhibitionController::class, 'index']);
 Route::get('/program', [ProgramController::class, 'index']);
 Route::get('/calendar/schedule', [ProgramController::class, 'getListCalendarSchedule']);
 Route::get('/calendar/workshop', [ProgramController::class, 'getListCalendarWorkshop']);
