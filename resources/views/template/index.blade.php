@@ -226,16 +226,16 @@
                     <p style="text-align: left">
 
                         <a href=""><span class="fas fa-phone-volume"></span>&nbsp;
-                            -</a>
+                            622180623711</a>
                     </p>
                     <p style="text-align: left">
 
                         <a href=""><span class="fas fa-mobile-alt"></span>&nbsp;
-                            -</a>
+                            628111798599</a>
                     </p>
                     <p style="text-align: left">
                         <a href="mailto:-"><span class="fas fa-envelope"></span>&nbsp;
-                            -</a>
+                            info@indonesiaminer.com</a>
                     </p>
 
                 </li>

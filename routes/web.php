@@ -34,6 +34,7 @@ Route::post('/detail-modal-search', [SponsorController::class, 'postDetailModalS
 Route::post('contact/interest', [ContactController::class, 'postInterest']);
 Route::post('contact/exhibition', [ContactController::class, 'postExhibition']);
 Route::post('contact/sponsorship', [ContactController::class, 'postSponsorship']);
+Route::post('contact/news-subcribe', [ContactController::class, 'postNewsSubcribe']);
 
 Route::get('/exhibition', [ExhibitionController::class, 'index']);
 Route::get('/program', [ProgramController::class, 'index']);

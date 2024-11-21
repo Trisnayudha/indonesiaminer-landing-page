@@ -746,7 +746,7 @@
                         @foreach ($sponsor_platinum2024 as $sponsors)
                             @foreach ($sponsors as $sponsor)
                                 <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Sponsor">
-                                    <div class="tag platinum">PLATINUM SPONSOR</div>
+                                    <div class="tag platinum">PLATINUM</div>
                                     <figure class="image-container">
                                         <img alt="{{ $sponsor->name }}" src="{{ $sponsor->image }}" />
                                     </figure>
@@ -771,7 +771,7 @@
                         @foreach ($sponsor_gold2024 as $sponsors)
                             @foreach ($sponsors as $sponsor)
                                 <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Sponsor">
-                                    <div class="tag gold">GOLD SPONSOR</div>
+                                    <div class="tag gold">GOLD</div>
                                     <figure class="image-container">
                                         <img alt="{{ $sponsor->name }}" src="{{ $sponsor->image }}" />
                                     </figure>
@@ -787,7 +787,7 @@
                         @foreach ($sponsor_silver2024 as $sponsors)
                             @foreach ($sponsors as $sponsor)
                                 <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Sponsor">
-                                    <div class="tag silver">SILVER SPONSOR</div>
+                                    <div class="tag silver">SILVER</div>
                                     <figure class="image-container">
                                         <img alt="{{ $sponsor->name }}" src="{{ $sponsor->image }}" />
                                     </figure>
@@ -803,7 +803,7 @@
                         @foreach ($registration as $sponsors)
                             @foreach ($sponsors as $sponsor)
                                 <li class="list-item" data-id="{{ $sponsor->id }}" data-type="registration">
-                                    <div class="tag registration">REGISTRATION SPONSOR</div>
+                                    <div class="tag registration">REGISTRATION</div>
                                     <figure class="image-container">
                                         <img alt="IM2025" src="{{ $sponsor->image }}" />
                                     </figure>
@@ -817,7 +817,7 @@
                         @foreach ($landyard as $sponsors)
                             @foreach ($sponsors as $sponsor)
                                 <li class="list-item" data-id="{{ $sponsor->id }}" data-type="landyard">
-                                    <div class="tag lanyard">LANDYARD & BADGES SPONSOR</div>
+                                    <div class="tag lanyard">LANDYARD & BADGES</div>
                                     <figure class="image-container">
                                         <img alt="IM2025" src="{{ $sponsor->image }}" />
                                     </figure>
@@ -831,7 +831,7 @@
                         @foreach ($lunch as $sponsors)
                             @foreach ($sponsors as $sponsor)
                                 <li class="list-item" data-id="{{ $sponsor->id }}" data-type="lunch">
-                                    <div class="tag lunch">LUNCH SPONSOR</div>
+                                    <div class="tag lunch">LUNCH</div>
                                     <figure class="image-container">
                                         <img alt="IM2025" src="{{ $sponsor->image }}" />
                                     </figure>
@@ -845,7 +845,7 @@
                         @foreach ($charging as $sponsors)
                             @foreach ($sponsors as $sponsor)
                                 <li class="list-item" data-id="{{ $sponsor->id }}" data-type="charging">
-                                    <div class="tag charging">CHARGING SPONSOR</div>
+                                    <div class="tag charging">CHARGING</div>
                                     <figure class="image-container">
                                         <img alt="IM2025" src="{{ $sponsor->image }}" />
                                     </figure>
@@ -861,7 +861,7 @@
                         @foreach ($knowledge_partner2024 as $sponsors)
                             @foreach ($sponsors as $sponsor)
                                 <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Knowledge Partner">
-                                    <div class="tag knowledge">KNOWLEDGE SPONSOR</div>
+                                    <div class="tag knowledge">KNOWLEDGE PARTNER</div>
                                     <figure class="image-container">
                                         <img alt="IM2025" src="{{ $sponsor->image }}" />
                                     </figure>
