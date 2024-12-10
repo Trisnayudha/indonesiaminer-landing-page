@@ -1409,7 +1409,7 @@
         <div class="card-presale">
             <div class="flex">
                 <div style="display: inline-block">
-                    <div id="clock1573568515278500141" data-date="2024-11-30 23:59"></div>
+                    <div id="clock1573568515278500141" data-date="2024-12-31 23:59"></div>
                     <div class="" style="margin:-76px -950px 40px 10px">
                         <a href="#buy-tickets">
                             <button class="btn-side">

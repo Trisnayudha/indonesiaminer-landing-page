@@ -2,7 +2,7 @@ var dataDate = jQuery('#clock1573568515278500141').attr('data-date');
 
 jQuery('#clock1573568515278500141').countdown(dataDate, function (event) {
     var clock = jQuery(this).html(event.strftime(''
-        + '<div class="clock_bg"><div class="clock_counter" style="font-size:25px">SUPER EARLY BIRD</div><div class="clock_label">PRICE INCREASES IN:</div></div>'
+        + '<div class="clock_bg"><div class="clock_counter" style="font-size:25px">EARLY BIRD</div><div class="clock_label">PRICE INCREASES IN:</div></div>'
         + '<div class="clock_bg"><div class="clock_counter">%w</div><div class="clock_label">weeks</div></div>'
         + '<div class="clock_bg"><div class="clock_counter">%d</div><div class="clock_label">days</div></div>'
         + '<div class="clock_bg"><div class="clock_counter">%H</div><div class="clock_label">hours</div></div>'
