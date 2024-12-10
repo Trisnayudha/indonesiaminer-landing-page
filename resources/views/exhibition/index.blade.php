@@ -8,7 +8,7 @@
         <div class="one withsmallpadding ppb_header " style="text-align:center;padding:60px 0 60px 0;">
             <div class="standard_wrapper">
                 <div class="page_content_wrapper">
-                    <div class="inner">
+                    <div class="">
                         <div style="margin:auto;width:100%">
                             <h2 class="ppb_title" style="text-align:center;color:black">EXHIBIT AND SPONSOR</h2>
                             <p>Exhibit and Sponsor in front of Indonesia Miners</p>
@@ -17,6 +17,86 @@
                 </div>
             </div>
         </div>
+        <div class="one withsmallpadding ppb_text" style="text-align:left;padding:0px 0 0px 0;margin-top:10px;">
+            <div class="standard_wrapper">
+                <div class="page_content_wrapper">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-12 col-md-6 order-1 order-md-1">
+                                <div class="plyr__video-embed" id="player">
+                                    <iframe
+                                        src="https://www.youtube.com/embed/RGl4FhEr8EM?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+                                        allowfullscreen allowtransparency allow="autoplay"></iframe>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 order-2 order-md-2" style="text-align:justify;">
+                                <p style="font-size: 20px">Join the excitement! Here’s why you can’t miss <b> Indonesia
+                                        Miner Conference &
+                                        Exhibition 2025:</b>
+                                </p>
+                                <p style="font-size: 16px"> <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"
+                                        style="color: green;">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg> <span>One Dynamic Platform: From impactful conferences to hands-on exhibitions
+                                        and workshops,
+                                        it’s the perfect stage to amplify your brand and make a splash.</span></p>
+                                <p style="font-size: 16px"> <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"
+                                        style="color: green;">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg> <span>Think Local, Go Global: Engage with Indonesia's mining landscape through a
+                                        global lens,
+                                        featuring top-tier speakers, delegates, and exhibitors from around the world.</span>
+                                </p>
+                                <p style="font-size: 16px"> <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"
+                                        style="color: green;">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg> <span>Network Without Limits: Connect with decision-makers, influencers, and key
+                                        associations shaping the future of the mining industry.</span></p>
+                                <a href="#exhibitor" class="button ghost mt-4"
+                                    style="color: white;
+                background-image: linear-gradient(to right, #E8B44B 20%, #E8B44B 41%, #E8B44B 100%) !important;">COMPARE
+                                    PACKAGE NOW</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="one withsmallpadding ppb_text" style="margin-top:20px;">
+            <div class="standard_wrapper">
+                <div class="page_content_wrapper">
+                    <ul class="stats-list">
+                        <li>
+                            <strong>1.500+</strong>
+                            <span>Delegates</span>
+                        </li>
+                        <li>
+                            <strong>540+</strong>
+                            <span>Companies</span>
+                        </li>
+                        <li>
+                            <strong>26+</strong>
+                            <span>Countries</span>
+                        </li>
+                        <li>
+                            <strong>60+</strong>
+                            <span>Speakers</span>
+                        </li>
+                        <li>
+                            <strong>40+</strong>
+                            <span>Leading Companies as Sponsors & Exhibitors</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <div class="one withsmallpadding ppb_text" style="text-align:left;padding:0px 0 0px 0;margin-top:10px;">
             <div class="standard_wrapper">
                 <div class="page_content_wrapper">
@@ -153,8 +233,9 @@
             <div class="standard_wrapper">
                 <div class="page_content_wrapper">
                     <div class="inner">
-                        <div style="margin:auto;width:100%">
-                            <h2 class="ppb_title" style="text-align:center;color:black">HOW BIG DO YOU WANT TO GO?</h2>
+                        <div style="margin:auto;width:100%" id="exhibitor">
+                            <h2 class="ppb_title" style="text-align:center;color:black">HOW BIG DO YOU WANT TO GO?
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -785,6 +866,10 @@
             });
         </script>
     @endif
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script>
+        const player = new Plyr('#player');
+    </script>
 @endpush
 @push('head')
     <style>
@@ -843,5 +928,81 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        .stats-list {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        .stats-list li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stats-list li strong {
+            font-size: 3.5rem;
+        }
+
+        .stats-list li span {
+            margin-top: 0.5rem;
+            font-size: 1.25rem;
+            /* white-space: nowrap; */
+            /* Teks tidak dibungkus ke baris berikutnya */
+        }
+
+        /* Responsif Breakpoints */
+
+        /* Tablet Portrait: Kurangi kolom jadi 3 */
+        @media (max-width: 992px) {
+            .stats-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .stats-list li strong {
+                font-size: 2.5rem;
+            }
+
+            .stats-list li span {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Mobile Landscape: Kurangi kolom jadi 2 */
+        @media (max-width: 768px) {
+            .stats-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-list li strong {
+                font-size: 2rem;
+            }
+
+            .stats-list li span {
+                font-size: 1rem;
+            }
+        }
+
+        /* Mobile Portrait: Tampilkan satu kolom per baris */
+        @media (max-width: 480px) {
+            .stats-list {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-list li strong {
+                font-size: 1.8rem;
+            }
+
+            .stats-list li span {
+                font-size: 0.9rem;
+            }
+        }
     </style>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 @endpush

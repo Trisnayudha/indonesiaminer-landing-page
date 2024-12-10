@@ -108,7 +108,7 @@
                                                         style="text-transform: uppercase">HOME</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="https://v1.indonesiaminer.com/events/detail/2023-11-10085837-indonesia-miner-2024"
+                                                    <a href="https://v1.indonesiaminer.com/events/detail/2024-09-04092337-indonesia-miner-conference-and-exhibition-2025"
                                                         style="text-transform: uppercase">IM 2025</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
@@ -123,6 +123,10 @@
                                                     <a href="{{ url('#foim2024') }}"
                                                         style="text-transform: uppercase">FOIM
                                                         2024</a>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children">
+                                                    <a href="{{ url('sponsors') }}"
+                                                        style="text-transform: uppercase">SPONSORS</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
                                                     <a href="https://v1.indonesiaminer.com/directory"
