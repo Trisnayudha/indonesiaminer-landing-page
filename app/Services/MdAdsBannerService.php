@@ -12,7 +12,7 @@ class MdAdsBannerService extends MdAdsBanner
     {
         $data = MdAdsBanner::findRandom();
         if ($data) {
-            $data->image = (!empty($data->image) ? asset($data->image) : '');
+            $data->image = (!empty($data->image) ? asset('storage/' . $data->image) : '');
         }
         return $data;
     }
@@ -21,7 +21,7 @@ class MdAdsBannerService extends MdAdsBanner
     {
         $data = MdAdsBanner::listAds();
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? asset($row->image) : '');
+            $row->image = (!empty($row->image) ? asset('storage/' . $row->image) : '');
         }
         return $data;
     }

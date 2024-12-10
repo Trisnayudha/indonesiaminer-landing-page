@@ -96,7 +96,7 @@ class EventsService extends Events
             $row->isUpcoming = (new \DateTime($date_end) >= new \DateTime(date('Y-m-d')) ? true : false);
 
             $row->name = (strlen($row->name) > 100 ? substr($row->name, 0,  100) . '...' : $row->name);
-            $row->image = (!empty($row->image) ? asset($row->image) : '');
+            $row->image = (!empty($row->image) ? asset('storage/' . $row->image) : '');
             $row->date_start_events = (!empty($row->date_start) ? date('Y-m-d', strtotime($row->date_start)) : '');
             $row->date_start = (!empty($row->date_start) ? date('d M Y', strtotime($row->date_start)) : '');
             $row->date_end = (!empty($row->date_end) ? date('d M Y', strtotime($row->date_end)) : '');
