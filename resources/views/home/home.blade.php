@@ -642,7 +642,7 @@
                             Tickets</b></a>
                     </div>
                     <div class="pricing-box">
-                        <h2 style="text-transform: uppercase;padding-bottom: 10px;">SUPER EARLY BIRD</h2>
+                        <h2 style="text-transform: uppercase;padding-bottom: 10px;">EARLY BIRD</h2>
                         <div class="price">
                             <div class="list-price2">
                                 {{-- <article style="text-align: center">
@@ -661,7 +661,7 @@
                                     <div class="price-sales">
                                         Full Price
                                     </div>
-                                    <strong style="font-size: 40px">$380</strong>
+                                    <strong style="font-size: 40px">$430</strong>
                                     {{-- <h6 style="color: red"> <i>SUPER EARLY BIRD pricing ends on on November 30th!</i></h6> --}}
 
                                 </article>
@@ -696,7 +696,7 @@
             <div style="color:white">.</divc>
                 <div class="pricing-table">
                     <div class="pricing-box">
-                        <h2>3 x SUPER EARLY BIRD</h2>
+                        <h2>3 x EARLY BIRD</h2>
 
                         <img src="{{ asset('new-home/tickets/bundle_3_v2.png') }}" alt="Bundle Ticket"
                             style="max-width: 100%">
@@ -708,7 +708,7 @@
                             Tickets</b></a>
                     </div>
                     <div class="pricing-box">
-                        <h2>5 x SUPER EARLY BIRD</h2>
+                        <h2>5 x EARLY BIRD</h2>
                         <img src="{{ asset('new-home/tickets/bundle_5_v2.png') }}" alt="Bundle Ticket"
                             style="max-width: 100%">
                         <p class="description"></p>
@@ -726,11 +726,14 @@
 
         <div style="position: relative; margin-top:60px; margin-bottom:20px">
             <!-- Header Section -->
-            <div class="one withsmallpadding ppb_header" style="text-align:center;padding:60px 0 60px 0;">
+            <div class="one withsmallpadding ppb_header" style="text-align:center;padding:60px 0 0px 0;">
                 <div class="standard_wrapper">
                     <div class="page_content_wrapper">
                         <div class="inner">
                             <div style="margin:auto;width:100%">
+                                <h2 class="ppb_title" style="text-align:center;color:black;margin-bottom:10px;">INDONESIA
+                                    MINER 2024 SUPPORTED
+                                    BY</h2>
                                 <h2 class="ppb_title" style="text-align:center;color:black">SPONSORS</h2>
                             </div>
                         </div>

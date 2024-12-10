@@ -108,8 +108,8 @@
                                                     <a href="#home-page" style="text-transform: uppercase">HOME</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="https://indonesiaminer.com/events/detail/2023-11-10085837-indonesia-miner-2024"
-                                                        style="text-transform: uppercase">PROGRAMS</a>
+                                                    <a href="https://v1.indonesiaminer.com/events/detail/2023-11-10085837-indonesia-miner-2024"
+                                                        style="text-transform: uppercase">IM 2025</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
                                                     <a href="#speaker-page"
@@ -124,7 +124,7 @@
                                                         2024</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="{{ url('/directory') }}"
+                                                    <a href="https://v1.indonesiaminer.com/directory"
                                                         style="text-transform: uppercase">MINING DIRECTORY</a>
                                                 </li>
                                             </ul>

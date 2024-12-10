@@ -75,21 +75,21 @@
 
                         </li>
                         <li class="kotak-ticket" id="kotak2"
-                            onclick="selectTicket(380,{{ $rate_idr * 380 }},89,'SUPER EARLY BIRD', 'Platinum',1,380,{{ $rate_idr * 380 }})">
+                            onclick="selectTicket(430,{{ $rate_idr * 430 }},113,'EARLY BIRD', 'Platinum',1,430,{{ $rate_idr * 430 }})">
                             <div class="kotak-top-ticket">
                                 <strong>
-                                    SAVE $890
+                                    SAVE $840
                                 </strong>
                             </div>
                             <div class="kotak-body-ticket">
-                                <p style="font-size: 15px;">SUPER EARLY BIRD</p>
+                                <p style="font-size: 15px;">EARLY BIRD</p>
                                 <figure class="kotak-img-ticket">
                                     <img alt="Ticket IM2025" src="{{ asset('assets/img/ticket_im24x1.png') }}"
                                         decoding="async" data-nimg="fill" sizes="100vw" class="kotak-img-responsive-ticket"
                                         srcset="{{ asset('assets/img/ticket_im24x1.png') }}">
                                 </figure>
                                 <div class="kotak-price-ticket">
-                                    <b>$380</b>
+                                    <b>$430</b>
                                     <p class="kotak-price-discount-ticket">
                                         $1.270
                                     </p>
@@ -105,10 +105,10 @@
                                                 srcset="{{ asset('assets/img/ticket_im24x1.png') }}">
                                         </figure>
                                         <div style="white-space: nowrap">
-                                            <h3>SUPER EARLY BIRD</h3>
+                                            <h3>EARLY BIRD</h3>
                                             <div class="kotak-body-mobile-price-ticket">
-                                                <b>$690</b>
-                                                <p class="kotak-price-discount-ticket">$900</p>
+                                                <b>$430</b>
+                                                <p class="kotak-price-discount-ticket">$1.270</p>
                                             </div>
                                         </div>
                                     </div>
@@ -124,17 +124,17 @@
                             </div>
                         </li>
                         <li class="kotak-ticket" id="kotak3"
-                            onclick="selectTicket(3810,{{ $rate_idr * 3810 }},105,'3X SUPER EARLY BIRD', 'Platinum',3,1080,{{ $rate_idr * 1080 }})">
+                            onclick="selectTicket(3810,{{ $rate_idr * 3810 }},114,'3X EARLY BIRD', 'Platinum',3,1200,{{ $rate_idr * 1200 }})">
                             <div class="kotak-top-ticket">
                                 <strong>
-                                    SAVE $2.730
+                                    SAVE $2.610
                                 </strong>
                             </div>
                             <div class="kotak-body-ticket">
                                 <div class="kotak-body-tag-ticket">
                                     <p style="font-size: 7px">MOST POPULAR</p>
                                 </div>
-                                <p style="font-size: 15px;">3X SUPER EARLY BIRD</p>
+                                <p style="font-size: 15px;">3X EARLY BIRD</p>
                                 <figure class="kotak-img-ticket" style="
                                 ">
                                     <img alt="Ticket IM2025" src="{{ asset('assets/img/ticket_im24x3.png') }}"
@@ -143,7 +143,7 @@
                                         srcset="{{ asset('assets/img/ticket_im24x3.png') }}">
                                 </figure>
                                 <div class="kotak-price-ticket">
-                                    <b>$1.080</b>
+                                    <b>$1.200</b>
                                     <p class="kotak-price-discount-ticket">
                                         $3.810
                                     </p>
@@ -162,9 +162,9 @@
                                                 srcset="{{ asset('assets/img/ticket_im24x3.png') }}">
                                         </figure>
                                         <div style="white-space: nowrap">
-                                            <h3>3X SUPER EARLY BIRD</h3>
+                                            <h3>3X EARLY BIRD</h3>
                                             <div class="kotak-body-mobile-price-ticket">
-                                                <b>$1.080</b>
+                                                <b>$1.200</b>
                                                 <p class="kotak-price-discount-ticket">3.810</p>
                                             </div>
                                         </div>
@@ -181,17 +181,17 @@
                             </div>
                         </li>
                         <li class="kotak-ticket" id="kotak4"
-                            onclick="selectTicket(6350,{{ $rate_idr * 6350 }},106,'5X SUPER EARLY BIRD', 'Platinum',5,1650,{{ $rate_idr * 1650 }})">
+                            onclick="selectTicket(6350,{{ $rate_idr * 6350 }},115,'5X EARLY BIRD', 'Platinum',5,1800,{{ $rate_idr * 1800 }})">
                             <div class="kotak-top-ticket">
                                 <strong>
-                                    SAVE $4.700
+                                    SAVE $4.550
                                 </strong>
                             </div>
                             <div class="kotak-body-ticket">
                                 <div class="kotak-body-tag-ticket">
                                     <p style="font-size: 7px">BIG SAVING</p>
                                 </div>
-                                <p style="font-size: 15px;">5X SUPER EARLY BIRD</p>
+                                <p style="font-size: 15px;">5X EARLY BIRD</p>
                                 <figure class="kotak-img-ticket" style="
                                 ">
                                     <img alt="Ticket IM2025" src="{{ asset('assets/img/ticket_im24x5.png') }}"
@@ -200,7 +200,7 @@
                                         srcset="{{ asset('assets/img/ticket_im24x5.png') }}">
                                 </figure>
                                 <div class="kotak-price-ticket">
-                                    <b>$1.650</b>
+                                    <b>$1.800</b>
                                     <p class="kotak-price-discount-ticket">
                                         $6.350
                                     </p>
@@ -219,9 +219,9 @@
                                                 srcset="{{ asset('assets/img/ticket_im24x5.png') }}">
                                         </figure>
                                         <div style="white-space: nowrap">
-                                            <h3>5x SUPER EARLY BIRD</h3>
+                                            <h3>5x EARLY BIRD</h3>
                                             <div class="kotak-body-mobile-price-ticket">
-                                                <b>$1.650</b>
+                                                <b>$1.800</b>
                                                 <p class="kotak-price-discount-ticket">6.350</p>
                                             </div>
                                         </div>

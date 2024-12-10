@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ScrapeHelper;
+use App\Services\EventsCompanyService;
 use App\Services\MdAssociationService;
 use App\Services\MdChargingService;
 use App\Services\MdKnowledgePartnerService;
@@ -32,6 +33,7 @@ class HomeController extends Controller
         $data['registration'] = MdRegistrationService::listAllHome();
         $data['lunch'] = MdLunchService::listAllHome();
         $data['landyard'] = MdLandyarkService::listAllHome();
+        $data['exhibitor'] = EventsCompanyService::listExhibitionSponsor(12, 40);
         return view('home.home', $data);
     }
 }

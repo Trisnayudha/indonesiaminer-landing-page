@@ -161,7 +161,7 @@
 
             function loadSchedule(type, day) {
                 var calendarUrl = '';
-                var idParam = '12'; // Sesuaikan jika perlu
+                var idParam = '13'; // Sesuaikan jika perlu
 
                 // Tentukan URL kalender berdasarkan tipe
                 if (type === 'conference') {
