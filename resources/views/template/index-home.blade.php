@@ -124,6 +124,10 @@
                                                         2024</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
+                                                    <a href="{{ url('sponsors') }}"
+                                                        style="text-transform: uppercase">SPONSORS</a>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children">
                                                     <a href="https://v1.indonesiaminer.com/directory"
                                                         style="text-transform: uppercase">MINING DIRECTORY</a>
                                                 </li>
