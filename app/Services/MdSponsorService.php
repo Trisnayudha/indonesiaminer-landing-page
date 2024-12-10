@@ -17,7 +17,7 @@ class MdSponsorService extends MdSponsor
     {
         $data = MdSponsor::listAllHome($type);
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? asset($row->image) : '');
+            $row->image = (!empty($row->image) ?  'https://indonesiaminer.com/' . $row->image : '');
             $row->link = (!empty($row->link) ? $row->link : '#');
         }
 

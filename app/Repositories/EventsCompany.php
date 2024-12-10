@@ -235,7 +235,7 @@ class EventsCompany extends EventsCompanyModel
         $return = DB::table('events_company')
             ->select(
                 'company.id',
-                'company.name as title',
+                'company.name as name',
                 'company.slug',
                 'company.image as image',
                 'company.email',

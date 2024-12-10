@@ -25,7 +25,9 @@ class MdAssociation extends MdAssociationModel
             ->select(
                 'md_association.id',
                 'md_association.image',
-                'md_association.link'
+                'md_association.link',
+                'md_association.name',
+
             )
             ->where('status', 'show')
             ->orderBy('md_association.sort', 'asc')

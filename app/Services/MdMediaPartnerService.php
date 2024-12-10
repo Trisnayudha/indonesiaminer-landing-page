@@ -15,11 +15,11 @@ class MdMediaPartnerService extends MdMediaPartner
     {
         $data = MdMediaPartner::listAllHome();
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? asset($row->image) : '');
+            $row->image = (!empty($row->image) ?  'https://indonesiaminer.com/' . $row->image : '');
             $row->link = (!empty($row->link) ? $row->link : '#');
         }
 
-        return multiple_array($data, 24);
+        return General::multiple_array($data,  7);
     }
     public static function listAllHome2024()
     {

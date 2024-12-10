@@ -27,6 +27,7 @@ class SponsorController extends Controller
 {
     public function index()
     {
+        //2024
         $data['sponsor_platinum2024'] = MdSponsorService::listAllHome2024('Platinum', 5);
         $data['sponsor_gold2024'] = MdSponsorService::listAllHome2024('Gold', 5);
         $data['sponsor_silver2024'] = MdSponsorService::listAllHome2024('Silver', 6);
@@ -39,6 +40,16 @@ class SponsorController extends Controller
         $data['lunch'] = MdLunchService::listAllHome();
         $data['landyard'] = MdLandyarkService::listAllHome();
         $data['exhibitor'] = EventsCompanyService::listExhibitionSponsor(12, 50);
+
+        //2025
+        $data['sponsor_platinum2025'] = MdSponsorService::listAllHome('Platinum', 2);
+        // dd($data);
+        $data['sponsor_gold2025'] = MdSponsorService::listAllHome('Gold', 5);
+        $data['sponsor_silver2025'] = MdSponsorService::listAllHome('Silver', 6);
+        $data['support_association2025'] = MdAssociationService::listAllHome();
+        $data['media_partner2025'] = MdMediaPartnerService::listAllHome();
+        $data['knowledge_partner2025'] = MdKnowledgePartnerService::listAllHome();
+        $data['exhibitor2025'] = EventsCompanyService::listExhibitionSponsor(13, 50);
 
         // dd($data);
         return view('sponsors.index', $data);

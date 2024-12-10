@@ -27,7 +27,9 @@ class MdSponsor extends MdSponsorModel
             ->select(
                 'md_sponsor.id',
                 'md_sponsor.image',
-                'md_sponsor.link'
+                'md_sponsor.link',
+                'md_sponsor.name',
+                'md_sponsor.desc',
             )
             ->where('md_sponsor.type', $type)
             ->where('md_sponsor.status', 'show')

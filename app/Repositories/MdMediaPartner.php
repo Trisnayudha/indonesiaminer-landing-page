@@ -25,7 +25,8 @@ class MdMediaPartner extends MdMediaPartnerModel
             ->select(
                 'md_media_partner.id',
                 'md_media_partner.image',
-                'md_media_partner.link'
+                'md_media_partner.link',
+                'md_media_partner.name',
             )
             ->where('status', 'show')
             ->orderBy('md_media_partner.sort', 'asc')
