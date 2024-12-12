@@ -228,7 +228,7 @@ Code Payment: $codePayment
             $save->payment_code   = $createInvoice['external_id'];
             $save->payment_id     = $payment->id;
             $save->users_id       = $user->id;
-            $save->transaction_id = $createInvoice['id'];
+            $save->transaction_id = $createInvoice['user_id'];
             $save->status         = $createInvoice['status'];
             $save->ammount        = $createInvoice['amount'];
             $save->payer_email    = $createInvoice['payer_email'];
