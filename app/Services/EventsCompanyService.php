@@ -64,7 +64,7 @@ class EventsCompanyService extends EventsCompany
     {
         $data = EventsCompany::findAllByExhibitor($id);
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? 'https://indonesiaminer.com/' . $row->image : '');
+            $row->image = (!empty($row->image) ? 'https://indonesiaminer.com/storage/' . $row->image : '');
         }
         return General::multiple_array($data,  50);
     }
