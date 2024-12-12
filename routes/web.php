@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\WhatsappApi;
+use App\Http\Controllers\CallForPaperController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ExhibitionController;
 use App\Http\Controllers\HomeController;
@@ -44,6 +45,9 @@ Route::get('/calendar/ministage', [ProgramController::class, 'getListCalendarMin
 Route::get('/schedule', [ProgramController::class, 'getListSchedule']);
 Route::get('/workshop', [ProgramController::class, 'getListWorkshop']);
 Route::get('/ministage', [ProgramController::class, 'getListMinistage']);
+
+Route::get('call-for-papers', [CallForPaperController::class, 'index']);
+Route::post('call-for-papers', [CallForPaperController::class, 'store'])->name('call-for-papers.store');
 
 Route::get('/test', function () {
     return view('test');
