@@ -37,7 +37,7 @@ class NewsController extends Controller
                 "id" => (!empty($find->id) ? $find->id : 0),
                 "title" => (!empty($find->title) ? $find->title : ''),
                 "slug" => (!empty($find->slug) ? $find->slug : ''),
-                "image" => (!empty($find->image) ? asset($find->image) : ''),
+                "image" => (!empty($find->image) ? asset('storage/' . $find->image) : ''),
                 "location" => (!empty($find->location) ? $find->location : ''),
                 "reference_name" => (!empty($find->reference_name) ? $find->reference_name : ''),
                 "reference_link" => (!empty($find->reference_link) ? $find->reference_link : ''),
