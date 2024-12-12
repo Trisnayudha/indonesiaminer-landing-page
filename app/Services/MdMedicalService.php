@@ -15,7 +15,7 @@ class MdMedicalService extends MdMedical
     {
         $data = MdMedical::listAllHome();
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? 'https://indonesiaminer.com/' . $row->image : '');
+            $row->image = (!empty($row->image) ? 'https://indonesiaminer.com/storage/' . $row->image : '');
             $row->link = (!empty($row->link) ? $row->link : '#');
         }
 
@@ -27,7 +27,7 @@ class MdMedicalService extends MdMedical
     {
         $data = MdMedical::listAll();
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? asset($row->image) : '');
+            $row->image = (!empty($row->image) ? asset('storage/' . $row->image) : '');
         }
         return $data;
     }

@@ -15,7 +15,7 @@ class MdKnowledgePartnerService extends MdKnowledgePartner
     {
         $data = MdKnowledgePartner::listAllHome();
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ?  'https://indonesiaminer.com/' . $row->image : '');
+            $row->image = (!empty($row->image) ?  'https://indonesiaminer.com/storage/' . $row->image : '');
             $row->link = (!empty($row->link) ? $row->link : '#');
         }
 
@@ -25,7 +25,7 @@ class MdKnowledgePartnerService extends MdKnowledgePartner
     {
         $data = MdKnowledgePartner::listAllHome2024();
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? 'https://indonesiaminer.com/' . $row->image : '');
+            $row->image = (!empty($row->image) ? 'https://indonesiaminer.com/storage/' . $row->image : '');
             $row->link = (!empty($row->link) ? $row->link : '#');
         }
 

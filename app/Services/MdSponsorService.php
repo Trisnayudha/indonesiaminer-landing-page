@@ -17,7 +17,7 @@ class MdSponsorService extends MdSponsor
     {
         $data = MdSponsor::listAllHome($type);
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ?  'https://indonesiaminer.com/' . $row->image : '');
+            $row->image = (!empty($row->image) ?  'https://indonesiaminer.com/storage/' . $row->image : '');
             $row->link = (!empty($row->link) ? $row->link : '#');
         }
 
@@ -27,7 +27,7 @@ class MdSponsorService extends MdSponsor
     {
         $data = MdSponsor::listAllHome2024($type);
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? 'https://indonesiaminer.com/' . $row->image : '');
+            $row->image = (!empty($row->image) ? 'https://indonesiaminer.com/storage/' . $row->image : '');
             $row->link = (!empty($row->link) ? $row->link : '#');
         }
 

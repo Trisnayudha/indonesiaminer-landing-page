@@ -15,7 +15,7 @@ class MdLandyarkService extends MdLandyark
     {
         $data = MdLandyark::listAllHome();
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? 'https://indonesiaminer.com/' . $row->image : '');
+            $row->image = (!empty($row->image) ? 'https://indonesiaminer.com/storage/' . $row->image : '');
             $row->link = (!empty($row->link) ? $row->link : '#');
         }
 
