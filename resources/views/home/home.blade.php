@@ -949,7 +949,7 @@
                     @if (!empty($exhibitor))
                         @foreach ($exhibitor as $sponsors)
                             @foreach ($sponsors as $sponsor)
-                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Media Partner">
+                                <li class="list-item" data-id="{{ $sponsor->id }}" data-type="Exhibitor">
                                     <figure class="image-container">
                                         <img alt="IM2025" src="{{ $sponsor->image }}" />
                                     </figure>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\MdAssociationModel;
 use App\Models\MdChargingModel;
 use App\Models\MdKnowledgePartnerModel;
@@ -72,6 +73,7 @@ class SponsorController extends Controller
                 'registration'       => MdRegistrationModel::class,
                 'charging'           => MdChargingModel::class,
                 'Medical Partner'    => MdMedicalModel::class,
+                'Exhibitor'          => Company::class,
             ];
 
             // Validasi tipe
@@ -105,7 +107,7 @@ class SponsorController extends Controller
                     'name'  => $find->name ?? '',
                     'link'  => $find->link ?? '',
                     'desc'  => $find->desc ?? '',
-                    'image' => $find->image ? 'https://indonesiaminer.com/' . $find->image : '',
+                    'image' => $find->image ? 'https://indonesiaminer.com/storage/' . $find->image : '',
                 ],
             ];
 
