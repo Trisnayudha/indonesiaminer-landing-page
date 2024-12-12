@@ -113,7 +113,8 @@
                                                 <a href="{{ url('/directory') }}">
                                                     <video style="max-width: 100%; height : auto;" playsinline autoplay
                                                         muted loop>
-                                                        <source src="{{ asset('img/section_1.mp4') }}" type="video/mp4">
+                                                        <source src="{{ asset('assets/img/section_1.mp4') }}"
+                                                            type="video/mp4">
                                                     </video>
                                                 </a>
                                             @endif
