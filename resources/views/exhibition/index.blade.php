@@ -10,8 +10,9 @@
                 <div class="page_content_wrapper">
                     <div class="">
                         <div style="margin:auto;width:100%">
-                            <h2 class="ppb_title" style="text-align:center;color:black">EXHIBIT AND SPONSOR</h2>
-                            <p>Exhibit and Sponsor in front of Indonesia Miners</p>
+                            <h2 class="ppb_title" style="text-align:center;color:black">STAY AT THE FOREFRONT OF THE INDUSTRY
+                            </h2>
+                            <p>BE A PART OF INDONESIA #1 PREMIER MINING EVENT</p>
                         </div>
                     </div>
                 </div>
@@ -30,7 +31,8 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 order-2 order-md-2" style="text-align:justify;">
-                                <p style="font-size: 20px">Join the excitement! Here’s why you can’t miss <b> Indonesia
+                                <p style="font-size: 20px;flex-wrap: nowrap;">Join the excitement! Here’s why you can’t miss
+                                    <b> Indonesia
                                         Miner Conference &
                                         Exhibition 2025:</b>
                                 </p>
@@ -39,29 +41,39 @@
                                         style="color: green;">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg> <span>One Dynamic Platform: From impactful conferences to hands-on exhibitions
-                                        and workshops,
-                                        it’s the perfect stage to amplify your brand and make a splash.</span></p>
+                                    </svg> <span> <b>One Dynamic Platform </b>
+                                        <p>
+                                            From impactful conferences to hands-on exhibitions
+                                            and workshops,
+                                            it’s the perfect stage to amplify your brand and make a splash.</p>
+                                    </span></p>
+
                                 <p style="font-size: 16px"> <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"
                                         style="color: green;">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg> <span>Think Local, Go Global: Engage with Indonesia's mining landscape through a
-                                        global lens,
-                                        featuring top-tier speakers, delegates, and exhibitors from around the world.</span>
+                                    </svg> <span><b> Think Local, Go Global </b>
+                                        <p>
+                                            Engage with Indonesia's mining landscape through a
+                                            global lens,
+                                            featuring top-tier speakers, delegates, and exhibitors from around the world.
+                                        </p>
+                                    </span>
                                 </p>
                                 <p style="font-size: 16px"> <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"
                                         style="color: green;">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg> <span>Network Without Limits: Connect with decision-makers, influencers, and key
-                                        associations shaping the future of the mining industry.</span></p>
+                                    </svg> <span><b>Network Without Limits</b>
+                                        <p> Connect with decision-makers, influencers, and key
+                                            associations shaping the future of the mining industry.</p>
+                                    </span></p>
                                 <a href="#exhibitor" class="button ghost mt-4"
                                     style="color: white;
-                background-image: linear-gradient(to right, #E8B44B 20%, #E8B44B 41%, #E8B44B 100%) !important;">COMPARE
-                                    PACKAGE NOW</a>
+                background-image: linear-gradient(to right, #E8B44B 20%, #E8B44B 41%, #E8B44B 100%) !important;">Discover
+                                    Options to Elevate Your Brand</a>
                             </div>
                         </div>
                     </div>
@@ -74,18 +86,22 @@
                     <ul class="stats-list">
                         <li>
                             <strong>1.500+</strong>
+                            <br>
                             <span>Delegates</span>
                         </li>
                         <li>
                             <strong>540+</strong>
+                            <br>
                             <span>Companies</span>
                         </li>
                         <li>
                             <strong>26+</strong>
+                            <br>
                             <span>Countries</span>
                         </li>
                         <li>
                             <strong>60+</strong>
+                            <br>
                             <span>Speakers</span>
                         </li>
                         <li>
@@ -101,12 +117,12 @@
             <div class="standard_wrapper">
                 <div class="page_content_wrapper">
                     <div class="inner">
-                        <p>Indonesia Miner 2024 sponsorship and compact exhibition floor will
-                            delivers the greatest impact and visibility amongst industry Leaders,
-                            Experts and decision makers. Through our reach, digital moments, and
-                            exceptional in-person events your company has the opportunity to
-                            educate, empower and engage Indonesia Miners most important
-                            audience.</p>
+                        <p>Indonesia Miner Conference & Exhibition 2025 offers a unique opportunity to showcase your brand
+                            to the right audience on the right platform. Building on the success of last year's event, we
+                            invite you to participate in the return of Indonesia's #1 premier mining event on June 10 - 12
+                            at The Westin Hotel Jakarta, Indonesia. Don’t miss the chance to make your mark and get
+                            discovered by industry leaders, experts, key decision-makers, and influential figures in
+                            Indonesia mining sector.</p>
                     </div>
                 </div>
             </div>
@@ -232,10 +248,13 @@
         <div class="one withsmallpadding ppb_header " style="text-align:center;padding:60px 0 60px 0;">
             <div class="standard_wrapper">
                 <div class="page_content_wrapper">
-                    <div class="inner">
-                        <div style="margin:auto;width:100%" id="exhibitor">
-                            <h2 class="ppb_title" style="text-align:center;color:black">HOW BIG DO YOU WANT TO GO?
+                    <div class="">
+                        <div style="margin:auto;width:100%">
+                            <h2 class="ppb_title" style="text-align:center;color:black">How big do you want your presence
+                                to be?
                             </h2>
+                            <p>Discover customized sponsorship/ exhibition options tailored to your brand's needs.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -260,7 +279,7 @@
                                                 d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
 
-                                        <span>Prime, Super, Standard Plus, Standard and Basic Stand</span>
+                                        <span>Prime, Super, Standard Plus and Standard</span>
                                     </div>
                                 </li>
                                 <li>
@@ -420,6 +439,7 @@
 
                             </ul>
                         </div>
+                        <br>
 
                         <button class="cssbuttons-io-button" id="myBtn"> Get started
                             <div class="icon">
@@ -670,10 +690,9 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="contact_form7_wrapper">
-                JOIN INDONESIA MINER 2024
+                JOIN INDONESIA MINER 2025
                 <p>
-
-                    Fill out the form below and we’ll contact you when booths or sponsorships become available.
+                    Please provide your details in the form below, and we’ll be in touch shortly.
                 </p>
                 <div role="form" class="wpcf7" id="wpcf7-f5-o1" lang="en-US" dir="ltr">
                     <div class="screen-reader-response"></div>
@@ -714,7 +733,7 @@
                             <div class="quform-submit" style="margin-top:10px">
                                 <div class="quform-submit-inner">
                                     <button type="submit"class="glow-on-hover">
-                                        <span>Send me Booth Information</span>
+                                        <span>SEND ME MORE DETAILS</span>
                                     </button>
                                 </div>
                                 <div class="quform-loading-wrap">
@@ -731,10 +750,9 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="contact_form7_wrapper">
-                JOIN INDONESIA MINER 2024
+                JOIN INDONESIA MINER 2025
                 <p>
-
-                    Fill out the form below and we’ll contact you when booths or sponsorships become available.
+                    Please provide your details in the form below, and we’ll be in touch shortly.
                 </p>
                 <div role="form" class="wpcf7" id="wpcf7-f5-o1" lang="en-US" dir="ltr">
                     <div class="screen-reader-response"></div>
@@ -775,7 +793,7 @@
                             <div class="quform-submit" style="margin-top:10px">
                                 <div class="quform-submit-inner">
                                     <button type="submit"class="glow-on-hover">
-                                        <span>Send me Sponsorship Information</span>
+                                        <span>SEND ME MORE DETAILS</span>
                                     </button>
                                 </div>
                                 <div class="quform-loading-wrap">
