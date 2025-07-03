@@ -11,19 +11,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navMenu">
             <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0 align-items-center">
-                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Schedule</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Day 1</a></li>
-                        <li><a class="dropdown-item" href="#">Day 2</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item px-2"><a class="nav-link" href="{{ url('#home') }}">Home</a></li>
+                <li class="nav-item dropdown px-2">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Exhibitors</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">List</a></li>
-                        <li><a class="dropdown-item" href="#">Map</a></li>
+                        <li><a class="dropdown-item" href="{{ url('#exhibition-page') }}">List of Exhibitor</a></li>
+                        <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Floor
+                                Plan</a></li>
+                    </ul>
+                </li>
+                </li>
+                <li class="nav-item dropdown px-2">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url('#speakers') }}">Speakers</a></li>
+                        <li><a class="dropdown-item" href="{{ url('#foim') }}">FOIM 2025</a></li>
+                        <li><a class="dropdown-item" href="{{ url('#minerstalk') }}">Miners Talk 2025</a></li>
+                        <li><a class="dropdown-item" href="{{ url('sponsors') }}">Sponsors</a></li>
+                        <li><a class="dropdown-item" href="{{ url('news') }}">News</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="btn btn-warning me-2" href="{{ url('exhibition') }}">EXHIBIT &

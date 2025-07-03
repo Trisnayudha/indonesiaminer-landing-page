@@ -7,7 +7,7 @@
     @include('home.navbar')
 
     {{-- Hero (lazy) --}}
-    <section>
+    <section id="#home">
         <div class="lazy-section" data-url="{{ route('section.partial', 'jarallax') }}">
             <div class="lazy-placeholder" style="height:60vh;"></div>
         </div>
@@ -35,7 +35,7 @@
     </section>
 
     {{-- Speakers --}}
-    <section id="speaker-page" class="py-5 bg-light">
+    <section id="speakers" class="py-5 bg-light">
         <div class="lazy-section" data-url="{{ route('section.partial', 'speakers') }}">
             <div class="lazy-placeholder" style="height:600px;"></div>
         </div>
