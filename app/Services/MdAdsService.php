@@ -11,7 +11,7 @@ class MdAdsService extends MdAds
     {
         $data = MdAds::listAds();
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? asset('storage/' . $row->image) : '');
+            $row->image = (!empty($row->image) ? asset($row->image) : '');
         }
         return $data;
     }
@@ -20,7 +20,7 @@ class MdAdsService extends MdAds
     {
         $data = MdAds::listLimitAds();
         foreach ($data as $x => $row) {
-            $row->image = (!empty($row->image) ? asset('storage/' . $row->image) : '');
+            $row->image = (!empty($row->image) ? asset($row->image) : '');
         }
         return $data;
     }
