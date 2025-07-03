@@ -34,6 +34,28 @@ class HomeController extends Controller
         $data['lunch'] = MdLunchService::listAllHome();
         $data['landyard'] = MdLandyarkService::listAllHome();
         $data['exhibitor'] = EventsCompanyService::listExhibitionSponsor(12, 40);
-        return view('home.home', $data);
+        return view('home.index', $data);
+    }
+    // di HomeController.php
+    public function section($name)
+    {
+        $allowed = [
+            'jarallax',
+            'marque',
+            'changing',
+            'video',
+            'speakers',
+            'faq',
+            'photo',
+            'foim',
+            'minerstalk',
+            'subscribenews'
+        ];
+
+        if (! in_array($name, $allowed)) {
+            abort(404);
+        }
+
+        return view("home.section.{$name}");
     }
 }

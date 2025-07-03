@@ -5,6 +5,115 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+ <style>
+     .marquee {
+         width: 100%;
+         overflow: hidden;
+         position: relative;
+         white-space: nowrap;
+         box-sizing: border-box;
+     }
+
+     /* Sponsor */
+     .marquee-content-sponsor {
+         display: inline-block;
+         white-space: nowrap;
+         animation: marqueeAnimationSponsor var(--marquee-duration-sponsor, 50s) linear infinite;
+     }
+
+     /* Exhibitor */
+     .marquee-content-exhibitor {
+         display: inline-block;
+         white-space: nowrap;
+         animation: marqueeAnimationExhibitor var(--marquee-duration-exhibitor, 50s) linear infinite;
+     }
+
+     @keyframes marqueeAnimationSponsor {
+         0% {
+             transform: translateX(0);
+         }
+
+         100% {
+             transform: translateX(calc(-1 * var(--content-width-sponsor, 1000px)));
+         }
+     }
+
+     @keyframes marqueeAnimationExhibitor {
+         0% {
+             transform: translateX(0);
+         }
+
+         100% {
+             transform: translateX(calc(-1 * var(--content-width-exhibitor, 1000px)));
+         }
+     }
+
+     /* Styling gambar umum */
+     .marquee-content-sponsor img,
+     .marquee-content-exhibitor img {
+         margin-right: 5px;
+         vertical-align: middle;
+     }
+
+     .exhibitor-logo {
+         width: 100px;
+         height: 50px;
+         object-fit: contain;
+     }
+ </style>
+ <script>
+     document.addEventListener('DOMContentLoaded', function() {
+         function setupMarquee({
+             marqueeId,
+             contentClass,
+             speed,
+             widthVar,
+             durationVar
+         }) {
+             const marquee = document.getElementById(marqueeId);
+             if (!marquee) return;
+             const content = marquee.querySelector(`.${contentClass}`);
+             if (!content) return;
+
+             // Clone content untuk looping seamless
+             marquee.appendChild(content.cloneNode(true));
+
+             setTimeout(function() {
+                 let contentWidth = content.offsetWidth;
+                 let marqueeWidth = marquee.offsetWidth;
+
+                 if (contentWidth < marqueeWidth) {
+                     contentWidth = marqueeWidth;
+                 }
+
+                 marquee.style.setProperty(widthVar, contentWidth + 'px');
+
+                 let duration = contentWidth / speed;
+                 if (duration < 20) duration = 20;
+
+                 marquee.style.setProperty(durationVar, duration + 's');
+             }, 500);
+         }
+
+         // Sponsor
+         setupMarquee({
+             marqueeId: 'marquee2025',
+             contentClass: 'marquee-content-sponsor',
+             speed: 30,
+             widthVar: '--content-width-sponsor',
+             durationVar: '--marquee-duration-sponsor'
+         });
+
+         // Exhibitor
+         setupMarquee({
+             marqueeId: 'marquee2024',
+             contentClass: 'marquee-content-exhibitor',
+             speed: 30,
+             widthVar: '--content-width-exhibitor',
+             durationVar: '--marquee-duration-exhibitor'
+         });
+     });
+ </script>
 
  <!-- Custom CSS -->
  <style>

@@ -11,7 +11,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navMenu">
             <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0 align-items-center">
-                <li class="nav-item"><a class="nav-link" href="{{ url('') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Schedule</a>
                     <ul class="dropdown-menu">
@@ -27,8 +27,7 @@
                     </ul>
                 </li>
                 <li class="nav-item"><a class="btn btn-warning me-2" href="{{ url('exhibition') }}">EXHIBIT &
-                        SPONSOR</a>
-                </li>
+                        SPONSOR</a></li>
                 <button type="button" class="btn btn-outline-warning fw-bold" data-bs-toggle="modal"
                     data-bs-target="#interestModal">
                     REGISTER YOUR INTEREST

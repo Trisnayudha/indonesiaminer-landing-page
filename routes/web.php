@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/sections/{name}', [HomeController::class, 'section'])->name('section.partial');
 Route::get('/ticket', [TicketController::class, 'index']);
 Route::post('/payment', [PaymentController::class, 'payment']);
 Route::get('/news', [NewsController::class, 'index']);
