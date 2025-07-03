@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\UploadController;
 use App\Http\Controllers\Callback\XenditCallbackController;
 use App\Http\Controllers\SpeakerController;
 use Illuminate\Http\Request;
@@ -17,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('callback/xendit', [XenditCallbackController::class, 'postInvoiceNew']);
+Route::post('/upload-image/company', [UploadController::class, 'uploadCompany']);
 
 Route::get('/fetch-speakers', [SpeakerController::class, 'listOfSpeaker']);
