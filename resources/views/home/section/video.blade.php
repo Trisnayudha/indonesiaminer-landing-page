@@ -4,8 +4,7 @@
         <div class="col-md-6 pe-md-5">
             <!-- Heading warna biru -->
             <h2 class="fw-bold mb-4 text-primary">
-                DISCOVER THE LINEUP OF INDUSTRY-LEADING EXHIBITORS
-                FEATURED AT INDONESIA MINER 2025
+                DISCOVER THE LATEST DEVELOPMENTS AND INNOVATIVE SOLUTIONS FROM INDUSTRY-LEADING COMPANIES
             </h2>
 
             <!-- Bungkus button dengan text-center agar terpusat -->
@@ -22,7 +21,7 @@
             <div class="ratio ratio-16x9">
                 <video playsinline autoplay muted loop class="w-100 h-100 object-fit-cover">
                     <source
-                        src="https://sin1.contabostorage.com/ee5317510fad4e33b9e308839348b77b:indonesiaminer/web/img/section_1_v2.mp4"
+                        src="https://sin1.contabostorage.com/ee5317510fad4e33b9e308839348b77b:indonesiaminer/web/img/section_1.mp4"
                         type="video/mp4">
                 </video>
             </div>

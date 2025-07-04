@@ -39,13 +39,14 @@ Route::post('contact/sponsorship', [ContactController::class, 'postSponsorship']
 Route::post('contact/news-subcribe', [ContactController::class, 'postNewsSubcribe']);
 
 Route::get('/exhibition', [ExhibitionController::class, 'index']);
-Route::get('/program', [ProgramController::class, 'index']);
-Route::get('/calendar/schedule', [ProgramController::class, 'getListCalendarSchedule']);
-Route::get('/calendar/workshop', [ProgramController::class, 'getListCalendarWorkshop']);
-Route::get('/calendar/ministage', [ProgramController::class, 'getListCalendarMinistage']);
-Route::get('/schedule', [ProgramController::class, 'getListSchedule']);
-Route::get('/workshop', [ProgramController::class, 'getListWorkshop']);
-Route::get('/ministage', [ProgramController::class, 'getListMinistage']);
+
+// Route::get('/program', [ProgramController::class, 'index']);
+// Route::get('/calendar/schedule', [ProgramController::class, 'getListCalendarSchedule']);
+// Route::get('/calendar/workshop', [ProgramController::class, 'getListCalendarWorkshop']);
+// Route::get('/calendar/ministage', [ProgramController::class, 'getListCalendarMinistage']);
+// Route::get('/schedule', [ProgramController::class, 'getListSchedule']);
+// Route::get('/workshop', [ProgramController::class, 'getListWorkshop']);
+// Route::get('/ministage', [ProgramController::class, 'getListMinistage']);
 
 Route::get('call-for-papers', [CallForPaperController::class, 'index']);
 Route::post('call-for-papers', [CallForPaperController::class, 'store'])->name('call-for-papers.store');
