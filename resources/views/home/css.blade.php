@@ -702,4 +702,21 @@
              font-size: 2rem !important;
          }
      }
+
+     .reserve-modal-content {
+         background: linear-gradient(to bottom, #E8B44B, white);
+         border-radius: 1rem;
+     }
+
+     .reserve-modal-content .form-control {
+         border-radius: .5rem;
+     }
+
+     .reserve-modal-content .btn-close {
+         filter: invert(1);
+     }
+
+     .g-recaptcha {
+         margin: 1rem 0;
+     }
  </style>

@@ -23,7 +23,8 @@
                             <li>Company name, logo & job title on profile</li>
                             <li>Live chat with attendees</li>
                         </ul>
-                        <button class="btn btn-warning ticket-btn w-100">
+                        <button class="btn btn-warning ticket-btn w-100" data-bs-toggle="modal"
+                            data-bs-target="#reserveModal" data-package="Normal Ticket">
                             BUY NOW
                         </button>
                     </div>
@@ -54,7 +55,8 @@
                             <li>Networking dinner invite</li>
                             <li>Live chat with attendees</li>
                         </ul>
-                        <button class="btn btn-warning ticket-btn w-100">
+                        <button class="btn btn-warning ticket-btn w-100" data-bs-toggle="modal"
+                            data-bs-target="#reserveModal" data-package="Early Bird">
                             BUY NOW
                         </button>
                     </div>
@@ -74,7 +76,7 @@
                         alt="3× Normal Deal">
                     <div class="card-body">
                         <button class="btn btn-warning ticket-btn w-100" data-bs-toggle="modal"
-                            data-bs-target="#paymentNew">
+                            data-bs-target="#reserveModal" data-package="3X Early Bird">
                             BUY NOW
                         </button>
                     </div>
@@ -91,7 +93,7 @@
                         alt="5× Normal Deal">
                     <div class="card-body">
                         <button class="btn btn-warning ticket-btn w-100" data-bs-toggle="modal"
-                            data-bs-target="#paymentNew">
+                            data-bs-target="#reserveModal" data-package="5X Early Bird">
                             BUY NOW
                         </button>
                     </div>

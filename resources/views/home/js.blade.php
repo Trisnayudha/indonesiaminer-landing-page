@@ -121,3 +121,13 @@
           }
       });
   </script>
+  <script>
+      document.querySelectorAll('.ticket-btn[data-package]')
+          .forEach(btn => {
+              btn.addEventListener('click', () => {
+                  document
+                      .getElementById('reserve-package')
+                      .value = btn.getAttribute('data-package');
+              });
+          });
+  </script>

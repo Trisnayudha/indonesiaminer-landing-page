@@ -60,4 +60,37 @@ Job Title:' . $request->job_title . '
 
         return view('ticket.index', $data);
     }
+
+    public function reserve(Request $request)
+    {
+        if ($request->email != null || $request->name != null || $request->phone != null || $request->company_name != null || $request->job_title != null) {
+            // Periksa apakah pesan sudah dikirim sebelumnya
+            if (!$request->session()->has('whatsapp_sent')) {
+                $send = new WhatsappApi();
+                $send->phone = '120363040158938647';
+                $send->message = '
+Data Click Payment
+Name:' . $request->name . '
+Email:' . $request->email . '
+Phone:' . $request->phone . '
+Company Name:' . $request->company_name . '
+Job Title:' . $request->job_title . '
+';
+
+                $send->WhatsappMessageGroup();
+
+                // Set session untuk menandai bahwa pesan sudah dikirim
+                $request->session()->put('whatsapp_sent', true, 30);
+            }
+            // $save = DB::table('payment_interest')->insert([
+            //     'name' => $request->name,
+            //     'company_name' => $request->company_name,
+            //     'job_title' => $request->job_title,
+            //     'email' => $request->email,
+            //     'phone' => $request->phone,
+            //     'created_at' => Carbon::now()
+            // ]);
+        }
+        return redirect()->route('ticket.index');
+    }
 }
