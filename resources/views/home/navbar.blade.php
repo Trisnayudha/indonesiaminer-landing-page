@@ -4,7 +4,7 @@
             <img src="https://indonesiaminer.com/vendor/front/images/indominer-icon.png" alt="Indonesia Miner Logo"
                 height="40">
         </a>
-        <span class="text-muted small d-none d-md-inline">Jakarta, The Westin Hotel • 4–6 June 2026</span>
+        {{-- <span class="text-muted small d-none d-md-inline">Jakarta, 2026</span> --}}
         <button class="navbar-toggler collapsed ms-auto" type="button" data-bs-toggle="collapse"
             data-bs-target="#navMenu">
             <span class="navbar-toggler-icon"></span>

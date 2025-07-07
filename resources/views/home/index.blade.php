@@ -41,22 +41,28 @@
         </div>
     </section>
 
+    <section id="buy-tickets" class="py-5 bg-white">
+        <div class="lazy-section" data-url="{{ route('section.partial', 'ticket') }}">
+            <div class="lazy-placeholder" style="height:600px;"></div>
+        </div>
+    </section>
+
     {{-- FAQ --}}
-    <section id="faq" class="py-5 bg-white">
+    <section id="faq" class="py-5 bg-light">
         <div class="lazy-section" data-url="{{ route('section.partial', 'faq') }}">
             <div class="lazy-placeholder" style="height:500px;"></div>
         </div>
     </section>
 
     {{-- Photo gallery --}}
-    <section id="photo-gallery" class="py-5 bg-light">
+    <section id="photo-gallery" class="py-5 bg-white">
         <div class="lazy-section" data-url="{{ route('section.partial', 'photo') }}">
             <div class="lazy-placeholder" style="height:400px;"></div>
         </div>
     </section>
 
     {{-- FACE OF … --}}
-    <section id="foim" class="py-5 bg-white">
+    <section id="foim" class="py-5 bg-light">
         <div class="lazy-section" data-url="{{ route('section.partial', 'foim') }}">
             <div class="lazy-placeholder" style="height:500px;"></div>
         </div>

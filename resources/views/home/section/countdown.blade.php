@@ -5,4 +5,4 @@
     <span id="bt-minutes">00</span> Mins :
     <span id="bt-seconds">00</span> Secs
 </div>
-<a href="#" class="btn btn-warning fw-bold">BUY TICKETS</a>
+<a href="#buy-tickets" class="btn btn-warning fw-bold">BUY TICKETS</a>

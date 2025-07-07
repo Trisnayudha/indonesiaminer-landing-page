@@ -32,6 +32,7 @@ class HomeController extends Controller
             'changing',
             'video',
             'speakers',
+            'ticket',
             'faq',
             'photo',
             'foim',

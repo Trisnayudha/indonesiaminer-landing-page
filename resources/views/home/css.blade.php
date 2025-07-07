@@ -594,3 +594,112 @@
          display: block;
      }
  </style>
+ <style>
+     /* tiket card dasar */
+     .ticket-card {
+         border: none;
+         border-radius: 1rem;
+         overflow: hidden;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+         position: relative;
+         transition: transform .3s ease, box-shadow .3s ease;
+     }
+
+     /* efek hover: kartu naik & bayangan tegas */
+     .ticket-card:hover {
+         transform: translateY(-8px);
+         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+     }
+
+     /* overlay putih semi-transparent untuk efek “fade” */
+     .ticket-card::before {
+         content: "";
+         position: absolute;
+         inset: 0;
+         background: rgba(255, 255, 255, 0);
+         transition: background .3s ease;
+         border-radius: 1rem;
+         pointer-events: none;
+     }
+
+     .ticket-card:hover::before {
+         /* background: rgba(255, 255, 255, 0.3); */
+     }
+
+     /* header kartu */
+     .ticket-card .card-header {
+         font-size: 1.25rem;
+         font-weight: 700;
+         padding: 1rem;
+         border-bottom: none;
+         background: #fff;
+     }
+
+     /* section harga */
+     .ticket-price-section {
+         background: linear-gradient(90deg, #F9DB4A, #FF9F28);
+         color: #000;
+         padding: 2rem 1rem;
+     }
+
+     /* daftar benefit */
+     .ticket-features li {
+         padding: .5rem 0;
+         border-bottom: 1px solid #e9ecef;
+     }
+
+     .ticket-features li:last-child {
+         border-bottom: none;
+     }
+
+     /* tombol BUY NOW */
+     .ticket-btn {
+         border-radius: .5rem;
+         padding: .75rem 1.5rem;
+         font-size: 1rem;
+         font-weight: 500;
+         transition: background-color .3s ease;
+     }
+
+     .ticket-btn:hover {
+         background-color: #e0a534 !important;
+     }
+
+     /* ribbone diskon */
+     .ribbon {
+         position: absolute;
+         top: 1rem;
+         left: -2rem;
+         width: 8rem;
+         text-align: center;
+         transform: rotate(-45deg);
+         font-size: .85rem;
+         font-weight: 600;
+         color: #fff;
+         z-index: 2;
+     }
+
+     .ribbon.bg-danger {
+         background: #dc3545 !important;
+     }
+
+     /* override utilitas Bootstrap warning menjadi kuning konsisten */
+     .bg-warning {
+         background: #E8B44B !important;
+         border-color: #E8B44B !important;
+     }
+
+     /* responsive untuk tablet/mobile */
+     @media (max-width: 768px) {
+         .ribbon {
+             top: .5rem;
+             left: -1.5rem;
+             width: 6rem;
+             font-size: .75rem;
+         }
+
+         .display-4 {
+             font-size: 2rem !important;
+         }
+     }
+ </style>
