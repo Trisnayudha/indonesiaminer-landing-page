@@ -171,7 +171,7 @@
                             <td>
                                 {{ $name }}.<br />
                                 {{ $email }}<br />
-                                +{{ $phone }}
+                                {{ $phone }}
 
                             </td>
 
@@ -191,7 +191,7 @@
             </tr>
 
             <tr class="details">
-                <td>Credit Card</td>
+                <td>{{ $payment_method ?? '' }}</td>
 
                 <td></td>
             </tr>
@@ -234,11 +234,19 @@
 
                 <td align="right"> {{ $voucher_price ? 'IDR ' . $voucher_price : '' }}</td>
             </tr>
-            <tr class="item last">
-                <td> <b>Exclude VAT 11%</b></td>
+            @if ($vat)
+                <tr class="item last">
+                    <td> <b>Include VAT 11%</b></td>
 
-                <td align="right"></td>
-            </tr>
+                    <td align="right">{{ $vat }}</td>
+                </tr>
+            @else
+                <tr class="item last">
+                    <td> <b>Exclude VAT 11%</b></td>
+
+                    <td align="right"></td>
+                </tr>
+            @endif
             <tr class="total">
                 <td>Total</td>
 

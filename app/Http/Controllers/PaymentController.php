@@ -168,24 +168,13 @@ class PaymentController extends Controller
                     'rate_idr'              => $request->input('rate_idr'),
                 ];
 
-                // Cari atau buat pembayaran
-                $payment = Payment::firstOrNew([
-                    'events_id' => $event->id,
-                    'users_id'  => $user->id,
-                ]);
+                // Buat pembayaran baru tanpa firstOrNew
+                $payment = Payment::create($paymentData);
 
+                // Akumulasi total harga
+                $totalPrice       += $paymentData['event_price'];
+                $totalPriceDollar += $paymentData['event_price_dollar'];
                 $paidoff = false;
-
-                if (!$payment->exists || in_array($payment->status, ['Waiting', 'Expired', 'trash'])) {
-                    $payment->fill($paymentData);
-                    $payment->save();
-
-                    // Akumulasi total harga
-                    $totalPrice       += $paymentData['event_price'];
-                    $totalPriceDollar += $paymentData['event_price_dollar'];
-                } else {
-                    $paidoff = true;
-                }
 
                 // Siapkan detail item untuk invoice dan pesan WhatsApp
                 $itemDetails[] = [
@@ -264,12 +253,12 @@ Hello,
 Someone has registered for the event {$event->name}.
 
 Ticket : {$request->events_tickets_title_new}.
+Registration details:
+" . implode("\n", $detailWa) . "
+
 Rate IDR: " . number_format($request->rate_idr, 0, ',', '.') . "
 Total USD: " . number_format($request->total_price_dollar_val_new, 0, ',', '.') . "
 Total IDR: " . number_format($request->total_price_val_new, 0, ',', '.') . "
-
-Registration details:
-" . implode("\n", $detailWa) . "
 
 Thank you,
 Best Regards,
@@ -305,7 +294,7 @@ Bot IM
             // Commit transaksi
             DB::commit();
 
-            return redirect()->back()->with('success', 'Kami akan mengirimkan invoice ke alamat email ' . $bookingContactData['email_contact']);
+            return redirect()->back()->with('success', 'We will send the invoice to the email address ' . $bookingContactData['email_contact'] . '.');
         } catch (ValidationException $e) {
             // Rollback transaksi jika validasi gagal
             DB::rollBack();
@@ -320,6 +309,24 @@ Bot IM
             // Rollback transaksi jika terjadi error
             DB::rollBack();
             Log::error('Terjadi kesalahan dalam proses pembayaran: ' . $e->getMessage());
+
+            // Kirim WhatsApp notifikasi error
+            $whatsappApi = new WhatsappApi();
+            $whatsappApi->phone   = '083829314436'; // ganti dengan nomor admin jika diperlukan
+            $whatsappApi->message = "
+Hello Admin,
+
+An error occurred during the payment process.
+
+Error Message: {$e->getMessage()}
+
+Please check immediately.
+
+Regards,
+Bot IM
+";
+            $whatsappApi->WhatsappMessageGroup();
+
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }

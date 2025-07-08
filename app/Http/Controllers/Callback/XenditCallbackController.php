@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Callback;
 
 use App\Helpers\EmailSender;
 use App\Helpers\WhatsappApi;
+use App\Helpers\XenditInvoice;
 use App\Traits\Payment as TraitPayment;
 use App\Traits\PaymentRegisterSponsors as TraitPaymentRegisterSponsors;
 use Illuminate\Http\Request;
@@ -21,6 +22,8 @@ use App\Models\UsersDelegate;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Barryvdh\DomPDF\Facade\Pdf; // Menggunakan DOMPDF
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class XenditCallbackController extends Controller
@@ -32,21 +35,26 @@ class XenditCallbackController extends Controller
      */
     public function postInvoiceNew()
     {
+        DB::beginTransaction();
         try {
             // Mengambil data dari request
             $requestData = $this->getRequestData();
 
             // Mengecek jenis pembayaran dan memproses sesuai tipe
-            if ($this->isMiningDirectoryPayment($requestData['external_id'])) {
-                $response = $this->processMiningDirectoryPayment($requestData);
-            } elseif ($this->isExhibitionPayment($requestData['external_id'])) {
+            // if ($this->isMiningDirectoryPayment($requestData['external_id'])) {
+            // $response = $this->processMiningDirectoryPayment($requestData);
+            // }
+            if ($this->isExhibitionPayment($requestData['external_id'])) {
                 $response = $this->processExhibitionPayment($requestData);
             } else {
                 $response = $this->processOtherPayment($requestData);
             }
 
+            DB::commit();
             return response()->json($response, 200);
         } catch (\Exception $e) {
+            DB::rollBack();
+
             $res['api_status'] = 0;
             $res['api_message'] = $e->getMessage();
             return response()->json($res, 500);
@@ -187,16 +195,30 @@ class XenditCallbackController extends Controller
                 'api_message' => 'Payment is not found',
             ];
         }
-
         if ($data['status'] === 'PAID') {
             if ($payment->booking_id) {
                 $this->processBookingPayment($payment, $data);
             } else {
                 $this->processSinglePayment($payment, $data);
             }
+            $dataPayment = [
+                "id" => $data['id'],
+                "external_id" => $data['external_id'],
+                "status" => $data['status'],
+                "merchant_name" => $data['merchant_name'],
+                "merchant_profile_picture_url" => null,
+                "amount" => $data['amount'],
+                "payer_email" => $data['payer_email'],
+                "description" => $data['description'],
+                "expiry_date" => null,
+                "invoice_url" => null,
+                "currency" => $data['currency'],
+            ];
+            XenditInvoice::saveInvoice($payment->id, $payment->users_id, $dataPayment);
         } else {
-            $this->updatePaymentStatus($payment, 'Expired', ['link' => null]);
+            $this->updatePaymentStatus($payment, 'Expired');
         }
+        // dd($data);
 
         return [
             'api_status' => 1,
@@ -395,11 +417,11 @@ class XenditCallbackController extends Controller
     {
         $payments = Payment::join('users', 'users.id', 'payment.users_id')
             ->where('booking_id', $payment->booking_id)
+            ->select('users.*', 'payment.id as id', 'payment.*', 'payment.created_at as created_at')
             ->get();
-
         $itemDetails = [];
         $whatsappDetails = [];
-
+        $result = [];
         foreach ($payments as $pay) {
             // Generate QR Code
             $qrCodePath = $this->generateQRCode($pay->code_payment);
@@ -409,8 +431,10 @@ class XenditCallbackController extends Controller
                 'qr_code' => $qrCodePath,
                 'payment_method' => $data['payment_method'],
                 'aproval_quota_users' => 1,
+                'trash' => null,
+                'package' => 'Platinum',
+                'created_at' => now()
             ]);
-
             // Save user delegate
             $this->saveUserDelegate($pay, $payment->events_id, $payment->package_id, $payment->package);
 
@@ -423,7 +447,6 @@ class XenditCallbackController extends Controller
             // Send access email to delegate
             $this->sendDelegateAccessEmail($pay, $qrCodePath);
         }
-
         // Send receipt to booking contact
         $this->sendBookingPaymentReceipt($payment, $data, $itemDetails);
 
@@ -439,17 +462,18 @@ class XenditCallbackController extends Controller
      */
     private function generateQRCode($codePayment)
     {
-        $qrCodeImage = QrCode::format('png')
-            ->size(200)->errorCorrection('H')
+        // Generate SVG QR code
+        $svg = QrCode::format('svg')
+            ->size(200)
+            ->errorCorrection('H')
             ->generate($codePayment);
 
-        $fileName = 'img-' . time() . '.png';
-        $outputPath = 'public/uploads/payment/qr-code/' . $fileName;
-        $storagePath = url('storage/uploads/payment/qr-code/' . $fileName);
+        $fileName = 'qr-' . time() . '.svg';
+        // Simpan ke disk public/uploads/…
+        Storage::disk('public')->put('uploads/payment/qr-code/' . $fileName, $svg);
 
-        Storage::put($outputPath, $qrCodeImage);
-
-        return $storagePath;
+        // Kembalikan URL yang bisa diakses
+        return Storage::url('uploads/payment/qr-code/' . $fileName);
     }
 
     /**
@@ -465,7 +489,32 @@ class XenditCallbackController extends Controller
         foreach ($additionalData as $key => $value) {
             $payment->$key = $value;
         }
-        $payment->save();
+        $result = $payment->save();
+
+        if (!$result) {
+            Log::error("Failed to update payment ID: {$payment->id}");
+
+            // Kirim WhatsApp notifikasi error
+            $whatsappApi = new WhatsappApi();
+            $whatsappApi->phone   = '083829314436';
+            $whatsappApi->message = "
+Hello Admin,
+
+Failed to update payment.
+
+Payment ID: {$payment->id}
+Code Payment: {$payment->code_payment}
+User ID: {$payment->users_id}
+
+Please check immediately.
+
+Regards,
+Bot IM
+";
+            $whatsappApi->WhatsappMessage();
+        }
+
+        return $payment;
     }
 
     /**
@@ -518,6 +567,7 @@ Email: {$paymentData->email}
 Phone Number: {$paymentData->phone}
 Company : {$paymentData->company_name}
 Code Access: {$paymentData->code_payment}
+Payment Method: {$paymentData->payment_method}
         ";
     }
 
@@ -579,7 +629,9 @@ Code Access: {$paymentData->code_payment}
             'code_payment' => $data['external_id'],
             'events_name' => $delegateDetail->events_name,
             'voucher_price' => null,
-            'link' => null
+            'link' => null,
+            'payment_method' => $data['payment_method'],
+            'vat' => $payment->vat
         ];
 
         $pdf = Pdf::loadView('email.invoice-new-multiple', $emailData);
@@ -630,17 +682,30 @@ Best Regards Bot Indonesia Miner
         // Update payment status
         $this->updatePaymentStatus($payment, 'Paid Off', [
             'qr_code' => $qrCodePath,
+            'payment_method' => $data['payment_method'],
+            'trash' => null
         ]);
 
-        // Cek kuota dan update status persetujuan
-        $quotaAvailable = $this->checkQuotaUsers($payment->package, $payment->events_id);
-        $payment->aproval_quota_users = $quotaAvailable ? 1 : 0;
+        // Set approval quota
+        $payment->aproval_quota_users = 1;
         $payment->save();
+
+        // Get user payment details
+        $user = Payment::join('users', 'users.id', 'payment.users_id')
+            ->where('payment.code_payment', $data['external_id'])
+            ->first();
+
+        // Prepare WhatsApp notification details
+        $whatsappDetails = [];
+        $whatsappDetails[] = $this->prepareWhatsappDetails($user);
 
         // Simpan informasi delegate atau perusahaan
         $this->saveDelegateOrCompany($payment);
 
-        // Kirim email kepada pengguna
+        // Notify team via WhatsApp
+        $this->notifyBookingPaymentSuccess($whatsappDetails);
+
+        // Kirim email kepada pengguna jika diperlukan
         $this->sendSinglePaymentEmail($payment, $data, $qrCodePath);
     }
 
@@ -681,43 +746,80 @@ Best Regards Bot Indonesia Miner
      */
     private function sendSinglePaymentEmail($payment, $data, $qrCodePath)
     {
-        $delegateDetail = Events::join('payment', 'payment.events_id', 'events.id')->where('payment.id', $payment->id)->first();
+        $delegateDetail = Events::join('payment', 'payment.events_id', 'events.id')
+            ->join('users', 'users.id', 'payment.users_id')
+            ->select(
+                'users.id',
+                'events.id as event_id',
+                'events.name as events_name',
+                'events.date_start',
+                'events.date_end',
+                'events.slug',
+                'users.name',
+                'users.job_title',
+                'users.email',
+                'users.phone',
+                'users.company_name',
+                'payment.id as payment_id',
+                'payment.code_payment',
+                'payment.event_price',
+                'payment.voucher_price',
+                'payment.total_price',
+                'payment.status',
+                'payment.package',
+                'payment.package_id',
+                'payment.aproval_quota_users',
+                'payment.qr_code',
+                'payment.payment_method',
+                'payment.vat',
+                'users.company_address'
+            )
+            ->where('payment.id', $payment->id)->first();
         if (empty($delegateDetail->id)) {
             return;
         }
 
-        $dateEvents = $this->formatEventDate($delegateDetail->events_start, $delegateDetail->events_end);
-        $findPhoneCode = MsPhoneCode::detail($payment->phone_id);
-
+        $dateEvents = $this->formatEventDate($delegateDetail->date_start, $delegateDetail->date_end);
+        $itemDetails[] = [
+            'name' => $delegateDetail->name,
+            'job_title' => $delegateDetail->job_title,
+            'price' => number_format($delegateDetail->event_price, 0, ',', '.'),
+            'paidoff' => false,
+            'code_payment' => $delegateDetail->code_payment,
+        ];
         $emailData = [
-            "users_name" => $delegateDetail->users_name,
-            "name" => $delegateDetail->users_name,
-            "users_email" => $delegateDetail->users_email,
+            "users_name" => $delegateDetail->name,
+            "name" => $delegateDetail->name,
+            "email" => $delegateDetail->email,
             "create_date" => date('d, M Y H:i'),
             "due_date" => date('d, M Y H:i', strtotime('+1 day')),
-            "code_phone" => $findPhoneCode->code,
             "phone" => $payment->phone,
-            "company_name" => $payment->company,
-            "address_company" => $payment->company_address,
+            "company_name" => $delegateDetail->company_name,
+            "address_company" => $delegateDetail->company_address,
             "events_name" => $delegateDetail->events_name,
             "code_payment" => $data['external_id'],
+            'item' => $itemDetails,
             "events_date" => $dateEvents,
             "status" => $payment->status,
-            "payment_method" => $payment->payment_method,
+            "payment_method" => $data['payment_method'],
             "event_price" => number_format($payment->event_price, 0, ',', '.'),
             "voucher_price" => number_format($payment->voucher_price, 0, ',', '.'),
+            'vat' => number_format($payment->vat, 0, ',', '.'),
             "total_price" => number_format($payment->total_price, 0, ',', '.'),
             "qr_code" => $qrCodePath,
+            "link" => null,
+            'pesan1' => 'delegate',
+            'pesan' => ''
         ];
 
-        $pdf = Pdf::loadView('email.payment.invoice-new', $emailData);
-        $subject = "E - Ticket {$data['external_id']} - IM25 - {$delegateDetail->users_name}";
+        $pdf = Pdf::loadView('email.invoice-new-multiple', $emailData);
+        $subject = "E - Ticket {$data['external_id']} - IM25 - {$delegateDetail->name}";
 
-        Mail::send('email.approve', $emailData, function ($message) use ($pdf, $payment, $subject) {
+        Mail::send('email.approve', $emailData, function ($message) use ($pdf, $delegateDetail, $payment, $subject) {
             $message->from(env('EMAIL_SENDER'));
-            $message->to($payment->users_email);
+            $message->to($delegateDetail->email);
             $message->subject($subject);
-            $message->attachData($pdf->output(), $payment->code_payment . '_' . $payment->users_name . '.pdf');
+            $message->attachData($pdf->output(), $payment->code_payment . '_' . $delegateDetail->email . '.pdf');
         });
     }
 

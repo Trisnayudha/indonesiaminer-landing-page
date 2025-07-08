@@ -1,0 +1,16 @@
+{
+    "id": "6861fe8983682a1935c91515",
+    "amount": 900000,
+    "status": "EXPIRED",
+    "created": "2025-06-30T03:03:37.581Z",
+    "is_high": false,
+    "updated": "2025-07-01T03:04:20.487Z",
+    "user_id": "627a17539917bb3ad4f7cf88",
+    "currency": "IDR",
+    "description": "Invoice Event The 67th Djakarta Mining Club Networking Event",
+    "external_id": "W5NXBCS",
+    "payer_email": "annisa.fitrigus@gmail.com",
+    "merchant_name": "Djakarta Mining Club",
+    "failure_redirect_url": "https://membership.djakarta-miningclub.com",
+    "success_redirect_url": "https://djakarta-miningclub.com"
+}

@@ -1,0 +1,23 @@
+{
+    "id": "68661c833fe504973b3809ae",
+    "amount": 900000,
+    "status": "PAID",
+    "created": "2025-07-03T06:00:35.162Z",
+    "is_high": false,
+    "paid_at": "2025-07-03T06:19:16.000Z",
+    "updated": "2025-07-03T06:19:16.738Z",
+    "user_id": "627a17539917bb3ad4f7cf88",
+    "currency": "IDR",
+    "bank_code": "PERMATA",
+    "payment_id": "15eefd85-1b26-47f6-bf2a-6b0812a0b22e",
+    "description": "Invoice Event DMC",
+    "external_id": "6ZQA5ZX",
+    "paid_amount": 900000,
+    "payer_email": "martin@busriskindo.com",
+    "merchant_name": "Djakarta Mining Club",
+    "payment_method": "BANK_TRANSFER",
+    "payment_channel": "PERMATA",
+    "payment_destination": "7293013876241289",
+    "failure_redirect_url": "https://membership.djakarta-miningclub.com",
+    "success_redirect_url": "https://djakarta-miningclub.com"
+}
