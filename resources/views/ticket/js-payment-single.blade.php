@@ -5,7 +5,7 @@
                 <form action="{{ url('payment') }}" method="post">
                     @csrf
                     <div class="row">
-                        <div class="col-md-8 modal-bg-white">
+                        <div class="col-12 col-lg-8">
                             <input type="hidden" id="events_id_new" value="13" name="events_id_new">
                             <!-- events ticket -->
                             <input type="hidden" id="events_tickets_id_new" name="events_tickets_id_new">
@@ -233,49 +233,50 @@
                                 <hr class="my-4">
                             </div>
                         </div>
-                        <div class="col-md-4 modal-bg-gray">
+                        <div class="col-12 col-md-4">
+                            <div class="card bg-light h-100 shadow-sm">
+                                <div class="card-body d-flex flex-column">
 
-                            <div class="content-login">
-                                <div class="form-group">
-                                    <label>Discount Code</label>
-                                    <div class="row">
-                                        <div class="col-lg-8">
-                                            <input type="text" name="voucher_code" id="voucher_code"
-                                                class="form-control" placeholder="Input discount code">
+                                    <!-- Discount Code -->
+                                    <label class="form-label fw-semibold mb-1">Discount Code</label>
+                                    <div class="input-group mb-4">
+                                        <input type="text" name="voucher_code" id="voucher_code"
+                                            class="form-control" placeholder="Input discount code">
+                                        <button type="button" class="btn btn-outline-secondary" id="vocer">
+                                            Apply
+                                        </button>
+                                    </div>
+
+                                    <!-- Price Breakdown -->
+                                    <div class="flex-grow-1 mb-4">
+                                        <div class="d-flex justify-content-between py-2 border-bottom">
+                                            <span>Quantity</span>
+                                            <span id="ticket_increment_new">1×</span>
                                         </div>
-                                        <div class="col-lg-2">
-                                            <button type="button" class="btn-next-outline vocer" name="vocer"
-                                                id="vocer">
-                                                Apply </button>
+                                        <div class="d-flex justify-content-between py-2 border-bottom">
+                                            <span>Event Price</span>
+                                            <span id="event_price_new">USD 0 (IDR 0)</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between py-2 border-bottom">
+                                            <span>Discount</span>
+                                            <span id="voucher_new">USD 0 (IDR 0)</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between py-2">
+                                            <strong>Total Price</strong>
+                                            <strong id="total_price_new">USD 0 (IDR 0)</strong>
                                         </div>
                                     </div>
-                                </div>
 
-                            </div>
-                            <input name="payment_method" id="payment_method" value="Creadit Card" type="hidden">
-                            <div class="list-price">
-                                <div class="left">Quantity</div>
-                                <div class="right" id="ticket_increment_new">1x</div>
-                            </div>
-                            <div class="list-price">
-                                <div class="left">Event Price</div>
-                                <div class="right" id="event_price_new">USD 0 ( IDR 0 )</div>
-                            </div>
-                            <div class="list-price">
-                                <div class="left">Discount</div>
-                                <div class="right" id="voucher_new">USD 0 ( IDR 0 )</div>
-                            </div>
-                            <div class="list-price">
-                                <div class="left">Total Price</div>
-                                <div class="right" id="total_price_new">USD 0 ( IDR 0 )</div>
-                            </div>
-                            <div class="line-sm"></div>
-                            <div class="wrapper-login-forgot">
-                                <div class="btn-group-bt">
-                                    <button type="button" class="btn-next-outline-disabled" data-dismiss="modal"
-                                        aria-label="Close">Cancel</button>
-                                    <button type="submit"class="btn btn-info beforePayment">Checkout</button>
-
+                                    <!-- Actions -->
+                                    <div class="d-flex justify-content-between mt-auto">
+                                        <button type="button" class="btn btn-outline-secondary"
+                                            data-bs-dismiss="modal">
+                                            Cancel
+                                        </button>
+                                        <button type="submit" class="btn btn-info beforePayment">
+                                            Checkout
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -307,25 +308,38 @@
         });
     });
 
-    var selectPayment = function(price_dollar, price_rupiah, events_tickets_id, events_tickets_title,
-        events_tickets_type, klik) {
+    var selectPayment = function(discount_dollar, discount_rupiah, events_tickets_id, events_tickets_title,
+        events_tickets_type, klik, price_dollar, price_rupiah) {
         $(".customer").empty();
         console.log("klik select = " + klik);
         $(".minus-icon").attr("disabled", true);
+        var total_discount_dollar = price_dollar - discount_dollar;
+        var total_discount_rupiah = price_rupiah - discount_rupiah;
         var countKlik = 1;
         var ticket = countKlik;
-        var total_dollar = countKlik * price_dollar;
-        var total_rupiah = countKlik * price_rupiah;
+        var total_dollar = countKlik * discount_dollar;
+        var total_rupiah = countKlik * discount_rupiah;
+
+        var total_dollar_discount = countKlik * price_dollar;
+        var total_rupiah_discount = countKlik * price_rupiah;
         $("#submit").prop("disabled", true);
         $("#submit").addClass("btn-next-outline-disabled");
 
         var change_format_price_dollar = parseInt(total_dollar).toLocaleString();
         var change_format_price_rupiah = parseInt(total_rupiah).toLocaleString();
+        var change_format_price_dollar_discount = parseInt(total_dollar_discount).toLocaleString();
+        var change_format_price_rupiah_discount = parseInt(total_rupiah_discount).toLocaleString();
+        var change_discount_dollar = parseInt(total_discount_dollar).toLocaleString();
+        var change_discount_price = parseInt(total_discount_rupiah).toLocaleString();
+        var discount = "USD " + change_discount_dollar + " ( IDR " + change_discount_price + " ) ";
         var event_price_text = "USD " + change_format_price_dollar + " ( IDR " + change_format_price_rupiah + " ) ";
+        var event_price_total_text = "USD " + change_format_price_dollar_discount + " ( IDR " +
+            change_format_price_rupiah_discount +
+            " ) ";
 
         $("#price_rupiah_new").val(price_rupiah);
         $("#price_dollar_new").val(price_dollar);
-        $("#event_price_new").html(event_price_text);
+        $("#event_price_new").html(event_price_total_text);
         $("#ticket_increment_new").html(ticket);
         // Total price initially
         $("#total_price_new").html(event_price_text);
@@ -333,7 +347,7 @@
         $("#events_tickets_id_new").val(events_tickets_id);
         $("#events_tickets_title_new").val(events_tickets_title);
         $("#events_tickets_type_new").val(events_tickets_type);
-
+        $("#voucher_new").html(discount);
         $("#total_price_val_new").val(total_rupiah);
         $("#total_price_dollar_val_new").val(total_dollar);
         $("#countTicket_val_new").val(countKlik);

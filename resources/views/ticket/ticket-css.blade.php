@@ -597,4 +597,83 @@
             margin-bottom: .5rem;
         }
     }
+
+    /* Hanya untuk mobile (<576px, atau sesuaikan breakpoint µmu) */
+    @media (max-width: 575.98px) {
+
+        /* Hilangkan garis pemisah atas */
+        .section-line-ticket {
+            display: none;
+        }
+
+        /* Footer jadi bottom-sheet */
+        .section-footer-ticket {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, #E8B44B, white);
+            color: black;
+            padding: 1rem;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+            display: flex !important;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1050;
+        }
+
+        /* Breakdown di atas footer */
+        .section-items-ticket {
+            display: block;
+            color: black;
+            font-size: 0.85rem;
+        }
+
+        .section-items-ticket #list-item {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem
+        }
+
+        .section-items-ticket #include-item {
+            padding-left: 1rem;
+            font-size: 0.9rem;
+            display: none !important;
+        }
+
+        /* Total besar */
+        .section-price-item {
+            align-items: center;
+        }
+
+        .section-price-item .total {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        #total-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: black;
+        }
+
+        /* Tombol gradien full-width */
+        .button-checkout {
+            width: 100%;
+            padding: 0.75rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: black;
+            background: linear-gradient(90deg, #ff6a00 0%, #ee0979 100%);
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sisakan ruang di konten atas supaya footer tidak menutup */
+        .container-fluid {
+            padding-bottom: 8rem;
+            /* sesuaikan setinggi footer */
+        }
+    }
 </style>

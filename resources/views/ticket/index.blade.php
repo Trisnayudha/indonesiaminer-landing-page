@@ -29,7 +29,7 @@
                 // Daftar tiket, cukup ubah di sini jika ada perubahan
                 $tickets = [
                     [
-                        'sku' => 108,
+                        'id' => 108,
                         'qty' => 1,
                         'name' => 'NORMAL TICKET',
                         'image' => 'ticket_im24.png',
@@ -39,7 +39,7 @@
                         'tag_label' => null,
                     ],
                     [
-                        'sku' => 113,
+                        'id' => 113,
                         'qty' => 1,
                         'name' => 'EARLY BIRD',
                         'image' => 'ticket_im24x1.png',
@@ -49,7 +49,7 @@
                         'tag_label' => null,
                     ],
                     [
-                        'sku' => 114,
+                        'id' => 114,
                         'qty' => 3,
                         'name' => '3X EARLY BIRD',
                         'image' => 'ticket_im24x3.png',
@@ -60,7 +60,7 @@
                         'data-target' => 'kotak2',
                     ],
                     [
-                        'sku' => 115,
+                        'id' => 115,
                         'qty' => 5,
                         'name' => '5X EARLY BIRD',
                         'image' => 'ticket_im24x5.png',
@@ -84,7 +84,7 @@
                         onclick="selectTicket(
                   {{ $t['price_usd'] }},
                   {{ $rate_idr * $t['price_usd'] }},
-                  {{ $t['sku'] }},
+                  {{ $t['id'] }},
                   '{{ $t['name'] }}',
                   'Platinum',
                   {{ $t['qty'] }},
@@ -152,26 +152,26 @@
             </ul>
 
             <div class="section-line-ticket my-4"></div>
-
-            <div class="section-footer-ticket d-flex justify-content-between align-items-center flex-wrap">
-                <!-- Kiri: daftar item -->
-                <div class="section-items-ticket d-flex flex-column flex-sm-row align-items-start">
-                    <div id="list-item" class="me-sm-4 mb-2 mb-sm-0"></div>
-                    <div id="include-item"></div>
-                </div>
-
-                <!-- Kanan: harga & tombol -->
-                <div class="section-price-item d-flex flex-column align-items-end">
-                    <div class="total" style="font-size: 20px;">
-                        Total:
-                        <b id="total-price" style="font-size: 30px"> USD 0</b>
+            <div class="container">
+                <div class="section-footer-ticket d-flex justify-content-between align-items-center flex-wrap">
+                    <!-- Kiri: daftar item -->
+                    <div class="section-items-ticket d-flex flex-column flex-sm-row align-items-start">
+                        <div id="list-item" class="me-sm-4 mb-2 mb-sm-0"></div>
+                        <div id="include-item"></div>
                     </div>
-                    <button class="button-checkout active btn btn-primary mt-2">
-                        Continue to checkout
-                    </button>
+
+                    <!-- Kanan: harga & tombol -->
+                    <div class="section-price-item d-flex flex-column align-items-end">
+                        <div class="total" style="font-size: 20px;">
+                            Total:
+                            <b id="total-price" style="font-size: 30px"> USD 0</b>
+                        </div>
+                        <button class="button-checkout active btn btn-warning mt-2">
+                            Continue to checkout
+                        </button>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -334,7 +334,7 @@
         var selectTicket = function(price_dollar, price_rupiah, events_tickets_id, events_tickets_title,
             events_tickets_type, klik, discount_dollar, discount_price) {
 
-            var change_format_price = parseInt(discount_dollar).toLocaleString();
+            var change_format_price = parseInt(price_dollar).toLocaleString();
             var price_text = "USD " + change_format_price;
             $("#total-price").html(price_text);
             var change_ticket_name = `
@@ -356,7 +356,7 @@
             } else {
 
                 selectPayment(price_dollar, price_rupiah, events_tickets_id, events_tickets_title,
-                    events_tickets_type, klik)
+                    events_tickets_type, klik, discount_dollar, discount_price)
             }
         }
 

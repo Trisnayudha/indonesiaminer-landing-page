@@ -6,7 +6,7 @@
                 <form action="{{ url('payment') }}" method="post">
                     @csrf
                     <div class="row">
-                        <div class="col-md-8 modal-bg-white">
+                        <div class="col-12 col-lg-8">
                             <input type="hidden" id="events_id_new" value="13" name="events_id_new">
                             <!-- events ticket -->
                             <input type="hidden" id="events_tickets_id" name="events_tickets_id_new">
@@ -168,30 +168,50 @@
                             </div>
 
                         </div>
-                        <div class="col-md-4 modal-bg-gray">
-                            <input name="payment_method" id="payment_method" value="Credit Card" type="hidden">
-                            <div class="list-price">
-                                <div class="left">Quantity</div>
-                                <div class="right" id="ticket_increment">1x</div>
-                            </div>
-                            <div class="list-price">
-                                <div class="left">Event Price</div>
-                                <div class="right" id="event_price">USD 0 ( IDR 0 )</div>
-                            </div>
-                            <div class="list-price">
-                                <div class="left">Discount</div>
-                                <div class="right" id="voucher">USD 0 ( IDR 0 )</div>
-                            </div>
-                            <div class="list-price">
-                                <div class="left">Total Price</div>
-                                <div class="right" id="total_price">USD 0 ( IDR 0 )</div>
-                            </div>
-                            <div class="line-sm"></div>
-                            <div class="wrapper-login-forgot">
-                                <div class="btn-group-bt">
-                                    <button type="button" class="btn-next-outline-disabled" data-dismiss="modal"
-                                        aria-label="Close">Cancel</button>
-                                    <button type="submit" class="btn btn-info beforePayment">Checkout</button>
+                        <div class="col-12 col-md-4">
+                            <div class="card bg-light h-100 shadow-sm">
+                                <div class="card-body d-flex flex-column">
+
+                                    <!-- Discount Code -->
+                                    <label class="form-label fw-semibold mb-1">Discount Code</label>
+                                    <div class="input-group mb-4">
+                                        <input type="text" name="voucher_code" id="voucher_code"
+                                            class="form-control" placeholder="Input discount code">
+                                        <button type="button" class="btn btn-outline-secondary" id="vocer">
+                                            Apply
+                                        </button>
+                                    </div>
+
+                                    <!-- Price Breakdown -->
+                                    <div class="flex-grow-1 mb-4">
+                                        <div class="d-flex justify-content-between py-2 border-bottom">
+                                            <span>Quantity</span>
+                                            <span id="ticket_increment">1×</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between py-2 border-bottom">
+                                            <span>Event Price</span>
+                                            <span id="event_price">USD 0 (IDR 0)</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between py-2 border-bottom">
+                                            <span>Discount</span>
+                                            <span id="voucher">USD 0 (IDR 0)</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between py-2">
+                                            <strong>Total Price</strong>
+                                            <strong id="total_price">USD 0 (IDR 0)</strong>
+                                        </div>
+                                    </div>
+
+                                    <!-- Actions -->
+                                    <div class="d-flex justify-content-between mt-auto">
+                                        <button type="button" class="btn btn-outline-secondary"
+                                            data-bs-dismiss="modal">
+                                            Cancel
+                                        </button>
+                                        <button type="submit" class="btn btn-info beforePayment">
+                                            Checkout
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -207,13 +227,13 @@
     var tampung = 0;
     const jobTitleDetails = @json($grouped_job_titles);
 
-    var selectPaymentMultiple = function(price_dollar, price_rupiah, events_tickets_id, events_tickets_title,
-        events_tickets_type, klik, discount_dollar, discount_price) {
+    var selectPaymentMultiple = function(discount_dollar, discount_rupiah, events_tickets_id, events_tickets_title,
+        events_tickets_type, klik, price_dollar, price_rupiah) {
 
         var countKlik = klik;
         var ticket = countKlik;
         var total_discount_dollar = price_dollar - discount_dollar;
-        var total_discount_rupiah = price_rupiah - discount_price;
+        var total_discount_rupiah = price_rupiah - discount_rupiah;
 
         $("#submit").prop("disabled", true);
         $("#submit").addClass("btn-next-outline-disabled");
@@ -222,12 +242,12 @@
         var format_price_rupiah = parseInt(price_rupiah).toLocaleString();
         var price_text = "USD " + format_price_dollar + " ( IDR " + format_price_rupiah + " ) ";
         var change_format_price_dollar = parseInt(discount_dollar).toLocaleString();
-        var change_format_price_rupiah = parseInt(discount_price).toLocaleString();
+        var change_format_price_rupiah = parseInt(discount_rupiah).toLocaleString();
         var change_discount_dollar = parseInt(total_discount_dollar).toLocaleString();
         var change_discount_price = parseInt(total_discount_rupiah).toLocaleString();
         var discount = "USD " + change_discount_dollar + " ( IDR " + change_discount_price + " ) ";
         var event_price_text = "USD " + change_format_price_dollar + " ( IDR " + change_format_price_rupiah + " ) ";
-        var convert_rupiah = discount_price / klik;
+        var convert_rupiah = discount_rupiah / klik;
         var convert_dollar = discount_dollar / klik;
 
         $("#price_rupiah").val(convert_rupiah);
@@ -241,7 +261,7 @@
         $("#events_tickets_title").val(events_tickets_title);
         $("#events_tickets_type").val(events_tickets_type);
 
-        $("#total_price_val").val(discount_price);
+        $("#total_price_val").val(discount_rupiah);
         $("#total_price_dollar_val").val(discount_dollar);
         $("#countTicket_val").val(countKlik);
 
