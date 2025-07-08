@@ -18,250 +18,160 @@
                 </div>
             </div>
         </div>
-        <div class="ppb_wrapper hasbg ">
-            <div class="ppb_session_filterable one withsmallpadding "
-                style="margin-bottom:10px; margin:5px; background: aliceblue">
-                <div class="standard_wrapper">
-                    <div class="section-top-ticket">
-                        <h4 style="white-space: nowrap;">CHOOSE YOUR PACKAGE:</h4>
-                        <span class="section-line-ticket"></span>
-                    </div>
+        <div class="container-fluid bg-light">
 
-                    <ul class="section-skeleton-ticket">
+            <div class="section-top-ticket">
+                <h4 style="white-space: nowrap;">CHOOSE YOUR PACKAGE:</h4>
+                <span class="section-line-ticket"></span>
+            </div>
 
-                        <li class="kotak-ticket" id="kotak1"
-                            onclick="selectTicket(1270,{{ $rate_idr * 1270 }},108,'Normal Ticket', 'Platinum',1,1270,{{ $rate_idr * 1270 }})">
-                            <div class="kotak-top-ticket-nodiscount">
-                            </div>
-                            {{-- State Destop --}}
-                            <div class="kotak-body-ticket">
-                                <p style="font-size: 15px;">NORMAL TICKET</p>
-                                <figure class="kotak-img-ticket">
-                                    <img alt="Ticket IM2025" src="{{ asset('assets/img/ticket_im24.png') }}"
-                                        decoding="async" data-nimg="fill" sizes="100vw" class="kotak-img-responsive-ticket"
-                                        srcset="{{ asset('assets/img/ticket_im24.png') }}">
-                                </figure>
-                                <div class="kotak-price-ticket">
-                                    <b>$1.270</b>
-                                </div>
-                            </div>
-                            {{-- State mobile --}}
-                            <div class="kotak-main-mobile-ticket" data-target="kotak1">
-                                <div class="kotak-mobile-ticket">
-                                    <div class="kotak-body-mobile-ticket">
-                                        <figure class="kotak-body-mobile-image-ticket">
-                                            <img alt="Ticket IM2025" src="{{ asset('assets/img/ticket_im24.png') }}"
-                                                decoding="async" data-nimg="fill" sizes="100vw"
-                                                class="kotak-img-responsive-ticket"
-                                                srcset="{{ asset('assets/img/ticket_im24.png') }}">
-                                        </figure>
-                                        <div style="white-space: nowrap">
-                                            <h3>Normal Ticket</h3>
-                                            <div class="kotak-body-mobile-price-ticket">
-                                                <b>$1.270</b>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="kotak-mobile-footer-ticket">
-                                    <button class="btn-select-ticket" data-target="kotak1">
-                                        Select</button>
-                                </div>
-                            </div>
-                            <div class="kotak-footer-ticket">
-                                <button class="btn-select-ticket" data-target="kotak1">
-                                    Select</button>
-                            </div>
+            @php
+                // Daftar tiket, cukup ubah di sini jika ada perubahan
+                $tickets = [
+                    [
+                        'sku' => 108,
+                        'qty' => 1,
+                        'name' => 'NORMAL TICKET',
+                        'image' => 'ticket_im24.png',
+                        'price_usd' => 1270,
+                        'original_usd' => 1270,
+                        'tag' => null,
+                        'tag_label' => null,
+                    ],
+                    [
+                        'sku' => 113,
+                        'qty' => 1,
+                        'name' => 'EARLY BIRD',
+                        'image' => 'ticket_im24x1.png',
+                        'price_usd' => 430,
+                        'original_usd' => 1270,
+                        'tag' => null,
+                        'tag_label' => null,
+                    ],
+                    [
+                        'sku' => 114,
+                        'qty' => 3,
+                        'name' => '3X EARLY BIRD',
+                        'image' => 'ticket_im24x3.png',
+                        'price_usd' => 1200,
+                        'original_usd' => 3810,
+                        'tag' => 'MOST POPULAR',
+                        'tag_label' => 'kotak-body-tag-ticket',
+                        'data-target' => 'kotak2',
+                    ],
+                    [
+                        'sku' => 115,
+                        'qty' => 5,
+                        'name' => '5X EARLY BIRD',
+                        'image' => 'ticket_im24x5.png',
+                        'price_usd' => 1800,
+                        'original_usd' => 6350,
+                        'tag' => 'BIG SAVING',
+                        'tag_label' => 'kotak-body-tag-ticket',
+                        'data-target' => 'kotak2',
+                    ],
+                ];
+            @endphp
 
-                        </li>
-                        <li class="kotak-ticket" id="kotak2"
-                            onclick="selectTicket(430,{{ $rate_idr * 430 }},113,'EARLY BIRD', 'Platinum',1,430,{{ $rate_idr * 430 }})">
-                            <div class="kotak-top-ticket">
-                                <strong>
-                                    SAVE $840
-                                </strong>
-                            </div>
-                            <div class="kotak-body-ticket">
-                                <p style="font-size: 15px;">EARLY BIRD</p>
-                                <figure class="kotak-img-ticket">
-                                    <img alt="Ticket IM2025" src="{{ asset('assets/img/ticket_im24x1.png') }}"
-                                        decoding="async" data-nimg="fill" sizes="100vw" class="kotak-img-responsive-ticket"
-                                        srcset="{{ asset('assets/img/ticket_im24x1.png') }}">
-                                </figure>
-                                <div class="kotak-price-ticket">
-                                    <b>$430</b>
-                                    <p class="kotak-price-discount-ticket">
-                                        $1.270
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="kotak-main-mobile-ticket" data-target="kotak2">
-                                <div class="kotak-mobile-ticket">
-                                    <div class="kotak-body-mobile-ticket">
-                                        <figure class="kotak-body-mobile-image-ticket">
-                                            <img alt="Ticket IM2025" src="{{ asset('assets/img/ticket_im24x1.png') }}"
-                                                decoding="async" data-nimg="fill" sizes="100vw"
-                                                class="kotak-img-responsive-ticket"
-                                                srcset="{{ asset('assets/img/ticket_im24x1.png') }}">
-                                        </figure>
-                                        <div style="white-space: nowrap">
-                                            <h3>EARLY BIRD</h3>
-                                            <div class="kotak-body-mobile-price-ticket">
-                                                <b>$430</b>
-                                                <p class="kotak-price-discount-ticket">$1.270</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="kotak-mobile-footer-ticket">
-                                    <button class="btn-select-ticket" data-target="kotak2">
-                                        Select</button>
-                                </div>
-                            </div>
-                            <div class="kotak-footer-ticket">
-                                <button class="btn-select-ticket" data-target="kotak2">
-                                    Select</button>
-                            </div>
-                        </li>
-                        <li class="kotak-ticket" id="kotak3"
-                            onclick="selectTicket(3810,{{ $rate_idr * 3810 }},114,'3X EARLY BIRD', 'Platinum',3,1200,{{ $rate_idr * 1200 }})">
-                            <div class="kotak-top-ticket">
-                                <strong>
-                                    SAVE $2.610
-                                </strong>
-                            </div>
-                            <div class="kotak-body-ticket">
-                                <div class="kotak-body-tag-ticket">
-                                    <p style="font-size: 7px">MOST POPULAR</p>
-                                </div>
-                                <p style="font-size: 15px;">3X EARLY BIRD</p>
-                                <figure class="kotak-img-ticket" style="
-                                ">
-                                    <img alt="Ticket IM2025" src="{{ asset('assets/img/ticket_im24x3.png') }}"
-                                        decoding="async" data-nimg="fill" sizes="100vw"
-                                        class="kotak-img-responsive-ticket"
-                                        srcset="{{ asset('assets/img/ticket_im24x3.png') }}">
-                                </figure>
-                                <div class="kotak-price-ticket">
-                                    <b>$1.200</b>
-                                    <p class="kotak-price-discount-ticket">
-                                        $3.810
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="kotak-body-mobile-tag-ticket">
-                                MOST POPULAR
-                            </div>
-                            <div class="kotak-main-mobile-ticket" data-target="kotak3">
-                                <div class="kotak-mobile-ticket">
-                                    <div class="kotak-body-mobile-ticket">
-                                        <figure class="kotak-body-mobile-image-ticket">
-                                            <img alt="Ticket IM2025" src="{{ asset('assets/img/ticket_im24x3.png') }}"
-                                                decoding="async" data-nimg="fill" sizes="100vw"
-                                                class="kotak-img-responsive-ticket"
-                                                srcset="{{ asset('assets/img/ticket_im24x3.png') }}">
-                                        </figure>
-                                        <div style="white-space: nowrap">
-                                            <h3>3X EARLY BIRD</h3>
-                                            <div class="kotak-body-mobile-price-ticket">
-                                                <b>$1.200</b>
-                                                <p class="kotak-price-discount-ticket">3.810</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="kotak-mobile-footer-ticket">
-                                    <button class="btn-select-ticket" data-target="kotak3">
-                                        Select</button>
-                                </div>
-                            </div>
-                            <div class="kotak-footer-ticket">
-                                <button class="btn-select-ticket" data-target="kotak3">
-                                    Select</button>
-                            </div>
-                        </li>
-                        <li class="kotak-ticket" id="kotak4"
-                            onclick="selectTicket(6350,{{ $rate_idr * 6350 }},115,'5X EARLY BIRD', 'Platinum',5,1800,{{ $rate_idr * 1800 }})">
-                            <div class="kotak-top-ticket">
-                                <strong>
-                                    SAVE $4.550
-                                </strong>
-                            </div>
-                            <div class="kotak-body-ticket">
-                                <div class="kotak-body-tag-ticket">
-                                    <p style="font-size: 7px">BIG SAVING</p>
-                                </div>
-                                <p style="font-size: 15px;">5X EARLY BIRD</p>
-                                <figure class="kotak-img-ticket" style="
-                                ">
-                                    <img alt="Ticket IM2025" src="{{ asset('assets/img/ticket_im24x5.png') }}"
-                                        decoding="async" data-nimg="fill" sizes="100vw"
-                                        class="kotak-img-responsive-ticket"
-                                        srcset="{{ asset('assets/img/ticket_im24x5.png') }}">
-                                </figure>
-                                <div class="kotak-price-ticket">
-                                    <b>$1.800</b>
-                                    <p class="kotak-price-discount-ticket">
-                                        $6.350
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="kotak-body-mobile-tag-ticket">
-                                BIG SAVING
-                            </div>
-                            <div class="kotak-main-mobile-ticket" data-target="kotak4">
-                                <div class="kotak-mobile-ticket">
-                                    <div class="kotak-body-mobile-ticket">
-                                        <figure class="kotak-body-mobile-image-ticket">
-                                            <img alt="Ticket IM2025" src="{{ asset('assets/img/ticket_im24x5.png') }}"
-                                                decoding="async" data-nimg="fill" sizes="100vw"
-                                                class="kotak-img-responsive-ticket"
-                                                srcset="{{ asset('assets/img/ticket_im24x5.png') }}">
-                                        </figure>
-                                        <div style="white-space: nowrap">
-                                            <h3>5x EARLY BIRD</h3>
-                                            <div class="kotak-body-mobile-price-ticket">
-                                                <b>$1.800</b>
-                                                <p class="kotak-price-discount-ticket">6.350</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="kotak-mobile-footer-ticket">
-                                    <button class="btn-select-ticket" data-target="kotak4">
-                                        Select</button>
-                                </div>
-                            </div>
-                            <div class="kotak-footer-ticket">
-                                <button class="btn-select-ticket" data-target="kotak4">
-                                    Select</button>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="section-line-ticket"></div>
-                    <div class="section-footer-ticket">
-                        <div class="section-items-ticket">
-                            <div id="list-item"></div>
+            <ul class="section-skeleton-ticket">
+                @foreach ($tickets as $i => $t)
+                    @php
+                        $idx = $i + 1;
+                        $save = $t['original_usd'] - $t['price_usd'];
+                    @endphp
 
-                            <div id="include-item">
+                    <li class="kotak-ticket" id="kotak{{ $idx }}"
+                        onclick="selectTicket(
+                  {{ $t['price_usd'] }},
+                  {{ $rate_idr * $t['price_usd'] }},
+                  {{ $t['sku'] }},
+                  '{{ $t['name'] }}',
+                  'Platinum',
+                  {{ $t['qty'] }},
+                  {{ $t['original_usd'] }},
+                  {{ $rate_idr * $t['original_usd'] }}
+                )">
+                        {{-- Top banner --}}
+                        @if ($save > 0)
+                            <div class="kotak-top-ticket"><strong>SAVE ${{ number_format($save) }}</strong></div>
+                        @else
+                            <div class="kotak-top-ticket-nodiscount"></div>
+                        @endif
 
+                        {{-- Desktop --}}
+                        <div class="kotak-body-ticket">
+                            @if ($t['tag'])
+                                <div class="{{ $t['tag_label'] }}">
+                                    <p style="font-size: 7px">{{ $t['tag'] }}</p>
+                                </div>
+                            @endif
+                            <p style="font-size: 15px;">{{ $t['name'] }}</p>
+                            <figure class="kotak-img-ticket">
+                                <img src="{{ asset('img/' . $t['image']) }}" alt="Ticket {{ $t['name'] }}"
+                                    class="kotak-img-responsive-ticket" decoding="async" data-nimg="fill" sizes="100vw">
+                            </figure>
+                            <div class="kotak-price-ticket">
+                                <b>${{ number_format($t['price_usd']) }}</b>
+                                @if ($save > 0)
+                                    <p class="kotak-price-discount-ticket">${{ number_format($t['original_usd']) }}</p>
+                                @endif
                             </div>
                         </div>
-                        <div class="section-price-item">
-                            <div class="total" style="font-size: 20px;">
-                                Total:
-                                <b id="total-price" style="font-size: 30px"> USD 0</b>
-                                <!-- Ini adalah elemen untuk menampilkan total harga -->
+
+                        {{-- Mobile --}}
+                        <div class="kotak-main-mobile-ticket" data-target="kotak{{ $idx }}">
+                            <div class="kotak-mobile-ticket">
+                                <div class="kotak-body-mobile-ticket">
+                                    <figure class="kotak-body-mobile-image-ticket">
+                                        <img src="{{ asset('img/' . $t['image']) }}" alt="Ticket {{ $t['name'] }}"
+                                            class="kotak-img-responsive-ticket" decoding="async" data-nimg="fill"
+                                            sizes="100vw">
+                                    </figure>
+                                    <div style="white-space: nowrap">
+                                        <h3>{{ $t['name'] }}</h3>
+                                        <div class="kotak-body-mobile-price-ticket">
+                                            <b>${{ number_format($t['price_usd']) }}</b>
+                                            @if ($save > 0)
+                                                <p class="kotak-price-discount-ticket">
+                                                    ${{ number_format($t['original_usd']) }}</p>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div style="">
-                                <button class="button-checkout">
-                                    Continue to checkout</button>
+                            <div class="kotak-mobile-footer-ticket">
+                                <button class="btn-select-ticket" data-target="kotak{{ $idx }}">Select</button>
                             </div>
                         </div>
-                    </div>
 
+                        <div class="kotak-footer-ticket">
+                            <button class="btn-select-ticket" data-target="kotak{{ $idx }}">Select</button>
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+
+            <div class="section-line-ticket my-4"></div>
+
+            <div class="section-footer-ticket d-flex justify-content-between align-items-center flex-wrap">
+                <!-- Kiri: daftar item -->
+                <div class="section-items-ticket d-flex flex-column flex-sm-row align-items-start">
+                    <div id="list-item" class="me-sm-4 mb-2 mb-sm-0"></div>
+                    <div id="include-item"></div>
+                </div>
+
+                <!-- Kanan: harga & tombol -->
+                <div class="section-price-item d-flex flex-column align-items-end">
+                    <div class="total" style="font-size: 20px;">
+                        Total:
+                        <b id="total-price" style="font-size: 30px"> USD 0</b>
+                    </div>
+                    <button class="button-checkout active btn btn-primary mt-2">
+                        Continue to checkout
+                    </button>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -305,21 +215,21 @@
 
             if (button.classList.contains("active")) {
                 continueButton.classList.add("active");
-                continueButton.setAttribute("data-toggle", "modal");
+                continueButton.setAttribute("data-bs-toggle", "modal");
 
                 // Mengambil ID dari elemen yang diaktifkan
                 const targetID = button.getAttribute("data-target");
 
                 // Menentukan nilai `data-target` berdasarkan ID
                 if (targetID === "kotak1" || targetID === "kotak2") {
-                    continueButton.setAttribute("data-target", "#paymentNew");
+                    continueButton.setAttribute("data-bs-target", "#paymentNew");
                 } else if (targetID === "kotak3" || targetID === "kotak4") {
-                    continueButton.setAttribute("data-target", "#paymentNewMultiple");
+                    continueButton.setAttribute("data-bs-target", "#paymentNewMultiple");
                 }
             } else {
                 continueButton.classList.remove("active");
-                continueButton.removeAttribute("data-toggle");
-                continueButton.removeAttribute("data-target");
+                continueButton.removeAttribute("data-bs-toggle");
+                continueButton.removeAttribute("data-bs-target");
             }
         }
 

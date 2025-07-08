@@ -310,7 +310,7 @@
     var selectPayment = function(price_dollar, price_rupiah, events_tickets_id, events_tickets_title,
         events_tickets_type, klik) {
         $(".customer").empty();
-        console.log("klik = " + klik);
+        console.log("klik select = " + klik);
         $(".minus-icon").attr("disabled", true);
         var countKlik = 1;
         var ticket = countKlik;

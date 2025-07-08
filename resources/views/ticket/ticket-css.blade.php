@@ -38,7 +38,11 @@
         display: flex;
         flex-direction: column;
         cursor: default;
-        box-shadow: rgba(255, 255, 255, 0.55) 0px -1px 1px inset;
+        box-shadow:
+            0 4px 6px rgba(0, 0, 0, 0.1),
+            /* bayangan besar lembut */
+            0 1px 3px rgba(0, 0, 0, 0.08);
+        /* bayangan halus di tepi */
         /* filter: drop-shadow(rgba(209, 203, 21, 0.4) 0px 35px 100px); */
         border: none;
     }
@@ -100,11 +104,16 @@
         justify-content: center;
         -webkit-box-align: center;
         align-items: center;
-        padding: 3px 6px;
+        padding: 15px 3px 6px;
         transform: rotate(40deg);
         width: 100%;
         min-height: 25px;
         text-align: center;
+    }
+
+    .kotak-body-tag-ticket p {
+        font-size: 10px !important;
+        /* sebelumnya 7px, kamu bisa sesuaikan */
     }
 
     .kotak-img-ticket {
@@ -565,6 +574,27 @@
 
         100% {
             transform: rotate(360deg);
+        }
+    }
+
+    @media (max-width: 576px) {
+        .section-footer-ticket {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .section-items-ticket,
+        .section-price-item {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .section-price-item {
+            text-align: center;
+        }
+
+        .section-price-item .total {
+            margin-bottom: .5rem;
         }
     }
 </style>

@@ -5,7 +5,7 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  <!-- Custom CSS -->
  <style>
      :root {
