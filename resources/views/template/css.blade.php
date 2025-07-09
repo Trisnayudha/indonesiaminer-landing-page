@@ -145,6 +145,197 @@
          }
      }
 
+     @media (max-width: 991px) {
+
+         /* Panel utama */
+         nav.d-lg-none .navbar-collapse {
+             position: fixed;
+             top: 0;
+             right: 0;
+             width: 75%;
+             max-width: 320px;
+             height: 100vh;
+             padding: 1.5rem 1rem;
+             border-top-left-radius: 1rem;
+             border-bottom-left-radius: 1rem;
+             background: linear-gradient(to bottom, #e9faff, #d5f3ff);
+             z-index: 1045;
+             overflow-y: auto;
+         }
+
+         .mobile-close {
+             /* hilangkan SVG default */
+             background-image: none !important;
+             /* gunakan content pseudo-element untuk X */
+             position: absolute;
+             top: 1rem;
+             right: 1rem;
+             width: auto;
+             height: auto;
+             padding: 0;
+             font-size: 1.5rem;
+             font-weight: bold;
+             color: #333;
+             background: transparent;
+             box-shadow: none;
+         }
+
+         .mobile-close::before {
+             content: '×';
+         }
+
+         .mobile-close:hover {
+             opacity: 1;
+         }
+
+         /* CTA buttons */
+         .mobile-ctas {
+             margin: 3rem 0 2rem;
+             /* top utk ruang tombol close */
+         }
+
+         .mobile-ctas .btn-warning,
+         .mobile-ctas .btn-outline-warning {
+             width: 100%;
+             font-weight: 600;
+             border-radius: 0.5rem;
+             margin-bottom: 0.75rem;
+         }
+
+         .mobile-ctas .btn-warning {
+             padding: 0.75rem;
+             font-size: 1rem;
+         }
+
+         .mobile-ctas .btn-outline-warning {
+             padding: 0.7rem;
+             font-size: 0.95rem;
+         }
+
+         /* List menu utama */
+         .navbar-nav.flex-column {
+             gap: 0.5rem;
+         }
+
+         .navbar-nav .nav-item {
+             margin: 0;
+         }
+
+         .navbar-nav .nav-link {
+             display: block;
+             color: #333;
+             font-size: 1rem;
+             padding: 0.65rem 0;
+             transition: background .2s;
+         }
+
+         .navbar-nav .nav-link:hover {
+             background: rgba(0, 0, 0, 0.03);
+             border-radius: 0.25rem;
+             color: #000;
+         }
+
+         /* Submenu default (tersembunyi) */
+         .has-submenu .submenu {
+             display: none;
+             margin-top: 0.25rem;
+             padding-left: 1rem;
+         }
+
+         .has-submenu .submenu .nav-link {
+             color: #555;
+             font-size: 0.95rem;
+             padding-left: 0;
+         }
+
+         /* Toggle caret */
+         .has-submenu>.submenu-toggle {
+             position: relative;
+             padding-right: 2rem;
+             color: #333;
+             cursor: pointer;
+         }
+
+         .has-submenu>.submenu-toggle .caret {
+             position: absolute;
+             top: 50%;
+             right: 0.5rem;
+             width: 0.6em;
+             height: 0.6em;
+             border: solid #333;
+             border-width: 0.15em 0.15em 0 0;
+             transform: translateY(-50%) rotate(135deg);
+             transition: transform .3s, border-color .3s;
+         }
+
+         /* Submenu terbuka */
+         .has-submenu.open .submenu {
+             display: block;
+         }
+
+         .has-submenu.open>.submenu-toggle {
+             display: block;
+             margin: 0.25rem 0;
+             padding: 0.75rem 1rem;
+             background-color: #1e88e5;
+             color: #fff;
+             border-radius: 0.5rem;
+         }
+
+         .has-submenu.open>.submenu-toggle .caret {
+             transform: translateY(-50%) rotate(-45deg);
+             border-color: #fff;
+             right: 1rem;
+         }
+
+         .has-submenu.open {
+             margin: 0 0.5rem;
+             /* ruang kiri/kanan */
+         }
+
+         /* Overlay backdrop */
+         #mobileMenuOverlay {
+             position: fixed;
+             inset: 0;
+             background: rgba(255, 255, 255, 0.2);
+             backdrop-filter: blur(6px);
+             visibility: hidden;
+             opacity: 0;
+             transition: opacity .3s ease;
+             z-index: 1020;
+         }
+
+         #mobileMenuOverlay.show {
+             visibility: visible;
+             opacity: 1;
+         }
+
+         /* Social footer */
+         .mobile-social {
+             margin-top: auto;
+             padding-top: 2rem;
+             border-top: 1px solid rgba(0, 0, 0, 0.1);
+         }
+
+         .mobile-social span {
+             display: block;
+             color: #333;
+             font-weight: 500;
+             margin-bottom: 0.5rem;
+         }
+
+         .mobile-social .icons a {
+             font-size: 1.2rem;
+             color: #333;
+             opacity: 0.8;
+             margin-right: 0.75rem;
+         }
+
+         .mobile-social .icons a:hover {
+             opacity: 1;
+         }
+     }
+
 
      .navbar-nav .dropdown:hover .dropdown-menu {
          display: block;

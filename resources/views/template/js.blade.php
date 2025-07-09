@@ -29,3 +29,62 @@
           });
       });
   </script>
+  <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const overlay = document.getElementById('mobileMenuOverlay');
+          const menuEl = document.getElementById('navMenuMobile');
+
+          // Saat panel akan dibuka
+          menuEl.addEventListener('show.bs.collapse', () => {
+              overlay.classList.add('show');
+          });
+
+          // Saat panel tertutup
+          menuEl.addEventListener('hide.bs.collapse', () => {
+              overlay.classList.remove('show');
+          });
+
+          // Klik di area overlay juga tutup menu
+          overlay.addEventListener('click', () => {
+              const bsCollapse = bootstrap.Collapse.getInstance(menuEl);
+              bsCollapse.hide();
+          });
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+          const btn = document.querySelector('.navbar-toggler');
+          const overlay = document.getElementById('mobileMenuOverlay');
+          const menuEl = document.getElementById('navMenuMobile');
+          const closeBtn = document.querySelector('.mobile-close');
+
+          function openMenu() {
+              menuEl.classList.add('show');
+              overlay.classList.add('show');
+          }
+
+          function closeMenu() {
+              menuEl.classList.remove('show');
+              overlay.classList.remove('show');
+          }
+
+          btn.addEventListener('click', openMenu);
+          closeBtn.addEventListener('click', closeMenu);
+          overlay.addEventListener('click', closeMenu);
+      });
+  </script>
+  <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          // ambil semua tombol toggle submenu
+          document.querySelectorAll('.submenu-toggle').forEach(btn => {
+              btn.addEventListener('click', e => {
+                  e.preventDefault();
+                  const li = btn.closest('.has-submenu');
+                  // tutup submenu lain (opsional)
+                  document.querySelectorAll('.has-submenu.open').forEach(openLi => {
+                      if (openLi !== li) openLi.classList.remove('open');
+                  });
+                  // toggle submenu ini
+                  li.classList.toggle('open');
+              });
+          });
+      });
+  </script>
