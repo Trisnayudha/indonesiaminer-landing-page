@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ExhibitionCartList extends Model
 {
     use HasFactory;
+    protected $table = 'exhibition_cart_list'; // Sesuaikan dengan nama tabel Anda jika berbeda
+
 }

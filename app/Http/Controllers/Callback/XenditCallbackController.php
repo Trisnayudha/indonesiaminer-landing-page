@@ -166,9 +166,11 @@ class XenditCallbackController extends Controller
         }
 
         if ($data['status'] === 'PAID') {
+
             $this->updateExhibitionPaymentStatus($exhibitionPayment, 'paid');
             $this->sendExhibitionPaymentSuccessEmail($exhibitionPayment, $data);
-            $this->notifyExhibitionPaymentSuccess($exhibitionPayment);
+            $this->notifyExhibitionPaymentSuccess($data);
+            $this->updateDelegateExhibitionStatus($exhibitionPayment, $data);
         } elseif ($data['status'] === 'EXPIRED') {
             $this->updateExhibitionPaymentStatus($exhibitionPayment, 'Expired');
         }
@@ -357,6 +359,50 @@ class XenditCallbackController extends Controller
         $exhibitionPayment->save();
     }
 
+    private function updateDelegateExhibitionStatus($exhibitionPayment, $data)
+    {
+        $delegates = ExhibitionCartList::join('exhibition_payment', 'exhibition_payment.id', 'exhibition_cart_list.payment_id')
+            ->join('payment', 'payment.id', 'exhibition_cart_list.delegate_id')
+            ->join('users', 'users.id', 'payment.users_id')
+            ->where('payment_id', $exhibitionPayment->id)
+            ->wherenotnull('exhibition_cart_list.delegate_id')
+            ->select(
+                'payment.id',
+                'users.name',
+                'users.email',
+                'users.job_title',
+                'users.company_name',
+                'payment.events_id',
+            )
+            ->get();
+
+        if ($delegates->isEmpty()) {
+            return;
+        }
+        foreach ($delegates as $key) {
+            $payment = Payment::find($key->id);
+            if (!$payment) {
+                continue;
+            }
+
+            $payment->status = 'Paid Off';
+            $payment->aproval_quota_users = 1;
+            $payment->trash = null;
+            $payment->save();
+
+            $delegateModel = UsersDelegate::firstOrNew(['payment_id' => $payment->id]);
+            $delegateModel->users_id = $payment->users_id;
+            $delegateModel->events_id = $payment->events_id;
+            $delegateModel->package_id = $payment->package_id;
+            $delegateModel->package_name = $payment->package;
+            $delegateModel->payment_status = 'Paid Off';
+            $delegateModel->save();
+            $qrCodePath = $this->generateQRCode($payment->code_payment);
+
+            $this->sendDelegateAccessEmail($key, $qrCodePath);
+        }
+    }
+
     /**
      * Mengirim email sukses pembayaran untuk Exhibition.
      *
@@ -369,6 +415,7 @@ class XenditCallbackController extends Controller
             ->where('payment_id', $exhibitionPayment->id)
             ->where('exhibition_payment.code_payment', $data['external_id'])
             ->get();
+        $payment = ExhibitionPayment::where('code_payment', $data['external_id'])->first();
 
         $company = Company::find($items[0]->company_id);
         $email = $company->pic_email ?? $company->email_alternate;
@@ -383,12 +430,13 @@ class XenditCallbackController extends Controller
             'items' => $items,
             'company' => $company,
             'code_payment' => $data['external_id'],
+            'surcharge' => $payment->surcharge
         ]);
 
         Mail::send('email.portal.success', $emailData, function ($message) use ($pdf, $data, $email) {
             $message->from(env('EMAIL_SENDER'));
             $message->to($email);
-            $message->subject('Payment Success: Indonesia Miner 2024 - ' . $data['external_id']);
+            $message->subject('Payment Success: Indonesia Miner 2025 - ' . $data['external_id']);
             $message->attachData($pdf->output(), $data['external_id'] . '-' . time() . '.pdf');
         });
     }
@@ -398,11 +446,19 @@ class XenditCallbackController extends Controller
      *
      * @param ExhibitionPayment $exhibitionPayment
      */
-    private function notifyExhibitionPaymentSuccess($exhibitionPayment)
+    private function notifyExhibitionPaymentSuccess($data)
     {
-        $company = Company::find($exhibitionPayment->company_id);
+        $company = Company::where('email', $data['payer_email'])
+            ->orWhere('pic_email', $data['payer_email'])
+            ->first();
+
+        if (!$company) {
+            Log::warning("Company not found for payer_email: {$data['payer_email']}");
+            return;
+        }
+
         $whatsapp = new WhatsappApi();
-        $whatsapp->phone = '120363347094951003';
+        $whatsapp->phone = '083829314436';
         $whatsapp->message = 'Success payment from ' . $company->name;
         $whatsapp->WhatsappMessage();
     }
@@ -584,14 +640,14 @@ Payment Method: {$paymentData->payment_method}
             return;
         }
 
-        $dateEvents = $this->formatEventDate($delegateDetail->events_start, $delegateDetail->events_end);
+        $dateEvents = $this->formatEventDate($delegateDetail->date_start, $delegateDetail->date_end);
         $data = [
             'users_name' => $paymentData->name,
             'company_name' => $paymentData->company_name,
             'email' => $paymentData->email,
-            'events_name' => $delegateDetail->events_name,
+            'events_name' => $delegateDetail->name,
             'events_date' => $dateEvents,
-            'events_link' => url('events-join/show/' . $delegateDetail->events_slug),
+            'events_link' => url('events-join/show/' . $delegateDetail->slug),
             'qr_code' => $qrCodePath,
             'pesan1' => 'delegate',
             'pesan' => ''
