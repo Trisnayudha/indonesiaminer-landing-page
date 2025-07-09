@@ -371,6 +371,7 @@ class XenditCallbackController extends Controller
                 'users.name',
                 'users.email',
                 'users.job_title',
+                'users.phone',
                 'users.company_name',
                 'payment.events_id',
             )
@@ -654,10 +655,23 @@ Payment Method: {$paymentData->payment_method}
         ];
 
         $subject = "E - Ticket {$paymentData->code_payment} - IM25 - {$paymentData->name}";
-        Mail::send('email.approve', $data, function ($message) use ($paymentData, $subject) {
+
+        // Generate eticket PDF from view
+        $pdfEticket = Pdf::loadView('email.ticket', [
+            'code_payment' => $paymentData->code_payment,
+            'name' => $paymentData->name,
+            'company_name' => $paymentData->company_name,
+            'email' => $paymentData->email,
+            'phone' => $paymentData->phone,
+        ]);
+
+        Mail::send('email.approve', $data, function ($message) use ($paymentData, $subject, $pdfEticket) {
             $message->from(env('EMAIL_SENDER'), 'indonesiaminer.com');
             $message->to($paymentData->email);
             $message->subject($subject);
+            $message->attachData($pdfEticket->output(), $paymentData->code_payment . '_eticket.pdf', [
+                'mime' => 'application/pdf',
+            ]);
         });
     }
 
