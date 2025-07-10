@@ -10,7 +10,7 @@
             <!-- Bungkus button dengan text-center agar terpusat -->
             <div class="text-center">
                 <a href="https://indonesiaminer.com/directory/indonesiaminer2025" target="_blank"
-                    class="btn btn-warning btn-lg">
+                    class="btn btn-warning custom-yellow-btn fw-bold">
                     VISIT MINING DIRECTORY
                 </a>
             </div>

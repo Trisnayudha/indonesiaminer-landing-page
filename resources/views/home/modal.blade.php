@@ -112,3 +112,36 @@
         </div>
     </div>
 </div>
+
+<!-- Coming Soon Modal -->
+<div class="modal fade" id="comingSoonModal" tabindex="-1" aria-labelledby="comingSoonLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+        <div class="modal-content">
+
+            <!-- HEADER -->
+            <div class="modal-header bg-primary text-white border-0 rounded-top">
+                <h5 class="modal-title" id="comingSoonLabel">
+                    Feature Coming Soon
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+
+            <!-- BODY -->
+            <div class="modal-body text-center" style="background-color: #00537a; padding: 1.5rem 1rem;">
+                <p class="text-white mb-0" style="font-size: .95rem; opacity: .9;">
+                    Our full speaker lineup is on its way!<br>
+                    Stay tuned — we’ll update this page shortly.
+                </p>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="modal-footer justify-content-center border-0 bg-primary py-3">
+                <button type="button" class="btn btn-warning custom-yellow-btn fw-bold" data-bs-dismiss="modal">
+                    CLOSE
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

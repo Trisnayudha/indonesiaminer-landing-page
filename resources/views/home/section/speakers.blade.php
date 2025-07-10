@@ -96,7 +96,8 @@
 
     <!-- See More Button -->
     <div class="text-center mt-5">
-        <a href="https://indonesiaminer.com/events/speakers" target="_blank" class="btn btn-warning btn-lg">
+        <a href="#" class="btn btn-warning custom-yellow-btn fw-bold" data-bs-toggle="modal"
+            data-bs-target="#comingSoonModal">
             SEE MORE SPEAKERS
         </a>
     </div>
