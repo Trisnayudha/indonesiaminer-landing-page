@@ -252,6 +252,7 @@
              gap: .25rem;
              align-items: center;
              margin-top: .25rem;
+             font-size: 10px;
          }
 
          .sticky-bottom-bar {
@@ -271,10 +272,11 @@
 
          /* Tombol di kanan, tapi geser sedikit ke kiri via margin-right */
          .sticky-bottom-bar .btn-warning {
-             margin-left: auto;
+             margin-left: unset`;
              /* dorong tombol ke kanan */
              margin-right: 0;
              /* kalau butuh lebih mundur lagi, bisa pakai margin-right: 20px; */
+             font-size: 10px
          }
      }
 
@@ -936,17 +938,5 @@
 
      .g-recaptcha {
          margin: 1rem 0;
-     }
-
-     /* Jika Qontak menyuntik <qontak-webchat> element */
-     qontak-webchat {
-         position: fixed !important;
-         z-index: 2000 !important;
-     }
-
-     /* Jika Qontak bikin iframe dengan src mengandung “qontak” */
-     iframe[src*="qontak"] {
-         position: fixed !important;
-         z-index: 2000 !important;
      }
  </style>
