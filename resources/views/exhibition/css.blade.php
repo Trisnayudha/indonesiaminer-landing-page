@@ -284,9 +284,9 @@
 
     .pricing-table-get {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 18px;
-        grid-row-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        gap: 20px;
         margin: auto;
         color: black;
         border-radius: 3px;
@@ -627,6 +627,65 @@
         /* Sesuaikan ukuran font di responsive-menu */
         .responsive-menu {
             font-size: 18px !important;
+        }
+    }
+
+    .subscribe-callout {
+        grid-column: 1 / -1;
+        /* mulai kolom 1 sampai kolom terakhir */
+        background: #094662;
+        color: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        padding: 2rem 1.5rem;
+        text-align: center;
+        margin-top: -195px;
+        /* <-- geser 60px ke atas */
+        padding: 2rem 1.5rem;
+        z-index: 1000;
+        font-size: 20px;
+    }
+
+    /* Form di dalamnya */
+    .subscribe-form {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: .5rem;
+        margin-top: 1rem;
+    }
+
+    .subscribe-form input {
+        flex: 1 1 200px;
+        padding: .75rem;
+        border: none;
+        border-radius: .5rem;
+    }
+
+    /* Responsif: ubah jadi satu kolom di mobile */
+    @media (max-width: 768px) {
+        .pricing-table-get {
+            grid-template-columns: 1fr;
+        }
+
+        .subscribe-callout {
+            grid-column: 1 / -1;
+        }
+
+        .container-get {
+            margin: 0 1rem;
+            /* sisakan 1rem kiri & kanan */
+        }
+
+        .subscribe-callout {
+            position: sticky !important;
+            transform: none !important;
+            width: auto !important;
+            margin: 1.5rem 1rem;
+            /* kiri & kanan 1rem */
+            padding: 1.5rem;
+            margin-top: -100px;
+            font-size: 13px;
         }
     }
 </style>

@@ -42,25 +42,27 @@
                         <div>
                             <strong>One Dynamic Platform</strong><br>
                             From impactful conferences to hands-on exhibitions and workshops, it’s the perfect stage to
-                            amplify your brand.
+                            amplify your brand and make a splash.
                         </div>
                     </li>
                     <li class="d-flex mb-2">
                         <i class="bi bi-check-circle-fill text-success me-2"></i>
                         <div>
                             <strong>Think Local, Go Global</strong><br>
-                            Engage with Indonesia's mining landscape through a global lens.
+                            Engage with Indonesia's mining landscape through a global lens, featuring top-tier speakers,
+                            delegates, and exhibitors from around the world.
                         </div>
                     </li>
                     <li class="d-flex mb-2">
                         <i class="bi bi-check-circle-fill text-success me-2"></i>
                         <div>
                             <strong>Network Without Limits</strong><br>
-                            Connect with decision-makers, influencers, and key associations.
+                            Connect with decision-makers, influencers, and key associations shaping the future of the mining
+                            industry.
                         </div>
                     </li>
                 </ul>
-                <a href="#exhibitor" class="btn btn-warning custom-yellow-btn fw-bold mt-3">
+                <a href="#package" class="btn btn-warning custom-yellow-btn fw-bold mt-3">
                     Discover Options to Elevate Your Brand
                 </a>
             </div>
@@ -70,10 +72,10 @@
         <div class="row text-center mb-5">
             @php
                 $stats = [
-                    ['1.500+', 'Delegates'],
-                    ['540+', 'Companies'],
-                    ['26+', 'Countries'],
-                    ['60+', 'Speakers'],
+                    ['2.000+', 'Delegates'],
+                    ['600+', 'Companies'],
+                    ['20+', 'Countries'],
+                    ['80+', 'Speakers'],
                     ['40+', 'Leading Companies as Sponsors & Exhibitors'],
                 ];
             @endphp
@@ -104,92 +106,8 @@
     </section>
 
     {{-- ——— Packages & Modals ——— --}}
-    @php
-        $packages = [
-            [
-                'title' => 'EXHIBITOR',
-                'logo' => 'new-home/logo/9.png',
-                'modalId' => 'exhibitModal',
-                'features' => [
-                    ['Prime, Super, Standard Plus and Standard', true],
-                    ['Up to 6 Exhibitor Passes Included', true],
-                    ['Up to 100 Wishlist for Visitor Passes', true],
-                    ['Company Logo & Profile Placement on Event Booklet', true],
-                    ['Social Media Promotional Content', true],
-                    ['Listing at Indonesia Miner Directory (Online & Book)', true],
-                    ['Speaking Opportunity', false],
-                    ['Exposure to Email List', false],
-                    ['Company Logo on All Marketing Materials', false],
-                    ['Company Logo on Onsite Branding', false],
-                    ['On Site Physical Branding', false],
-                    ['Lounge Packages', false],
-                    ['Lunches and Networking Drinks packages', false],
-                    ['Private Meeting Room', false],
-                ],
-            ],
-            [
-                'title' => 'OFFICIAL SPONSOR',
-                'logo' => 'new-home/logo/10.png',
-                'modalId' => 'sponsorModal',
-                'features' => collect([
-                    'Platinum, Gold and Silver',
-                    'Up to 6 Delegate Passes Included',
-                    'Up to 100 Wishlist for Visitor Passes',
-                    'Speaking Opportunity',
-                    'Company Logo & Profile Placement on Event Booklet',
-                    'Social Media Promotional Content',
-                    'Listing at Indonesia Miner Directory (Online & Book)',
-                    'Exposure to Email List',
-                    'Company Logo on All Marketing Materials',
-                    'Company Logo on Onsite Branding',
-                    'On Site Physical Branding',
-                    'Lounge Packages',
-                    'Lunches and Networking Drinks packages',
-                    'Private Meeting Room',
-                ])
-                    ->map(fn($t) => [$t, true])
-                    ->toArray(),
-            ],
-        ];
-    @endphp
-
-    <section class="py-5">
-        <div class="container">
-            <div class="wrapper2">
-                <div style="color:white">.</div>
-                <div class="pricing-table-get">
-                    @foreach ($packages as $pkg)
-                        @php
-                            $suf = $loop->first ? '' : '2';
-                        @endphp
-                        <div class="container-get">
-                            <div class="header-get{{ $suf }}">{{ $pkg['title'] }}</div>
-                            <div class="background-get{{ $suf }}">
-                                <img src="{{ asset($pkg['logo']) }}" alt="{{ $pkg['title'] }} icon" class="img">
-                            </div>
-                            <div class="content-get">
-                                <ul>
-                                    @foreach ($pkg['features'] as [$label, $ok])
-                                        <li class="d-flex align-items-start mb-2">
-                                            <i
-                                                class="fa {{ $ok ? 'fa-check text-success' : 'fa-times text-danger' }} me-2"></i>
-                                            <span>{{ $label }}</span>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            <button type="button" class="cssbuttons-io-button" data-bs-toggle="modal"
-                                data-bs-target="#{{ $pkg['modalId'] }}">
-                                Get started
-                                <div class="icon">
-                                    <i class="fa fa-arrow-right text-dark"></i>
-                                </div>
-                            </button>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
+    <section id="package">
+        @include('exhibition.package')
     </section>
 
     {{-- ——— Bootstrap Modals ——— --}}
@@ -239,12 +157,10 @@
                     <form id="sponsorForm" action="{{ url('contact/sponsorship') }}" method="post">
                         @csrf
                         <div class="mb-3">
-                            <input type="text" name="name_sponsor" class="form-control" placeholder="Name *"
-                                required>
+                            <input type="text" name="name_sponsor" class="form-control" placeholder="Name *" required>
                         </div>
                         <div class="mb-3">
-                            <input type="email" name="email_sponsor" class="form-control" placeholder="Email *"
-                                required>
+                            <input type="email" name="email_sponsor" class="form-control" placeholder="Email *" required>
                         </div>
                         <div class="mb-3">
                             <input type="text" name="company_name_sponsor" class="form-control"
