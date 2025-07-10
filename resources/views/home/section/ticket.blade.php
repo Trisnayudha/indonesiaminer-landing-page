@@ -27,7 +27,7 @@
                             <li>Company name, logo & job title on profile</li>
                             <li>Live chat with attendees</li>
                         </ul>
-                        <button class="btn btn-warning ticket-btn w-100" data-bs-toggle="modal"
+                        <button class="btn btn-warning custom-yellow-btn fw-bold w-100" data-bs-toggle="modal"
                             data-bs-target="#reserveModal" data-package="Normal Ticket">
                             BUY NOW
                         </button>
@@ -59,7 +59,7 @@
                             <li>Networking dinner invite</li>
                             <li>Live chat with attendees</li>
                         </ul>
-                        <button class="btn btn-warning ticket-btn w-100" data-bs-toggle="modal"
+                        <button class="btn btn-warning custom-yellow-btn fw-bold w-100" data-bs-toggle="modal"
                             data-bs-target="#reserveModal" data-package="Early Bird">
                             BUY NOW
                         </button>
@@ -79,7 +79,7 @@
                     <img src="{{ asset('new-home/tickets/bundle_3_v1.png') }}" class="card-img-top bundle-artwork"
                         alt="3× Normal Deal">
                     <div class="card-body">
-                        <button class="btn btn-warning ticket-btn w-100" data-bs-toggle="modal"
+                        <button class="btn btn-warning custom-yellow-btn fw-bold w-100" data-bs-toggle="modal"
                             data-bs-target="#reserveModal" data-package="3X Early Bird">
                             BUY NOW
                         </button>
@@ -96,7 +96,7 @@
                     <img src="{{ asset('new-home/tickets/bundle_5_v2.png') }}" class="card-img-top bundle-artwork"
                         alt="5× Normal Deal">
                     <div class="card-body">
-                        <button class="btn btn-warning ticket-btn w-100" data-bs-toggle="modal"
+                        <button class="btn btn-warning custom-yellow-btn fw-bold w-100" data-bs-toggle="modal"
                             data-bs-target="#reserveModal" data-package="5X Early Bird">
                             BUY NOW
                         </button>

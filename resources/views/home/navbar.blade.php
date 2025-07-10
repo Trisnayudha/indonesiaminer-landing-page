@@ -26,7 +26,7 @@
                     </ul>
                 </li>
                 <li class="nav-item px-2">
-                    <a class="btn btn-warning me-2" href="exhibition">EXHIBIT & SPONSOR</a>
+                    <a class="btn btn-warning custom-yellow-btn fw-bold me-2" href="exhibition">EXHIBIT & SPONSOR</a>
                 </li>
                 <li class="nav-item px-2">
                     <button class="btn btn-outline-warning fw-bold" data-bs-toggle="modal"
@@ -59,7 +59,7 @@
             </button>
 
             <div class="mobile-ctas mb-4">
-                <a href="exhibition" class="btn btn-warning w-100 mb-2">EXHIBIT & SPONSOR</a>
+                <a href="exhibition" class="btn btn-warning custom-yellow-btn fw-bold w-100 mb-2">EXHIBIT & SPONSOR</a>
                 <button class="btn btn-outline-warning w-100" data-bs-toggle="modal" data-bs-target="#interestModal">
                     REGISTER YOUR INTEREST
                 </button>

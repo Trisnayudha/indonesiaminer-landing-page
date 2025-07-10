@@ -105,7 +105,7 @@
             </div>
 
             <div class="modal-footer border-0 justify-content-end pe-5 pb-4">
-                <button type="submit" form="reserveForm" class="btn btn-lg btn-warning px-5 rounded-pill">
+                <button type="submit" form="reserveForm" class="btn btn-warning custom-yellow-btn fw-bold">
                     Submit
                 </button>
             </div>
