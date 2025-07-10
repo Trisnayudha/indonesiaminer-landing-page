@@ -937,4 +937,16 @@
      .g-recaptcha {
          margin: 1rem 0;
      }
+
+     /* Jika Qontak menyuntik <qontak-webchat> element */
+     qontak-webchat {
+         position: fixed !important;
+         z-index: 2000 !important;
+     }
+
+     /* Jika Qontak bikin iframe dengan src mengandung “qontak” */
+     iframe[src*="qontak"] {
+         position: fixed !important;
+         z-index: 2000 !important;
+     }
  </style>
