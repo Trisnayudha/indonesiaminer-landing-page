@@ -8,15 +8,19 @@
             <div class="col-6 col-md-6 col-lg-4">
                 <div class="card ticket-card mx-auto">
                     <div class="card-header text-center text-uppercase bg-white">
-                        Late Ticket
+                        Normal Price
                     </div>
                     <div class="ticket-price-section text-center">
-                        <div class="h5 fw-normal">Normal Price</div>
+                        <div class="h5 fw-normal">
+                            <div class="small text-white text-decoration-line-through mb-1">
+
+                            </div>
+                        </div>
                         <div class="display-4 fw-bold mb-2">$1,500</div>
                     </div>
                     <div class="card-body">
                         <ul class="ticket-features list-unstyled mb-4">
-                            <li>3-day delegate & exhibition access (incl. luncheon…)</li>
+                            <li>3-day delegate & exhibition access</li>
                             <li>40+ live speeches, panels & Q&A</li>
                             <li>Access to presentation materials</li>
                             <li>Identified as a company</li>

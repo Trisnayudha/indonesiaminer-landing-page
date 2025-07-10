@@ -1,65 +1,49 @@
-<!-- interest-modal.blade.php -->
+<!-- Modal -->
 <div class="modal fade" id="interestModal" tabindex="-1" aria-labelledby="interestModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-white" id="interestModalLabel">
-                    Be part of Indonesia’s #1 Premier Conference & Exhibition!<br>
-                    please fill in your details below to be notified
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+        <div class="modal-content p-0 border-0 rounded-3 overflow-hidden">
+            <div class="modal-header bg-primary text-white border-0 px-4 py-3">
+                <h5 class="modal-title mb-0" id="interestModalLabel">
+                    Be part of Indonesia’s #1 Premier Conference &amp; Exhibition!
+                    <small class="d-block fs-6 mt-1">please fill in your details below to be notified</small>
                 </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white ms-2" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form id="form-interest" method="POST" action="{{ url('contact/interest') }}">
+            <div class="modal-body bg-primary px-4 pt-4 pb-5">
+                <form id="form-interest" method="POST" action="{{ url('contact/interest') }}" class="text-white">
                     @csrf
 
                     <!-- EVENT TYPE -->
                     <div class="mb-4 text-center">
-                        <label class="form-label d-block mb-2" style="color:#fff;">I'm interested in:</label>
-                        <div class="d-flex justify-content-center gap-4">
+                        <label class="form-label fw-semibold mb-2">I'm interested in:</label>
+                        <div class="d-flex flex-wrap justify-content-center gap-3">
                             @foreach (['sponsoring' => 'Sponsoring', 'exhibiting' => 'Exhibiting', 'attending' => 'Attending'] as $val => $label)
-                                <div class="form-check form-check-inline">
+                                <div class="form-check">
                                     <input class="form-check-input" type="radio" name="eventType"
                                         id="{{ $val }}" value="{{ $val }}" required>
-                                    <label class="form-check-label text-white"
+                                    <label class="form-check-label"
                                         for="{{ $val }}">{{ $label }}</label>
                                 </div>
                             @endforeach
                         </div>
                     </div>
 
-                    <!-- NAME -->
-                    <div class="mb-3">
-                        <input name="name_interest" type="text" class="form-control" placeholder="Name*" required>
-                    </div>
-
-                    <!-- PHONE -->
-                    <div class="mb-3">
-                        <input id="phone" name="phone" type="tel" class="form-control" placeholder="Phone*"
-                            value="62" required />
-                    </div>
-
-                    <!-- EMAIL -->
-                    <div class="mb-3">
-                        <input name="email_interest" type="email" class="form-control" placeholder="Business Email*"
-                            required>
-                    </div>
-
-                    <!-- JOB TITLE -->
-                    <div class="mb-3">
-                        <input name="job_title_interest" type="text" class="form-control" placeholder="Job Title*"
-                            required>
-                    </div>
-
-                    <!-- COMPANY -->
-                    <div class="mb-3">
-                        <input name="company_interest" type="text" class="form-control" placeholder="Company*"
-                            required>
-                    </div>
+                    <!-- INPUT FIELDS -->
+                    <div class="mb-3"><input name="name_interest" class="form-control form-control-lg"
+                            placeholder="Name*" required></div>
+                    <div class="mb-3"><input name="phone" class="form-control form-control-lg" placeholder="Phone*"
+                            required></div>
+                    <div class="mb-3"><input name="email_interest" class="form-control form-control-lg"
+                            placeholder="Business Email*" required></div>
+                    <div class="mb-3"><input name="job_title_interest" class="form-control form-control-lg"
+                            placeholder="Job Title*" required></div>
+                    <div class="mb-3"><input name="company_interest" class="form-control form-control-lg"
+                            placeholder="Company*" required></div>
 
                     <!-- SUBMIT -->
                     <div class="text-center mt-4">
-                        <button type="submit" class="btn btn-submit">
+                        <button type="submit" class="btn btn-submit btn-lg w-100">
                             SUBMIT
                         </button>
                     </div>
@@ -68,6 +52,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- Reserve Your Spot Modal -->
 <div class="modal fade" id="reserveModal" tabindex="-1" aria-labelledby="reserveModalLabel" aria-hidden="true">

@@ -939,4 +939,73 @@
      .g-recaptcha {
          margin: 1rem 0;
      }
+
+     /* Section jarallax: custom responsive font-sizes */
+     @media (max-width: 768px) {
+
+         /* tablet ke bawah: tarik turun satu step ukuran */
+         .jarallax .display-6,
+         .jarallax .display-md-5 {
+             font-size: 2rem !important;
+             /* default display-5 adalah ~3rem, kita ke ~2rem */
+             line-height: 1.2;
+         }
+
+         .jarallax .resilience-text {
+             font-size: 1rem !important;
+             /* dari fs-md-5 (1.5rem) ke 1rem */
+         }
+     }
+
+     @media (max-width: 576px) {
+
+         /* HP kecil: lagi turunkan */
+         .jarallax .display-6,
+         .jarallax .display-md-5 {
+             font-size: 1.5rem !important;
+             line-height: 1.2;
+         }
+
+         .jarallax .resilience-text {
+             font-size: 0.9rem !important;
+         }
+
+         .jarallax p.typewriter {
+             font-size: 0.85rem;
+             /* paragraf juga kecilkan */
+             line-height: 1.4;
+         }
+
+         .jarallax .container {
+             padding-top: 2.5rem !important;
+         }
+
+         /* Kalau masih kurang: beri margin pada judul */
+         .jarallax .container>.fw-bold {
+             margin-top: 1rem;
+         }
+     }
+
+
+     .custom-yellow-btn {
+         background: linear-gradient(180deg, #FFF27A 0%, #F7C100 100%);
+         color: #333333;
+         padding: 0.75rem 1.75rem;
+         font-size: 1rem;
+         text-transform: uppercase;
+         letter-spacing: 0.05em;
+         border: none;
+         border-radius: 12px;
+         box-shadow:
+             0 8px 16px rgba(0, 0, 0, 0.15),
+             inset 0 -4px 8px rgba(0, 0, 0, 0.1);
+         transition: transform 0.15s ease, box-shadow 0.15s ease;
+     }
+
+     .custom-yellow-btn:hover {
+         transform: translateY(-2px);
+         box-shadow:
+             0 12px 24px rgba(0, 0, 0, 0.2),
+             inset 0 -4px 8px rgba(0, 0, 0, 0.1);
+     }
  </style>

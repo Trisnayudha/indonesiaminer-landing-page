@@ -26,7 +26,7 @@
             Indonesia Miner 2025 is the Premier Conference & Exhibition for Indonesia Mining
             Top Leaders, Experts, Decision Makers and All Mining Industry Value Chain Meets.
         </p>
-        <a class="btn btn-warning btn-lg" data-bs-toggle="modal" data-bs-target="#interestModal">
+        <a class="btn btn-warning custom-yellow-btn fw-bold" data-bs-toggle="modal" data-bs-target="#interestModal">
             REGISTER YOUR INTEREST FOR 2026
         </a>
 
