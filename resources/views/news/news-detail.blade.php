@@ -85,20 +85,23 @@
                     <a href="{{ url('news/detail/' . $item->slug) }}" class="text-decoration-none">
                         <div class="card h-100 border-0 shadow-sm overflow-hidden related-card">
                             <div class="row g-0 h-100">
-                                <!-- IMAGE -->
-                                <div class="col-5 position-relative related-img-wrapper">
+
+                                <!-- IMAGE: full‐width di xs, 5/12 di ≥sm -->
+                                <div class="col-12 col-sm-5 position-relative related-img-wrapper">
                                     <img src="{{ $item->image }}" class="img-fluid w-100 h-100 object-fit-cover"
                                         alt="{{ $item->title }}">
                                     <span class="badge bg-warning position-absolute related-badge">
                                         <i class="fas fa-calendar-alt me-1"></i>{{ $item->date_news }}
                                     </span>
                                 </div>
-                                <!-- CONTENT -->
-                                <div class="col-7">
+
+                                <!-- CONTENT: full‐width di xs, 7/12 di ≥sm -->
+                                <div class="col-12 col-sm-7">
                                     <div class="card-body d-flex flex-column justify-content-between h-100">
                                         <div>
                                             <h5 class="card-title mb-2 related-title">
-                                                {{ \Illuminate\Support\Str::limit($item->title, 70, '...') }}</h5>
+                                                {{ \Illuminate\Support\Str::limit($item->title, 70, '...') }}
+                                            </h5>
                                             <p class="text-muted small mb-1">
                                                 <i class="fas fa-globe me-1"></i>{{ $item->source ?? $item->location }}
                                             </p>
@@ -111,12 +114,14 @@
                                         </p>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </a>
                 </div>
             @endforeach
         </div>
+
     </div>
 @endsection
 
@@ -131,45 +136,79 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* Wrapper gambar supaya badge selalu di kiri-bawah */
+        /* Wrapper gambar & badge */
         .related-img-wrapper {
+            position: relative;
             height: 160px;
-            /* tetap sama untuk semua kartu */
+            /* desktop default */
         }
 
         .related-img-wrapper img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
 
-        /* Badge tanggal */
         .related-badge {
+            position: absolute;
             bottom: .5rem;
             left: .5rem;
             padding: .4em .6em;
             font-size: .75rem;
         }
 
-        /* Batas tinggi judul agar rapi */
+        /* Judul & deskripsi clamp */
         .related-title {
             line-height: 1.2;
             height: 2.4em;
-            /* dua baris */
+            /* memuat 2 baris */
             overflow: hidden;
         }
 
-        /* Deskripsi */
         .related-desc {
             display: -webkit-box;
             -webkit-line-clamp: 3;
-            /* batasi 3 baris */
+            /* 3 baris */
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        /* Reset padding row */
-        .row.gx-4>[class*="col-"] {
-            /* menjaga jarak konsisten */
+        /* --- RESPONSIVE FIXES --- */
+
+        /* Tablet ke atas: tetap layout dua kolom horizontal */
+        @media (min-width: 768px) {
+            .related-img-wrapper {
+                height: 160px;
+            }
+        }
+
+        /* Mobile: ubah jadi vertical stack */
+        @media (max-width: 767.98px) {
+            .related-card .row {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .related-img-wrapper {
+                height: 200px;
+                /* sedikit lebih tinggi untuk proporsi mobile */
+            }
+
+            .related-img-wrapper img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .related-desc {
+                -webkit-line-clamp: 4;
+                /* boleh ditambah satu baris lagi */
+            }
+
+            /* tambah spacing antar card di mobile */
+            .row.gx-4>.col-12 {
+                margin-bottom: 1rem;
+            }
         }
     </style>
 @endpush
