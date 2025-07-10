@@ -145,17 +145,39 @@
 
         .line-clamp {
             display: -webkit-box;
-            /* establish box for clamping */
             -webkit-box-orient: vertical;
-            /* vertical orientation */
             -webkit-line-clamp: 3;
-            /* batasi 3 baris */
             overflow: hidden;
-            /* sembunyikan yang kebanyakan */
             text-overflow: ellipsis;
-            /* tambahkan “…” */
         }
 
+        /* Desktop: gambar fixed 300px */
+        @media (min-width: 768px) {
+            .card.flex-row img {
+                width: 300px !important;
+                height: auto !important;
+                object-fit: cover;
+            }
+        }
+
+        /* Mobile: ubah flex-row jadi column */
+        @media (max-width: 767.98px) {
+            .card.flex-row {
+                flex-direction: column !important;
+            }
+
+            .card.flex-row img {
+                width: 100% !important;
+                height: auto !important;
+                object-fit: cover;
+            }
+
+            .card-body {
+                padding: 1rem !important;
+            }
+        }
+
+        /* Pagination styling */
         .pagination {
             gap: .5rem;
         }
@@ -172,12 +194,7 @@
             transition: background .2s, color .2s;
         }
 
-        .pagination .page-item .page-link:hover {
-            background-color: #f8db4a;
-            border-color: #f8db4a;
-            color: #fff;
-        }
-
+        .pagination .page-item .page-link:hover,
         .pagination .page-item.active .page-link {
             background-color: #f8db4a;
             border-color: #f8db4a;
