@@ -159,8 +159,8 @@
      }
 
      .custom-navbar {
-         backdrop-filter: blur(12px);
-         background-color: rgba(255, 255, 255, 0.2);
+         backdrop-filter: blur(15px);
+         background-color: rgba(255, 255, 255, 0.5);
          transition: background-color 0.3s, box-shadow 0.3s;
      }
 

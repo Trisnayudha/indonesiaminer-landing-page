@@ -232,7 +232,7 @@
                                 <hr class="my-4">
                             </div>
                         </div>
-                        <div class="col-12 col-md-4">
+                        <div class="col-12 col-md-12 col-lg-4">
                             <div class="card bg-light h-100 shadow-sm">
                                 <div class="card-body d-flex flex-column">
 
