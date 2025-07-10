@@ -98,6 +98,22 @@
     @include('home.modal')
     @stack('bottom')
     @include('template.js')
+    <!-- Start of Qontak Webchat Script -->
+    <script>
+        const qchatInit = document.createElement('script');
+        qchatInit.src = "https://webchat.qontak.com/qchatInitialize.js";
+        const qchatWidget = document.createElement('script');
+        qchatWidget.src = "https://webchat.qontak.com/js/app.js";
+        document.head.prepend(qchatInit);
+        document.head.prepend(qchatWidget);
+        qchatInit.onload = function() {
+            qchatInitialize({
+                id: "07de68be-c5e2-44c3-8bc1-8d5ec154c564",
+                code: "ti5J3-J7yHcPbOmxSewyKw"
+            })
+        };
+    </script>
+    <!-- End of Qontak Webchat Script -->
 </body>
 
 </html>
