@@ -7,26 +7,26 @@
 
         <div class="collapse navbar-collapse" id="navMenuDesktop">
             <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0 align-items-center">
-                <li class="nav-item px-2"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item px-2"><a class="nav-link" href="{{ url('/#') }}">Home</a></li>
                 <li class="nav-item dropdown px-2">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Exhibitors</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#exhibition-page">List of Exhibitor</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/#exhibition-page') }}">List of Exhibitor</a></li>
                         <li><a class="dropdown-item disabled">Floor Plan</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown px-2">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#speakers">Speakers</a></li>
-                        <li><a class="dropdown-item" href="#foim">FOIM 2025</a></li>
-                        <li><a class="dropdown-item" href="#minerstalk">Miners Talk 2025</a></li>
-                        <li><a class="dropdown-item" href="sponsors">Sponsors</a></li>
-                        <li><a class="dropdown-item" href="news">News</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/#speakers') }}">Speakers</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/#foim') }}">FOIM 2025</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/#minerstalk') }}">Miners Talk 2025</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/sponsors') }}">Sponsors</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/news') }}">News</a></li>
                     </ul>
                 </li>
                 <li class="nav-item px-2">
-                    <a class="btn btn-warning me-2" href="exhibition">EXHIBIT & SPONSOR</a>
+                    <a class="btn btn-warning me-2" href="{{ url('/exhibition') }}">EXHIBIT & SPONSOR</a>
                 </li>
                 <li class="nav-item px-2">
                     <button class="btn btn-outline-warning fw-bold" data-bs-toggle="modal"
@@ -65,22 +65,22 @@
                 </button>
             </div>
             <ul class="navbar-nav flex-column">
-                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/#') }}">Home</a></li>
                 <li class="nav-item has-submenu">
                     <a class="nav-link submenu-toggle" href="#">Exhibitors <span class="caret"></span></a>
                     <ul class="submenu list-unstyled ps-3">
-                        <li><a class="nav-link" href="#exhibition-page">List of Exhibitor</a></li>
+                        <li><a class="nav-link" href="{{ url('/#exhibition-page') }}">List of Exhibitor</a></li>
                         <li><a class="nav-link disabled">Floor Plan</a></li>
                     </ul>
                 </li>
                 <li class="nav-item has-submenu">
                     <a class="nav-link submenu-toggle" href="#">More <span class="caret"></span></a>
                     <ul class="submenu list-unstyled ps-3">
-                        <li><a class="nav-link" href="#speakers">Speakers</a></li>
-                        <li><a class="nav-link" href="#foim">FOIM 2025</a></li>
-                        <li><a class="nav-link" href="#minerstalk">Miners Talk 2025</a></li>
-                        <li><a class="nav-link" href="sponsors">Sponsors</a></li>
-                        <li><a class="nav-link" href="news">News</a></li>
+                        <li><a class="nav-link" href="{{ url('/#speakers') }}">Speakers</a></li>
+                        <li><a class="nav-link" href="{{ url('/#foim') }}">FOIM 2025</a></li>
+                        <li><a class="nav-link" href="{{ url('/#minerstalk') }}">Miners Talk 2025</a></li>
+                        <li><a class="nav-link" href="{{ url('/sponsors') }}">Sponsors</a></li>
+                        <li><a class="nav-link" href="{{ url('/news') }}">News</a></li>
                     </ul>
                 </li>
             </ul>

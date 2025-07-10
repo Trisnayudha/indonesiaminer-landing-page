@@ -7,7 +7,7 @@
 
         <div class="collapse navbar-collapse" id="navMenuDesktop">
             <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0 align-items-center">
-                <li class="nav-item px-2"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item px-2"><a class="nav-link" href="#">Home</a></li>
                 <li class="nav-item dropdown px-2">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Exhibitors</a>
                     <ul class="dropdown-menu">
