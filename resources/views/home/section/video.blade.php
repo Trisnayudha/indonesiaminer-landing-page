@@ -1,4 +1,4 @@
-<div class="container-fluid px-3 px-md-5">
+<div class="container-fluid px-3 px-md-5 pb-5 pb-md-0">
     <div class="row gx-4 align-items-center">
         <!-- Left: Text & Button -->
         <div class="col-md-6 pe-md-5">
@@ -17,7 +17,7 @@
         </div>
 
         <!-- Right: Video with Side Padding -->
-        <div class="col-md-6 ps-md-5">
+        <div class="col-md-6 ps-md-5 mt-3">
             <div class="ratio ratio-16x9">
                 <video playsinline autoplay muted loop class="w-100 h-100 object-fit-cover">
                     <source

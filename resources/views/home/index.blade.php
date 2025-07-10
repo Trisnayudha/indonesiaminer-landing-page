@@ -28,7 +28,7 @@
     </section>
 
     {{-- Exhibitors --}}
-    <section id="exhibition-page" class="py-5 bg-white">
+    <section id="exhibition-page" class="py-5 bg-white mb-5 mb-md-0">
         <div class="lazy-section" data-url="{{ route('section.partial', 'video') }}">
             <div class="lazy-placeholder" style="height:400px;"></div>
         </div>

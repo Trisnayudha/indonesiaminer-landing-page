@@ -984,6 +984,10 @@
          .jarallax .container>.fw-bold {
              margin-top: 1rem;
          }
+
+         #exhibition-page .container-fluid {
+             padding-bottom: 3rem;
+         }
      }
 
 
