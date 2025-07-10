@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-body modal-body-no-padding">
-                <form action="{{ url('payment') }}" method="post">
+                <form action="{{ url('payment') }}" method="post" onsubmit="loadingState(this)">
                     @csrf
                     <div class="row">
                         <div class="col-12 col-lg-8">
@@ -167,8 +167,7 @@
                                         <label for="phone" class="form-label">Mobile Number
                                             <span class="text-muted"></span></label>
                                         <input type="text" class="form-control phone_booking" name="phone_booking"
-                                            placeholder="" id="phone_booking" value="+62{{ $phone }}"
-                                            required>
+                                            placeholder="" id="phone_booking" value="62{{ $phone }}" required>
                                         <div class="invalid-feedback">
                                             Please enter a valid phone.
                                         </div>
@@ -397,7 +396,7 @@
 
                         <div class="col-sm-6">
                             <label for="phone" class="form-label">Mobile Number <span class="text-muted"></span></label>
-                            <input type="text" class="form-control phone" name="phone[]" placeholder="" value="+62" required>
+                            <input type="text" class="form-control phone" name="phone[]" placeholder="" value="62" required>
                             <div class="invalid-feedback">
                                 Please enter a valid phone.
                             </div>
@@ -491,4 +490,19 @@
             $(".vocer").removeAttr("disabled");
         });
     }
+
+    function loadingState(form) {
+        const button = form.querySelector('.beforePayment');
+        button.disabled = true;
+        button.innerHTML = 'Processing...';
+    }
+
+    @if (session('success'))
+        Swal.fire({
+            title: 'Success',
+            text: '{{ session('success') }}',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        });
+    @endif
 </script>

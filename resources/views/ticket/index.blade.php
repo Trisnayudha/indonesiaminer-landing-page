@@ -180,6 +180,7 @@
 @endsection
 
 @push('bottom')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         // Ambil semua tombol dengan class "btn-select-ticket"
         const buttons = document.querySelectorAll(".btn-select-ticket");
@@ -359,31 +360,6 @@
                     events_tickets_type, klik, discount_dollar, discount_price)
             }
         }
-
-        @if (session('success'))
-            $("#loader").hide();
-            swal({
-                title: 'THANK YOU',
-                text: "{{ session('success') }}",
-                icon: "success",
-                customClass: {
-                    content: 'custom-swal-text'
-                }
-            });
-        @elseif (session('error'))
-            $("#loader").hide();
-            swal({
-                text: "{{ session('error') }}",
-                icon: "success"
-            });
-        @endif
-        @if ($errors->any())
-            $("#loader").hide();
-            swal({
-                text: "Please ensure that all required fields are completed before submitting the form.",
-                icon: "error"
-            });
-        @endif
     </script>
     @include('ticket.js-payment-single')
     @include('ticket.js-payment-multiple')

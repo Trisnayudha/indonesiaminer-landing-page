@@ -122,7 +122,7 @@
                                                 class="text-muted"></span></label>
                                         <input type="text" class="form-control phone_multi_dynamic"
                                             name="phone_booking" placeholder="" id="phone_booking"
-                                            value="+62{{ $phone }}" required>
+                                            value="62{{ $phone }}" required>
                                         <div class="invalid-feedback">Please enter a valid phone.</div>
                                     </div>
                                     <div class="col-sm-3">
@@ -367,4 +367,19 @@
     $(document).on('click', '.remove', function() {
         $(this).parents('.tambah').remove();
     });
+
+    function loadingState(form) {
+        const button = form.querySelector('.beforePayment');
+        button.disabled = true;
+        button.innerHTML = 'Processing...';
+    }
+
+    @if (session('success'))
+        Swal.fire({
+            title: 'Success',
+            text: '{{ session('success') }}',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        });
+    @endif
 </script>

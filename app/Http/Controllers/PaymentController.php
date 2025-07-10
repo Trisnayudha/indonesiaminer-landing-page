@@ -240,7 +240,8 @@ Code Payment: $codePayment
                 'create_date'  => now()->format('d, M Y H:i'),
                 'code_payment' => $codePayment,
                 'events_name'  => $event->name,
-                'voucher_price' => 0
+                'voucher_price' => 0,
+                'vat' => $payment->vat,
             ];
 
             // Kirim pesan WhatsApp
