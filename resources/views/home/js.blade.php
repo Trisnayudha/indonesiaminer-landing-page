@@ -191,3 +191,18 @@
           });
       });
   </script>
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const nav = document.querySelector('.custom-navbar');
+          if (!nav) return;
+          const SCROLL_THRESHOLD = 50; // pixels scrolled before we flip
+
+          window.addEventListener('scroll', () => {
+              if (window.scrollY > SCROLL_THRESHOLD) {
+                  nav.classList.add('scrolled');
+              } else {
+                  nav.classList.remove('scrolled');
+              }
+          });
+      });
+  </script>
