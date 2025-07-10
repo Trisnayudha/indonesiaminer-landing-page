@@ -1,6 +1,8 @@
-<div class="text-center mb-5">
-    <h2 class="fw-bold">How big do you want your presence to be?</h2>
-    <p class="lead">Discover customized sponsorship/ exhibition options tailored to your brand's needs.</p>
+<div class="container">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">How big do you want your presence to be?</h2>
+        <p class="lead">Discover customized sponsorship/ exhibition options tailored to your brand's needs.</p>
+    </div>
 </div>
 @php
     $packages = [
