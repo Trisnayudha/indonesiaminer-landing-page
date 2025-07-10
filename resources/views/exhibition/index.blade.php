@@ -60,7 +60,7 @@
                         </div>
                     </li>
                 </ul>
-                <a href="#exhibitor" class="btn btn-warning mt-3">
+                <a href="#exhibitor" class="btn btn-warning custom-yellow-btn fw-bold mt-3">
                     Discover Options to Elevate Your Brand
                 </a>
             </div>

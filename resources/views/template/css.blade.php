@@ -5,7 +5,116 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <style>
+     .marquee {
+         width: 100%;
+         overflow: hidden;
+         position: relative;
+         white-space: nowrap;
+         box-sizing: border-box;
+     }
+
+     /* Sponsor */
+     .marquee-content-sponsor {
+         display: inline-block;
+         white-space: nowrap;
+         animation: marqueeAnimationSponsor var(--marquee-duration-sponsor, 50s) linear infinite;
+     }
+
+     /* Exhibitor */
+     .marquee-content-exhibitor {
+         display: inline-block;
+         white-space: nowrap;
+         animation: marqueeAnimationExhibitor var(--marquee-duration-exhibitor, 50s) linear infinite;
+     }
+
+     @keyframes marqueeAnimationSponsor {
+         0% {
+             transform: translateX(0);
+         }
+
+         100% {
+             transform: translateX(calc(-1 * var(--content-width-sponsor, 1000px)));
+         }
+     }
+
+     @keyframes marqueeAnimationExhibitor {
+         0% {
+             transform: translateX(0);
+         }
+
+         100% {
+             transform: translateX(calc(-1 * var(--content-width-exhibitor, 1000px)));
+         }
+     }
+
+     /* Styling gambar umum */
+     .marquee-content-sponsor img,
+     .marquee-content-exhibitor img {
+         margin-right: 5px;
+         vertical-align: middle;
+     }
+
+     .exhibitor-logo {
+         width: 100px;
+         height: 50px;
+         object-fit: contain;
+     }
+ </style>
+ <script>
+     document.addEventListener('DOMContentLoaded', function() {
+         function setupMarquee({
+             marqueeId,
+             contentClass,
+             speed,
+             widthVar,
+             durationVar
+         }) {
+             const marquee = document.getElementById(marqueeId);
+             if (!marquee) return;
+             const content = marquee.querySelector(`.${contentClass}`);
+             if (!content) return;
+
+             // Clone content untuk looping seamless
+             marquee.appendChild(content.cloneNode(true));
+
+             setTimeout(function() {
+                 let contentWidth = content.offsetWidth;
+                 let marqueeWidth = marquee.offsetWidth;
+
+                 if (contentWidth < marqueeWidth) {
+                     contentWidth = marqueeWidth;
+                 }
+
+                 marquee.style.setProperty(widthVar, contentWidth + 'px');
+
+                 let duration = contentWidth / speed;
+                 if (duration < 20) duration = 20;
+
+                 marquee.style.setProperty(durationVar, duration + 's');
+             }, 500);
+         }
+
+         // Sponsor
+         setupMarquee({
+             marqueeId: 'marquee2025',
+             contentClass: 'marquee-content-sponsor',
+             speed: 30,
+             widthVar: '--content-width-sponsor',
+             durationVar: '--marquee-duration-sponsor'
+         });
+
+         // Exhibitor
+         setupMarquee({
+             marqueeId: 'marquee2024',
+             contentClass: 'marquee-content-exhibitor',
+             speed: 30,
+             widthVar: '--content-width-exhibitor',
+             durationVar: '--marquee-duration-exhibitor'
+         });
+     });
+ </script>
+
  <!-- Custom CSS -->
  <style>
      :root {
@@ -126,7 +235,7 @@
          background: linear-gradient(126deg, #00537a, #5fa8cb);
          /* ganti gradien sesuai selera */
          padding: 0.75rem 1rem;
-         z-index: 1100;
+         z-index: 1000;
          box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
          border-top-left-radius: 20px;
          border-top-right-radius: 20px;
@@ -138,10 +247,101 @@
      }
 
      @media (max-width: 576px) {
+         .timer .values {
+             display: flex;
+             gap: .25rem;
+             align-items: center;
+             margin-top: .25rem;
+             font-size: 10px;
+         }
+
          .sticky-bottom-bar {
-             flex-direction: column;
-             gap: .5rem;
-             text-align: center;
+             flex-direction: row !important;
+             /* tetap sebar kiri–kanan */
+             justify-content: flex-start !important;
+             /* mulai dari kiri */
+             align-items: center;
+             /* beri extra padding kanan untuk space widget Qontak */
+             padding: 0.75rem 4rem 0.75rem 1rem;
+         }
+
+         /* Price (“timer”) lebih kecil */
+         .sticky-bottom-bar .timer {
+             font-size: 0.75rem;
+         }
+
+         /* Tombol di kanan, tapi geser sedikit ke kiri via margin-right */
+         .sticky-bottom-bar .btn-warning {
+             margin-left: unset`;
+             /* dorong tombol ke kanan */
+             margin-right: 0;
+             /* kalau butuh lebih mundur lagi, bisa pakai margin-right: 20px; */
+             font-size: 10px
+         }
+     }
+
+
+
+
+     .navbar-nav .dropdown:hover .dropdown-menu {
+         display: block;
+         margin-top: 0;
+     }
+
+     .navbar-collapse {
+         transition: transform 0.3s ease-in-out;
+     }
+
+     .lazy-placeholder {
+         background-color: #e0e0e0;
+         border-radius: .25rem;
+         position: relative;
+         overflow: hidden;
+     }
+
+     .lazy-placeholder::after {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: -100%;
+         width: 100%;
+         height: 100%;
+         background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
+         animation: shimmer 1.5s infinite;
+     }
+
+     @keyframes shimmer {
+         100% {
+             transform: translateX(200%);
+         }
+     }
+
+     @media (max-width: 768px) {
+         .navbar-collapse {
+             position: fixed;
+             top: 0;
+             right: 0;
+             transform: translateX(100%);
+             height: 100vh;
+             width: 80%;
+             max-width: 320px;
+             background: linear-gradient(135deg, #e6f7ff, #ccf2ff);
+             padding: 2rem 1rem;
+             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+             border-radius: 1rem 0 0 1rem;
+             z-index: 1050;
+             overflow-y: auto;
+         }
+
+         .navbar-collapse.show {
+             transform: translateX(0);
+         }
+
+         .navbar-toggler.collapsed {
+             position: absolute;
+             top: 1.25rem;
+             right: 1.25rem;
+             z-index: 1100;
          }
      }
 
@@ -336,68 +536,6 @@
          }
      }
 
-
-     .navbar-nav .dropdown:hover .dropdown-menu {
-         display: block;
-         margin-top: 0;
-     }
-
-     .navbar-collapse {
-         transition: transform 0.3s ease-in-out;
-     }
-
-     .lazy-placeholder {
-         background-color: #e0e0e0;
-         border-radius: .25rem;
-         position: relative;
-         overflow: hidden;
-     }
-
-     .lazy-placeholder::after {
-         content: "";
-         position: absolute;
-         top: 0;
-         left: -100%;
-         width: 100%;
-         height: 100%;
-         background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
-         animation: shimmer 1.5s infinite;
-     }
-
-     @keyframes shimmer {
-         100% {
-             transform: translateX(200%);
-         }
-     }
-
-     @media (max-width: 768px) {
-         .navbar-collapse {
-             position: fixed;
-             top: 0;
-             right: 0;
-             transform: translateX(100%);
-             height: 100vh;
-             width: 80%;
-             max-width: 320px;
-             background: linear-gradient(135deg, #e6f7ff, #ccf2ff);
-             padding: 2rem 1rem;
-             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-             border-radius: 1rem 0 0 1rem;
-             z-index: 1050;
-             overflow-y: auto;
-         }
-
-         .navbar-collapse.show {
-             transform: translateX(0);
-         }
-
-         .navbar-toggler.collapsed {
-             position: absolute;
-             top: 1.25rem;
-             right: 1.25rem;
-             z-index: 1100;
-         }
-     }
 
      /* Modal overlay */
      .modal-custom {
@@ -674,5 +812,204 @@
 
      .iti {
          display: block;
+     }
+ </style>
+ <style>
+     /* tiket card dasar */
+     .ticket-card {
+         border: none;
+         border-radius: 1rem;
+         overflow: hidden;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+         position: relative;
+         transition: transform .3s ease, box-shadow .3s ease;
+     }
+
+     /* efek hover: kartu naik & bayangan tegas */
+     .ticket-card:hover {
+         transform: translateY(-8px);
+         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+     }
+
+     /* overlay putih semi-transparent untuk efek “fade” */
+     .ticket-card::before {
+         content: "";
+         position: absolute;
+         inset: 0;
+         background: rgba(255, 255, 255, 0);
+         transition: background .3s ease;
+         border-radius: 1rem;
+         pointer-events: none;
+     }
+
+     .ticket-card:hover::before {
+         /* background: rgba(255, 255, 255, 0.3); */
+     }
+
+     /* header kartu */
+     .ticket-card .card-header {
+         font-size: 1.25rem;
+         font-weight: 700;
+         padding: 1rem;
+         border-bottom: none;
+         background: #fff;
+     }
+
+     /* section harga */
+     .ticket-price-section {
+         background: linear-gradient(90deg, #F9DB4A, #FF9F28);
+         color: #000;
+         padding: 2rem 1rem;
+     }
+
+     /* daftar benefit */
+     .ticket-features li {
+         padding: .5rem 0;
+         border-bottom: 1px solid #e9ecef;
+     }
+
+     .ticket-features li:last-child {
+         border-bottom: none;
+     }
+
+     /* tombol BUY NOW */
+     .ticket-btn {
+         border-radius: .5rem;
+         padding: .75rem 1.5rem;
+         font-size: 1rem;
+         font-weight: 500;
+         transition: background-color .3s ease;
+     }
+
+     .ticket-btn:hover {
+         background-color: #e0a534 !important;
+     }
+
+     /* ribbone diskon */
+     .ribbon {
+         position: absolute;
+         top: 1rem;
+         left: -2rem;
+         width: 8rem;
+         text-align: center;
+         transform: rotate(-45deg);
+         font-size: .85rem;
+         font-weight: 600;
+         color: #fff;
+         z-index: 2;
+     }
+
+     .ribbon.bg-danger {
+         background: #dc3545 !important;
+     }
+
+     /* override utilitas Bootstrap warning menjadi kuning konsisten */
+     .bg-warning {
+         background: #E8B44B !important;
+         border-color: #E8B44B !important;
+     }
+
+     /* responsive untuk tablet/mobile */
+     @media (max-width: 768px) {
+         .ribbon {
+             top: .5rem;
+             left: -1.5rem;
+             width: 6rem;
+             font-size: .75rem;
+         }
+
+         .display-4 {
+             font-size: 2rem !important;
+         }
+     }
+
+     .reserve-modal-content {
+         background: linear-gradient(to bottom, #E8B44B, white);
+         border-radius: 1rem;
+     }
+
+     .reserve-modal-content .form-control {
+         border-radius: .5rem;
+     }
+
+     .reserve-modal-content .btn-close {
+         filter: invert(1);
+     }
+
+     .g-recaptcha {
+         margin: 1rem 0;
+     }
+
+     /* Section jarallax: custom responsive font-sizes */
+     @media (max-width: 768px) {
+
+         /* tablet ke bawah: tarik turun satu step ukuran */
+         .jarallax .display-6,
+         .jarallax .display-md-5 {
+             font-size: 2rem !important;
+             /* default display-5 adalah ~3rem, kita ke ~2rem */
+             line-height: 1.2;
+         }
+
+         .jarallax .resilience-text {
+             font-size: 1rem !important;
+             /* dari fs-md-5 (1.5rem) ke 1rem */
+         }
+     }
+
+     @media (max-width: 576px) {
+
+         /* HP kecil: lagi turunkan */
+         .jarallax .display-6,
+         .jarallax .display-md-5 {
+             font-size: 1.5rem !important;
+             line-height: 1.2;
+         }
+
+         .jarallax .resilience-text {
+             font-size: 0.9rem !important;
+         }
+
+         .jarallax p.typewriter {
+             font-size: 0.85rem;
+             /* paragraf juga kecilkan */
+             line-height: 1.4;
+         }
+
+         .jarallax .container {
+             padding-top: 2.5rem !important;
+         }
+
+         /* Kalau masih kurang: beri margin pada judul */
+         .jarallax .container>.fw-bold {
+             margin-top: 1rem;
+         }
+
+         #exhibition-page .container-fluid {
+             padding-bottom: 3rem;
+         }
+     }
+
+
+     .custom-yellow-btn {
+         background: linear-gradient(180deg, #FFF27A 0%, #F7C100 100%);
+         color: #333333;
+         padding: 0.75rem 1.75rem;
+         font-size: 1rem;
+         text-transform: uppercase;
+         letter-spacing: 0.05em;
+         border: none;
+         border-radius: 12px;
+         box-shadow:
+             0 8px 16px rgba(0, 0, 0, 0.15),
+             inset 0 -4px 8px rgba(0, 0, 0, 0.1);
+         transition: transform 0.15s ease, box-shadow 0.15s ease;
+     }
+
+     .custom-yellow-btn:hover {
+         transform: translateY(-2px);
+         box-shadow:
+             0 12px 24px rgba(0, 0, 0, 0.2),
+             inset 0 -4px 8px rgba(0, 0, 0, 0.1);
      }
  </style>

@@ -13,7 +13,7 @@
                     <div class="ticket-price-section text-center">
                         <div class="h5 fw-normal">
                             <div class="small text-white text-decoration-line-through mb-1">
-
+                                <br>
                             </div>
                         </div>
                         <div class="display-4 fw-bold mb-2">$1,500</div>
@@ -54,9 +54,9 @@
                         <ul class="ticket-features list-unstyled mb-4">
                             <li>3-day delegate & exhibition access</li>
                             <li>40+ live speeches, panels & Q&A</li>
-                            <li>Access to all presentation materials</li>
-                            <li>Company profile highlight</li>
-                            <li>Networking dinner invite</li>
+                            <li>Access to presentation materials</li>
+                            <li>Identified as a company</li>
+                            <li>Company name, logo & job title on profile</li>
                             <li>Live chat with attendees</li>
                         </ul>
                         <button class="btn btn-warning custom-yellow-btn fw-bold w-100" data-bs-toggle="modal"

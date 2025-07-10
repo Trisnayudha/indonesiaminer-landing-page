@@ -8,4 +8,4 @@
     </span>
 </div>
 
-<a href="#buy-tickets" class="btn btn-warning fw-bold">BUY TICKETS</a>
+<a href="#buy-tickets" class="btn btn-warning custom-yellow-btn fw-bold">BUY TICKETS</a>
