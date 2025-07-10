@@ -247,12 +247,38 @@
      }
 
      @media (max-width: 576px) {
+         .timer .values {
+             display: flex;
+             gap: .25rem;
+             align-items: center;
+             margin-top: .25rem;
+         }
+
          .sticky-bottom-bar {
-             flex-direction: column;
-             gap: .5rem;
-             text-align: center;
+             flex-direction: row !important;
+             /* tetap sebar kiri–kanan */
+             justify-content: flex-start !important;
+             /* mulai dari kiri */
+             align-items: center;
+             /* beri extra padding kanan untuk space widget Qontak */
+             padding: 0.75rem 4rem 0.75rem 1rem;
+         }
+
+         /* Price (“timer”) lebih kecil */
+         .sticky-bottom-bar .timer {
+             font-size: 0.75rem;
+         }
+
+         /* Tombol di kanan, tapi geser sedikit ke kiri via margin-right */
+         .sticky-bottom-bar .btn-warning {
+             margin-left: auto;
+             /* dorong tombol ke kanan */
+             margin-right: 0;
+             /* kalau butuh lebih mundur lagi, bisa pakai margin-right: 20px; */
          }
      }
+
+
 
 
      .navbar-nav .dropdown:hover .dropdown-menu {
