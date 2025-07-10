@@ -688,4 +688,58 @@
             font-size: 13px;
         }
     }
+
+    /* 1) Dasar styling nav dan tombol */
+    #packageTabs {
+        /* reset margin kiri/kanan full width */
+        width: 100vw;
+        left: 50%;
+        margin-left: -50vw;
+    }
+
+    #packageTabs .nav-item {
+        flex: 1;
+    }
+
+    #packageTabs .nav-link {
+        display: block;
+        width: 100%;
+        padding: 1rem 0;
+        font-size: 1.125rem;
+        font-weight: 600;
+        text-align: center;
+        color: #666;
+        background: #f8f9fa;
+        border: none;
+        transition: color .2s;
+    }
+
+    /* 2) Hilangkan border default bootstrap */
+    #packageTabs .nav-link,
+    #packageTabs .nav-item {
+        border: none !important;
+    }
+
+    /* 3) Indicator bar */
+    #tabIndicator {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50%;
+        /* karena dua tab => 50% */
+        height: 4px;
+        background: rgb(232, 180, 75);
+        /* default warna Exhibition */
+        transition: left .3s ease, background .3s ease;
+    }
+
+    /* 4) Active font color */
+    #packageTabs .nav-link.active {
+        color: #222;
+    }
+
+    /* 5) Hover color */
+    #packageTabs .nav-link:hover {
+        color: #00537a;
+    }
 </style>

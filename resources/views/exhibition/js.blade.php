@@ -72,3 +72,25 @@
         });
     });
 </script>
+
+<script>
+    document.querySelectorAll('#packageTabs button[data-bs-toggle="tab"]')
+        .forEach(btn => {
+            btn.addEventListener('shown.bs.tab', e => {
+                const indicator = document.getElementById('tabIndicator');
+                // 0 untuk Exhibition (index ke-0), 1 untuk Sponsorship
+                const idx = Array.from(btn.parentElement.parentElement.children)
+                    .filter(n => n.tagName !== 'DIV') // abaikan elemen indicator
+                    .indexOf(btn.parentElement);
+                // geser indicator
+                indicator.style.left = (idx * 50) + '%';
+
+                // ubah warna
+                if (btn.id === 'exhibit-tab') {
+                    indicator.style.background = 'rgb(232,180,75)'; // kuning
+                } else {
+                    indicator.style.background = '#00537a'; // biru
+                }
+            });
+        });
+</script>

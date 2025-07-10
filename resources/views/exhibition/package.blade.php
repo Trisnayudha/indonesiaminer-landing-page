@@ -1,3 +1,7 @@
+<div class="text-center mb-5">
+    <h2 class="fw-bold">How big do you want your presence to be?</h2>
+    <p class="lead">Discover customized sponsorship/ exhibition options tailored to your brand's needs.</p>
+</div>
 @php
     $packages = [
         [
@@ -47,90 +51,50 @@
     ];
 @endphp
 
-
-{{-- === TABS ONLY VISIBLE ON MOBILE === --}}
-<ul class="nav nav-tabs d-md-none justify-content-center mb-3" id="packageTabs" role="tablist">
-    <li class="nav-item" role="presentation">
+{{-- ========================= --}}
+{{--        MOBILE TABS      --}}
+{{-- ========================= --}}
+<ul class="nav nav-tabs d-md-none justify-content-center mb-3 position-relative" id="packageTabs" role="tablist">
+    <li class="nav-item flex-fill" role="presentation">
         <button class="nav-link active" id="exhibit-tab" data-bs-toggle="tab" data-bs-target="#exhibit" type="button"
             role="tab">Exhibition</button>
     </li>
-    <li class="nav-item" role="presentation">
+    <li class="nav-item flex-fill" role="presentation">
         <button class="nav-link" id="sponsor-tab" data-bs-toggle="tab" data-bs-target="#sponsor" type="button"
             role="tab">Sponsorship</button>
     </li>
+    <div id="tabIndicator"></div>
 </ul>
 
 <div class="tab-content d-md-none mb-4" id="packageTabsContent">
-    <div class="tab-pane fade show active" id="exhibit" role="tabpanel">
-        {{-- Kartu Exhibition --}}
-        @php
-            $pkg = $packages[0];
-            $suf = '';
-        @endphp
-        <div class="container-get mx-auto">
-            <div class="header-get{{ $suf }}">{{ $pkg['title'] }}</div>
-            <div class="background-get{{ $suf }}">
-                <img src="{{ asset($pkg['logo']) }}" class="img" alt="{{ $pkg['title'] }}">
+    @foreach ($packages as $i => $pkg)
+        @php $suffix = $i === 0 ? '' : '2'; @endphp
+        <div class="tab-pane fade {{ $i === 0 ? 'show active' : '' }}" id="{{ $i === 0 ? 'exhibit' : 'sponsor' }}"
+            role="tabpanel">
+            <!-- PACKAGE CARD -->
+            <div class="container-get mx-auto mb-4">
+                <div class="header-get{{ $suffix }}">{{ $pkg['title'] }}</div>
+                <div class="background-get{{ $suffix }}">
+                    <img src="{{ asset($pkg['logo']) }}" class="img" alt="{{ $pkg['title'] }}">
+                </div>
+                <div class="content-get">
+                    <ul>
+                        @foreach ($pkg['features'] as [$label, $ok])
+                            <li class="d-flex align-items-start mb-2">
+                                <i class="fa {{ $ok ? 'fa-check text-success' : 'fa-times text-danger' }} me-2"></i>
+                                <span>{{ $label }}</span>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <button type="button" class="cssbuttons-io-button" data-bs-toggle="modal"
+                    data-bs-target="#{{ $pkg['modalId'] }}">
+                    Get started
+                    <div class="icon"><i class="fa fa-arrow-right text-dark"></i></div>
+                </button>
             </div>
-            <div class="content-get">
-                <ul>
-                    @foreach ($pkg['features'] as [$label, $ok])
-                        <li class="d-flex align-items-start mb-2">
-                            <i class="fa {{ $ok ? 'fa-check text-success' : 'fa-times text-danger' }} me-2"></i>
-                            <span>{{ $label }}</span>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-            <button type="button" class="cssbuttons-io-button" data-bs-toggle="modal"
-                data-bs-target="#{{ $pkg['modalId'] }}">
-                Get started
-                <div class="icon"><i class="fa fa-arrow-right text-dark"></i></div>
-            </button>
-            <div class="subscribe-callout">
-                <h3>COMING SOON!</h3>
-                <p>
-                    Indonesia Miner 2026 is just around the corner!
-                    Sign up with your email and we’ll let you know the moment our exhibitor & sponsorship
-                    packages become available.
-                </p>
-                <form class="subscribe-form" action="/your-subscribe-endpoint" method="POST">
-                    @csrf
-                    <input type="email" name="email" placeholder="you@example.com" required>
-                    <button type="submit" class="btn btn-warning custom-yellow-btn fw-bold">
-                        Subscribe
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
 
-    <div class="tab-pane fade" id="sponsor" role="tabpanel">
-        {{-- Kartu Sponsorship --}}
-        @php
-            $pkg = $packages[1];
-            $suf = '2';
-        @endphp
-        <div class="container-get mx-auto">
-            <div class="header-get{{ $suf }}">{{ $pkg['title'] }}</div>
-            <div class="background-get{{ $suf }}">
-                <img src="{{ asset($pkg['logo']) }}" class="img" alt="{{ $pkg['title'] }}">
-            </div>
-            <div class="content-get">
-                <ul>
-                    @foreach ($pkg['features'] as [$label, $ok])
-                        <li class="d-flex align-items-start mb-2">
-                            <i class="fa {{ $ok ? 'fa-check text-success' : 'fa-times text-danger' }} me-2"></i>
-                            <span>{{ $label }}</span>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-            <button type="button" class="cssbuttons-io-button" data-bs-toggle="modal"
-                data-bs-target="#{{ $pkg['modalId'] }}">
-                Get started
-                <div class="icon"><i class="fa fa-arrow-right text-dark"></i></div>
-            </button>
+            <!-- SUBSCRIBE CALLOUT -->
             <div class="subscribe-callout">
                 <h3>COMING SOON!</h3>
                 <p>
@@ -147,19 +111,22 @@
                 </form>
             </div>
         </div>
-    </div>
+    @endforeach
 </div>
 
-{{-- === DESKTOP VERSION, STAYS SAME === --}}
+{{-- ========================= --}}
+{{--      DESKTOP GRID       --}}
+{{-- ========================= --}}
 <div class="container d-none d-md-block">
     <div class="wrapper2">
         <div class="pricing-table-get">
-            @foreach ($packages as $pkg)
-                @php $suf = $loop->first ? '' : '2'; @endphp
+            @foreach ($packages as $i => $pkg)
+                @php $suffix = $i === 0 ? '' : '2'; @endphp
 
+                <!-- PACKAGE CARD -->
                 <div class="container-get">
-                    <div class="header-get{{ $suf }}">{{ $pkg['title'] }}</div>
-                    <div class="background-get{{ $suf }}">
+                    <div class="header-get{{ $suffix }}">{{ $pkg['title'] }}</div>
+                    <div class="background-get{{ $suffix }}">
                         <img src="{{ asset($pkg['logo']) }}" class="img" alt="{{ $pkg['title'] }}">
                     </div>
                     <div class="content-get">
@@ -181,6 +148,7 @@
                 </div>
 
                 @if ($loop->iteration === 2)
+                    <!-- SUBSCRIBE CALLOUT (after 2nd card) -->
                     <div class="subscribe-callout">
                         <h3>COMING SOON!</h3>
                         <p>
@@ -191,8 +159,9 @@
                         <form class="subscribe-form" action="/your-subscribe-endpoint" method="POST">
                             @csrf
                             <input type="email" name="email" placeholder="you@example.com" required>
-                            <button type="submit"
-                                class="btn btn-warning custom-yellow-btn fw-bold">Subscribe</button>
+                            <button type="submit" class="btn btn-warning custom-yellow-btn fw-bold">
+                                Subscribe
+                            </button>
                         </form>
                     </div>
                 @endif
