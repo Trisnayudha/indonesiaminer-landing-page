@@ -178,6 +178,119 @@
             </div>
         </div>
     </div>
+    @php
+        // Di controller (atau di atas Blade)
+        $trafficSources = [
+            'Display (Desktop)',
+            'Display (Mobile)',
+            'Email',
+            'LinkedIn',
+            'Meta (Facebook / Instagram)',
+            'Native',
+            'Paid Search',
+            'Pinterest',
+            'Pops & Redirect',
+            'Push',
+            'Quora',
+            'Reddit',
+            'Search Arbitrage',
+            'SEO',
+            'SMS',
+            'SnapChat',
+            'Telegram',
+            'TikTok',
+            'Twitter',
+            'YouTube',
+            'Other',
+        ];
+
+        $verticals = [
+            'exploration' => 'Exploration & Geoscience',
+            'minerals' => 'Base & Precious Minerals',
+            'coal' => 'Coal & Thermal Energy',
+            'metallurgy' => 'Metallurgy & Smelting',
+            'safety' => 'Health, Safety & Environment',
+            'equipment' => 'Mining Equipment & Machinery',
+            'digital' => 'Digitalization & Automation',
+            'supply_chain' => 'Supply Chain & Logistics',
+            // … kalau mau tambah tinggal tambah di sini
+        ];
+    @endphp
+
+    <!-- ===== Traffic & Verticals Modal ===== -->
+    <div class="modal fade" id="trafficSourcesModal" tabindex="-1" aria-labelledby="trafficSourcesLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form id="trafficForm" class="modal-body">
+                    @csrf
+
+                    {{-- TRAFFIC SOURCES --}}
+                    <!-- Bagian atas daftar checkbox di modal -->
+                    <div>
+                        <strong>What traffic sources are you interested in?</strong>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+
+                        <small>Please select minimum of 1</small>
+                        <a href="#" id="clearAllTraffic" class="text-decoration-none">Clear all</a>
+                    </div>
+
+                    <div class="row gx-3">
+                        @foreach ($trafficSources as $source)
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input traffic-checkbox" type="checkbox"
+                                        value="{{ $source }}" id="traffic-{{ Str::slug($source) }}">
+                                    <label class="form-check-label" for="traffic-{{ Str::slug($source) }}">
+                                        {{ $source }}
+                                    </label>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+
+                    <hr>
+                    <div>
+                        <strong>What verticals are you interested in?</strong>
+                    </div>
+                    <div class="form-group mt-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+
+                            <small>Please select minimum of 1</small>
+                            <a href="#" id="clearVerticals" class="small">Clear all</a>
+                        </div>
+
+                        <div class="row">
+                            @foreach ($verticals as $key => $label)
+                                <div class="col-6 col-md-4 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input vertical-checkbox" type="checkbox"
+                                            name="verticals[]" id="vertical-{{ $key }}"
+                                            value="{{ $key }}">
+                                        <label class="form-check-label" for="vertical-{{ $key }}">
+                                            {{ $label }}
+                                        </label>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Submit choices</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @push('head')

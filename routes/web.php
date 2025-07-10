@@ -12,6 +12,7 @@ use App\Http\Controllers\SpeakerController;
 use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,8 @@ Route::post('contact/sponsorship', [ContactController::class, 'postSponsorship']
 Route::post('contact/news-subcribe', [ContactController::class, 'postNewsSubcribe']);
 
 Route::get('/exhibition', [ExhibitionController::class, 'index']);
+Route::post('/exhibition/email-subscribe', [ExhibitionController::class, 'emailSubscribe']);
+Route::post('/exhibition/traffic', [ExhibitionController::class, 'traffic']);
 
 // Route::get('/program', [ProgramController::class, 'index']);
 // Route::get('/calendar/schedule', [ProgramController::class, 'getListCalendarSchedule']);

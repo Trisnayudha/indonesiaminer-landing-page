@@ -104,13 +104,15 @@
                     Sign up with your email and we’ll let you know the moment our exhibitor & sponsorship
                     packages become available.
                 </p>
-                <form class="subscribe-form" action="/your-subscribe-endpoint" method="POST">
+                {{-- di dua tempat (mobile & desktop), jadikan begini --}}
+                <form class="subscribe-form js-subscribe-form">
                     @csrf
-                    <input type="email" name="email" placeholder="you@example.com" required>
+                    <input type="email" name="email_subscribe" placeholder="you@example.com" required>
                     <button type="submit" class="btn btn-warning custom-yellow-btn fw-bold">
                         Subscribe
                     </button>
                 </form>
+
             </div>
         </div>
     @endforeach
@@ -158,13 +160,15 @@
                             Sign up with your email and we’ll let you know the moment our exhibitor & sponsorship
                             packages become available.
                         </p>
-                        <form class="subscribe-form" action="/your-subscribe-endpoint" method="POST">
+                        {{-- di dua tempat (mobile & desktop), jadikan begini --}}
+                        <form class="subscribe-form js-subscribe-form">
                             @csrf
-                            <input type="email" name="email" placeholder="you@example.com" required>
+                            <input type="email" name="email_subscribe" placeholder="you@example.com" required>
                             <button type="submit" class="btn btn-warning custom-yellow-btn fw-bold">
                                 Subscribe
                             </button>
                         </form>
+
                     </div>
                 @endif
             @endforeach

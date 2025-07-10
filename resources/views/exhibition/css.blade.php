@@ -152,28 +152,6 @@
         justify-content: center;
     }
 
-    small {
-        font-size: 40px;
-        font-weight: 400;
-        line-height: 1;
-        position: relative;
-        margin-top: 12px;
-        display: block;
-        opacity: 0.6;
-    }
-
-    small::before {
-        width: 83%;
-        height: 2px;
-        content: "";
-        background: rgb(19, 23, 76);
-        position: absolute;
-        bottom: 2px;
-        left: 5px;
-        transform-origin: left bottom;
-        transform: rotate(-20deg);
-    }
-
     .presale {
         overflow: hidden;
         background: radial-gradient(49.23% 25319.6% at 3.27% 50.77%, rgb(255, 159, 40) 0%, rgba(255, 159, 40, 0) 100%), rgb(248, 219, 74);
@@ -741,5 +719,19 @@
     /* 5) Hover color */
     #packageTabs .nav-link:hover {
         color: #00537a;
+    }
+
+    /* Kecilkan font body di modal trafficSourcesModal */
+    #trafficSourcesModal .modal-body,
+    #trafficSourcesModal .modal-body .form-check-label,
+    #trafficSourcesModal .modal-body p {
+        font-size: 0.85rem;
+        /* 85% dari default */
+        line-height: 1.3;
+    }
+
+    /* Kalau mau cell checkbox-nya juga sedikit padat */
+    #trafficSourcesModal .form-check {
+        margin-bottom: 0.25rem;
     }
 </style>
