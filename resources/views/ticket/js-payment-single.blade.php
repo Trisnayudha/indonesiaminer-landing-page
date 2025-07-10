@@ -121,7 +121,7 @@
                                         <div class="wrapper-login-forgot" style="margin: 0px;">
                                             <div class="btn-group-bt">
                                                 <a href="javascript:void(0)"
-                                                    class="addData btn btn-info float-right">Add
+                                                    class="addData btn btn-warning float-right">Add
                                                     Guest</a>
 
                                             </div>
@@ -273,7 +273,8 @@
                                             data-bs-dismiss="modal">
                                             Cancel
                                         </button>
-                                        <button type="submit" class="btn btn-info beforePayment">
+                                        <button type="submit"
+                                            class="btn btn-warning custom-yellow-btn fw-bold beforePayment">
                                             Checkout
                                         </button>
                                     </div>
@@ -438,7 +439,7 @@
                         <div class="col-sm-12">
                             <div class="wrapper-login-forgot" style="margin: 0px;">
                                 <div class="btn-group-bt">
-                                    <a href="javascript:void(0)" class="remove btn btn-primary float-right">Remove Delegate</a>
+                                    <a href="javascript:void(0)" class="remove btn btn-danger float-right">Remove Delegate</a>
                                 </div>
                             </div>
                         </div>

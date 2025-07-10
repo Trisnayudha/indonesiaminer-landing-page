@@ -670,10 +670,5 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        /* Sisakan ruang di konten atas supaya footer tidak menutup */
-        .container-fluid {
-            padding-bottom: 8rem;
-            /* sesuaikan setinggi footer */
-        }
     }
 </style>

@@ -166,7 +166,7 @@
                             Total:
                             <b id="total-price" style="font-size: 30px"> USD 0</b>
                         </div>
-                        <button class="button-checkout active btn btn-warning mt-2">
+                        <button class="button-checkout active btn btn-warning custom-yellow-btn fw-bold mt-2">
                             Continue to checkout
                         </button>
                     </div>
@@ -438,6 +438,8 @@
 @endpush
 
 @push('head')
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Include Algolia Autocomplete.js and its CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js@alpha"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic">

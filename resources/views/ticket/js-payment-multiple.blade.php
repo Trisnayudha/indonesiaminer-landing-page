@@ -208,7 +208,8 @@
                                             data-bs-dismiss="modal">
                                             Cancel
                                         </button>
-                                        <button type="submit" class="btn btn-info beforePayment">
+                                        <button type="submit"
+                                            class="btn btn-warning custom-yellow-btn fw-bold beforePayment">
                                             Checkout
                                         </button>
                                     </div>
