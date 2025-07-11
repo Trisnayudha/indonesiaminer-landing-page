@@ -185,9 +185,10 @@
 
     .label {
         display: inline-block;
-        margin: -40px 10px 0 10px;
-        padding: 30px 30px 25px 30px;
+        margin: 0px;
+        padding: 10px;
         border-radius: 5px;
+        font-size: 25px;
     }
 
     .btn-side {
@@ -243,6 +244,10 @@
     @media only screen and (max-width: 767px) {
         .presale {
             display: none;
+        }
+
+        .label {
+            font-size: 16px;
         }
     }
 
