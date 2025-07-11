@@ -97,83 +97,88 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Ambil SEMUA form yang mau di-ajax–post
-        const forms = document.querySelectorAll('.js-subscribe-form');
+        const toastEmailEl = document.getElementById('toastEmailSuccess');
+        const toastDetailsEl = document.getElementById('toastDetailsSuccess');
+        const toastEmail = new bootstrap.Toast(toastEmailEl, {
+            delay: 3000
+        });
+        const toastDetails = new bootstrap.Toast(toastDetailsEl, {
+            delay: 3000
+        });
 
-        forms.forEach(form => {
+        // 1) Email subscription
+        document.querySelectorAll('.js-subscribe-form').forEach(form => {
             form.addEventListener('submit', async e => {
                 e.preventDefault();
-
                 const email = form.email_subscribe.value.trim();
                 const domain = email.split('@')[1] || '';
-                const banned = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com',
+                const forbidden = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com',
                     'live.com'
                 ];
-
-                if (banned.includes(domain)) {
+                if (forbidden.includes(domain)) {
                     return alert('Please use your company email address.');
                 }
-
                 try {
-                    await axios.post('/exhibition/email-subscribe', {
+                    const {
+                        data
+                    } = await axios.post('/email-subscribe', {
                         email
                     });
+                    document.getElementById('subscriptionId').value = data.id;
                     form.reset();
-
-                    // Setelah sukses, munculkan modal trafficSourcesModal
-                    const modal = new bootstrap.Modal(
-                        document.getElementById('trafficSourcesModal')
-                    );
-                    modal.show();
-
+                    toastEmail.show(); // tampilkan toast email success
+                    new bootstrap.Modal(document.getElementById('trafficSourcesModal'))
+                        .show();
                 } catch (err) {
-                    console.error('Subscribe failed', err);
-                    // bisa tambahkan UI error tanpa alert
+                    console.error(err);
                 }
             });
         });
 
-        // form di dalam modal juga via class
-        const trafficForm = document.querySelector('.traffic-form');
-        trafficForm.addEventListener('submit', e => {
+        // 2) Clear-all
+        document.getElementById('clearAllTraffic').addEventListener('click', e => {
             e.preventDefault();
-            const data = new FormData(trafficForm);
-
-            axios.post('/exhibition/traffic', {
-                    sources: data.getAll('sources[]')
-                })
-                .then(() => {
-                    // tutup modal
-                    bootstrap.Modal.getInstance(
-                        document.querySelector('.traffic-modal')
-                    ).hide();
-                })
-                .catch(console.error);
-        });
-    });
-</script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const clearLink = document.getElementById('clearAllTraffic');
-        clearLink.addEventListener('click', e => {
-            e.preventDefault();
-            // pilih semua checkbox dengan kelas traffic-checkbox dan uncheck
-            document.querySelectorAll('.traffic-checkbox')
-                .forEach(cb => cb.checked = false);
+            document.querySelectorAll('.traffic-checkbox').forEach(cb => cb.checked = false);
         });
         document.getElementById('clearVerticals').addEventListener('click', e => {
             e.preventDefault();
-            document.querySelectorAll('.vertical-checkbox')
-                .forEach(chk => chk.checked = false);
+            document.querySelectorAll('.vertical-checkbox').forEach(cb => cb.checked = false);
         });
-    });
-</script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const modalEl = document.getElementById('trafficSourcesModal');
-        const bsModal = new bootstrap.Modal(modalEl);
-        bsModal.show(); // selalu munculkan modal tiap reload
+        // 3) Submit details
+        document.getElementById('trafficForm').addEventListener('submit', async e => {
+            e.preventDefault();
+            const form = e.target;
+            const id = form.subscription_id.value;
+            const name = form.name.value.trim();
+            const company = form.company.value.trim();
+            const jobTitle = form.job_title.value.trim();
+            const phone = form.phone.value.trim();
+            const traffics = Array.from(form.querySelectorAll('.traffic-checkbox:checked')).map(i =>
+                i.value);
+            const verticals = Array.from(form.querySelectorAll('.vertical-checkbox:checked')).map(
+                i => i.value);
+
+            if (!name || !company || !jobTitle || !phone || !traffics.length || !verticals.length) {
+                return alert(
+                    'Please fill all required fields and select at least one in each section.');
+            }
+
+            try {
+                await axios.post('/subscribe-details', {
+                    subscription_id: id,
+                    name,
+                    company,
+                    job_title: jobTitle,
+                    phone,
+                    traffics,
+                    verticals
+                });
+                bootstrap.Modal.getInstance(document.getElementById('trafficSourcesModal')).hide();
+                toastDetails.show(); // tampilkan toast details success
+            } catch (err) {
+                console.error(err);
+            }
+        });
     });
 </script>

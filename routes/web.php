@@ -41,8 +41,8 @@ Route::post('contact/sponsorship', [ContactController::class, 'postSponsorship']
 Route::post('contact/news-subcribe', [ContactController::class, 'postNewsSubcribe']);
 
 Route::get('/exhibition', [ExhibitionController::class, 'index']);
-Route::post('/exhibition/email-subscribe', [ExhibitionController::class, 'emailSubscribe']);
-Route::post('/exhibition/traffic', [ExhibitionController::class, 'traffic']);
+Route::post('/email-subscribe', [ExhibitionController::class, 'emailSubscribe']);
+Route::post('/subscribe-details', [ExhibitionController::class, 'subscribeDetails']);
 
 // Route::get('/program', [ProgramController::class, 'index']);
 // Route::get('/calendar/schedule', [ProgramController::class, 'getListCalendarSchedule']);
