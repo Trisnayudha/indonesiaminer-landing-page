@@ -14,6 +14,7 @@ class SubscriptionDetail extends Model
         'company',
         'job_title',
         'phone',
+        'interest_types',
         'traffic_sources',
         'verticals',
     ];

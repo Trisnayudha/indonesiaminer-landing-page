@@ -149,19 +149,39 @@
         document.getElementById('trafficForm').addEventListener('submit', async e => {
             e.preventDefault();
             const form = e.target;
+
             const id = form.subscription_id.value;
             const name = form.name.value.trim();
             const company = form.company.value.trim();
             const jobTitle = form.job_title.value.trim();
             const phone = form.phone.value.trim();
-            const traffics = Array.from(form.querySelectorAll('.traffic-checkbox:checked')).map(i =>
-                i.value);
-            const verticals = Array.from(form.querySelectorAll('.vertical-checkbox:checked')).map(
-                i => i.value);
 
-            if (!name || !company || !jobTitle || !phone || !traffics.length || !verticals.length) {
+            // Ambil semua interest_types
+            const interestTypes = Array.from(
+                form.querySelectorAll('.interest-checkbox:checked')
+            ).map(i => i.value);
+
+            const traffics = Array.from(
+                form.querySelectorAll('.traffic-checkbox:checked')
+            ).map(i => i.value);
+
+            const verticals = Array.from(
+                form.querySelectorAll('.vertical-checkbox:checked')
+            ).map(i => i.value);
+
+            // Validasi semua wajib terisi
+            if (
+                !name ||
+                !company ||
+                !jobTitle ||
+                !phone ||
+                !interestTypes.length || // <-- tambahkan ini
+                !traffics.length ||
+                !verticals.length
+            ) {
                 return alert(
-                    'Please fill all required fields and select at least one in each section.');
+                    'Please fill all required fields and select at least one interest, one traffic source, and one vertical.'
+                );
             }
 
             try {
@@ -171,10 +191,14 @@
                     company,
                     job_title: jobTitle,
                     phone,
+                    interest_types: interestTypes, // <-- sertakan interest_types
                     traffics,
                     verticals
                 });
-                bootstrap.Modal.getInstance(document.getElementById('trafficSourcesModal')).hide();
+
+                bootstrap.Modal.getInstance(
+                    document.getElementById('trafficSourcesModal')
+                ).hide();
                 toastDetails.show(); // tampilkan toast details success
             } catch (err) {
                 console.error(err);

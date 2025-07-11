@@ -58,6 +58,8 @@ class ExhibitionController extends Controller
             'company'         => 'required|string|max:255',
             'job_title'       => 'required|string|max:255',
             'phone'           => 'required|string|max:50',
+            'interest_types'   => 'required|array|min:1',
+            'interest_types.*' => 'in:exhibition,sponsorship',
             'traffics'        => 'required|array|min:1',
             'traffics.*'      => 'string',
             'verticals'       => 'required|array|min:1',
@@ -66,13 +68,15 @@ class ExhibitionController extends Controller
 
         SubscriptionDetail::create([
             'subscription_id' => $validated['subscription_id'],
-            'name'            => $validated['name'],
-            'company'         => $validated['company'],
-            'job_title'       => $validated['job_title'],
-            'phone'           => $validated['phone'],
-            'traffic_sources' => json_encode($validated['traffics']),
-            'verticals'       => json_encode($validated['verticals']),
+            'name'             => $validated['name'],
+            'company'          => $validated['company'],
+            'job_title'        => $validated['job_title'],
+            'phone'            => $validated['phone'],
+            'interest_types'   => json_encode($validated['interest_types']),
+            'traffic_sources'  => json_encode($validated['traffics']),
+            'verticals'        => json_encode($validated['verticals']),
         ]);
+
 
         return response()->json([
             'message' => 'Details saved successfully.',

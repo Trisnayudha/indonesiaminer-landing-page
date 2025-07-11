@@ -255,7 +255,25 @@
                     </div>
 
                     <hr>
+                    {{-- INTEREST TYPES (boleh pilih lebih dari satu) --}}
+                    <div class="mb-4">
+                        <strong>I’m interested in:*</strong>
+                        <div class="d-flex flex-wrap gap-3 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input interest-checkbox" type="checkbox" name="interest_types[]"
+                                    id="interestExhibit" value="exhibition">
+                                <label class="form-check-label" for="interestExhibit">Exhibition</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input interest-checkbox" type="checkbox" name="interest_types[]"
+                                    id="interestSponsor" value="sponsorship">
+                                <label class="form-check-label" for="interestSponsor">Sponsorship</label>
+                            </div>
+                            {{-- Tambah opsi lain jika perlu --}}
+                        </div>
+                    </div>
 
+                    <hr>
                     {{-- TRAFFIC SOURCES --}}
                     <div class="mb-4">
                         <strong>What traffic sources are you interested in?*</strong>
